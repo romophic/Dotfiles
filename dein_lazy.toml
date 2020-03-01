@@ -1,0 +1,58 @@
+################
+#dein_lazy.toml#
+################
+
+[[plugins]]
+repo = "rhysd/vim-clang-format"
+on_event = 'InsertEnter'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  nmap <C-t> :NERDTreeToggle<CR>
+  let g:NERDTreeQuitOnOpen=1
+'''
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = ['c', 'cpp']
+depends = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'Townk/vim-autoclose'
+on_event = 'InsertEnter'
+hook_add = '''
+'''
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+hook_add = '''
+  nmap n <Plug>(anzu-n-with-echo)
+  nmap N <Plug>(anzu-N-with-echo)
+  nmap * <Plug>(anzu-star)
+  nmap # <Plug>(anzu-sharp)
+'''
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+hook_add = '''
+'''
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+hook_add = '''
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
+'''
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+hook_add = '''
+  "tagbar の設定
+  let g:tagbar_width = 20        " 初期設定はwidth=40なのでちょっと幅とりすぎ。
+  set fileformats=unix,dos,mac      " エラー防止
+  set fileencodings=utf-8,sjis
+  nmap <F8> :TagbarToggle<CR>
+'''
