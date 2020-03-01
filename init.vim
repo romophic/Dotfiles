@@ -88,14 +88,12 @@ set timeoutlen=0 ttimeoutlen=0
 autocmd Colorscheme * highlight Normal ctermbg=none
 "lightline用。モードを非表示にする
 set noshowmode
-""" markdown {{{
-  autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
-  autocmd BufRead,BufNewFile *.md  set filetype=markdown
-  " Need: kannokanno/previm
-  nnoremap <silent> <C-p> :PrevimOpen<CR> " Ctrl-pでプレビュー
-  " 自動で折りたたまないようにする
-  let g:vim_markdown_folding_disabled=1
-" }}}
+"markdown
+autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
+autocmd BufRead,BufNewFile *.md  set filetype=markdown
+" 自動で折りたたまないようにする
+let g:vim_markdown_folding_disabled=1
+
 
 """""""""""
 "Keymaping"
@@ -110,7 +108,8 @@ noremap <S-h> ^
 noremap <S-l> $
 noremap <S-k> 5k
 noremap <S-j> 5j
-nnoremap == gg=G''
+"Markdownをプレビュー
+nnoremap <C-m> :PrevimOpen<CR>
 
 """"""""
 "Others"
