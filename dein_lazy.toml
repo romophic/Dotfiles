@@ -1,7 +1,6 @@
 ################
 #dein_lazy.toml#
 ################
-
 [[plugins]]
 repo = "rhysd/vim-clang-format"
 on_event = 'InsertEnter'
@@ -19,12 +18,6 @@ on_ft = ['c', 'cpp']
 depends = ['deoplete.nvim']
 
 [[plugins]]
-repo = 'Townk/vim-autoclose'
-on_event = 'InsertEnter'
-hook_add = '''
-'''
-
-[[plugins]]
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
   nmap n <Plug>(anzu-n-with-echo)
@@ -36,15 +29,6 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-'''
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-hook_add = '''
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
 '''
 
 [[plugins]]

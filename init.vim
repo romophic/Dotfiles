@@ -94,6 +94,7 @@ autocmd BufRead,BufNewFile *.md  set filetype=markdown
 let g:vim_markdown_folding_disabled=1
 set list
 set listchars=tab:>-,trail:~,extends:>,precedes:<
+set relativenumber
 
 """""""""""
 "Keymaping"

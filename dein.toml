@@ -13,9 +13,22 @@ repo = 'joshdick/onedark.vim'
 hook_add = '''
   colorscheme onedark
 '''
+[[plugins]]
+repo = 'tomasr/molokai'
+hook_add = '''
+'''
+
 #色々と補完
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+hook_add = '''
+  call deoplete#enable()
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
+  let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+'''
+
+[[plugins]]
+repo = 'Shougo/deoplete-clangx'
 hook_add = '''
 '''
 
@@ -32,6 +45,18 @@ hook_add = '''
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
 hook_add = '''
+  " Vim 起動時 vim-indent-guides を自動起動
+  let g:indent_guides_enable_on_vim_startup=1
+  " ガイドをスタートするインデントの量
+  let g:indent_guides_start_level=1
+  " 自動カラー無効
+  let g:indent_guides_auto_colors=0
+  " 奇数番目のインデントの色
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
+  " 偶数番目のインデントの色
+  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
+  " ガイドの幅
+  let g:indent_guides_guide_size = 1
 '''
 
 #C/C++用の拡張ハイライト
@@ -58,18 +83,19 @@ hook_add = '''
    \}
 '''
 
+#変更点を左側に表示(git使用)
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+#python用のdeoplete拡張
 [[plugins]]
 repo = 'zchee/deoplete-jedi'
 
+#Vimでmarkdown書く時用
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
-
 [[plugins]]
 repo = 'kannokanno/previm'
-
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
