@@ -1,12 +1,11 @@
-""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 "1>_Made by NULLCT Neovim config files"
-""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " dein install command
 " $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
 " $ sh ./installer.sh ~/.cache/dein
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""
 "Configs"
 """""""""
@@ -93,7 +92,8 @@ autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
 autocmd BufRead,BufNewFile *.md  set filetype=markdown
 " 自動で折りたたまないようにする
 let g:vim_markdown_folding_disabled=1
-
+set list
+set listchars=tab:>-,trail:~,extends:>,precedes:<
 
 """""""""""
 "Keymaping"
@@ -110,6 +110,9 @@ noremap <S-k> 5k
 noremap <S-j> 5j
 "Markdownをプレビュー
 nnoremap <C-m> :PrevimOpen<CR>
+"カーソル下の単語をハイライト
+nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nnoremap <Leader>o :CtrlP<CR>
 
 """"""""
 "Others"
