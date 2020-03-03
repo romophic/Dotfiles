@@ -111,9 +111,6 @@ noremap <S-k> 5k
 noremap <S-j> 5j
 "Markdownをプレビュー
 nnoremap <C-m> :PrevimOpen<CR>
-"カーソル下の単語をハイライト
-nnoremap <silent> <Space><Space> "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
-nnoremap <Leader>o :CtrlP<CR>
 
 """"""""
 "Others"

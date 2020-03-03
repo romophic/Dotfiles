@@ -37,8 +37,11 @@ hook_add = '''
 repo = 'w0rp/ale'
 hook_add = '''
   let g:ale_sign_column_always = 1
-  " let g:ale_open_list = 1
+  "リスト表示したいなら↓
+  "let g:ale_open_list = 1
   let g:ale_keep_list_window_open = 1
+  " 保存時に整形してくれる
+  let g:ale_fix_on_save = 1
 '''
 
 #インデントを強調表示(スペース民用)
