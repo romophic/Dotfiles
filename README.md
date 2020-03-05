@@ -1,4 +1,5 @@
 # 俺の*Dotfiles*
+---
 ### 以下のアプリケーションの設定ファイルを収録しています。
 - [Alacritty(ターミナルエミュレーター)](https://github.com/alacritty/alacritty)
 - [NeoVim(Vimの進化版)](https://github.com/neovim/neovim)
@@ -8,7 +9,8 @@
 - dein
 - tpm
 - Zinit
-### TODO:
-- Powerline化を進める
-- 各種キーバインドを整理/拡張
-- 汚い設定ファイルを直す
+---
+#### TODO:
+- [ ] Powerline化を進める
+- [ ] 各種キーバインドを整理/拡張
+- [ ] 汚い設定ファイルを直す
