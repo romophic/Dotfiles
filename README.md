@@ -6,9 +6,8 @@
 - [Tmux(端末多重化ソフトウェア)](https://github.com/tmux/tmux)
 - [zsh(素晴らしいシェル)](https://github.com/tmux/tmux)
 ### また、以下のパッケージ管理マネージャーが必要です
-- dein
-- tpm
-- Zinit
+- dein(Neovim用)
+- Zinit(zsh用)
 ---
 #### TODO:
 - [ ] Powerline化を進める
