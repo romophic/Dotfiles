@@ -64,7 +64,7 @@ export PATH="/usr/local/sbin:$PATH"
 autoload -Uz compinit
 compinit
 # ヒストリの設定
-HISTFILE=~/.zsh_history
+HISTFILE=~/.config/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 #vi風のキーバインド
