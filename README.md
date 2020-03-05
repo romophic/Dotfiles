@@ -8,3 +8,7 @@
 - dein
 - tpm
 - Zinit
+### TODO:
+- Powerline化を進める
+- 各種キーバインドを整理/拡張
+- 汚い設定ファイルを直す
