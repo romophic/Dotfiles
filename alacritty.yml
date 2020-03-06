@@ -1,11 +1,20 @@
 font:
   normal:
-    family: "HackGen35 Console for Powerline"
-    size: 16
+    family: 'HackGen35 Console for Powerline'
+    style: Regular
+
+  bold:
+    family: 'HackGen35 Console for Powerline'
+    style: Bold
+
+  italic:
+    family: 'HackGen35 Console for Powerline'
+    style: Italic
+
+  size: 15
 
 background_opacity: 0.95
 
-# Colors (One Dark(Only joshdick/onedark.vim ? background color isn't true))
 colors:
   # Default colors
   primary:
