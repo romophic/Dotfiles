@@ -3,7 +3,32 @@
 ###################################
 [[plugins]]
 repo = "rhysd/vim-clang-format"
-on_event = 'InsertEnter'
+on_ft = ['c', 'cpp']
+
+[[plugins]]
+repo = 'Shougo/deoplete-clangx'
+on_ft = ['c', 'cpp']
+
+#C/C++用の拡張ハイライト
+[[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+on_ft = ['c', 'cpp']
+
+#python用のdeoplete拡張
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft = ['python']
+
+#Vimでmarkdown書く時用
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = ['markdown']
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = ['markdown']
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = ['markdown']
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -15,7 +40,6 @@ hook_add = '''
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
 on_ft = ['c', 'cpp']
-depends = ['deoplete.nvim']
 
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'

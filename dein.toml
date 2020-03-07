@@ -4,18 +4,12 @@
 #パッケージ管理ツール
 [[plugins]]
 repo = 'Shougo/dein.vim'
-hook_add = '''
-'''
 
 #カラースキーム
 [[plugins]]
 repo = 'joshdick/onedark.vim'
 hook_add = '''
   colorscheme onedark
-'''
-[[plugins]]
-repo = 'tomasr/molokai'
-hook_add = '''
 '''
 
 #色々と補完
@@ -25,11 +19,6 @@ hook_add = '''
   call deoplete#enable()
   let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
   let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
-'''
-
-[[plugins]]
-repo = 'Shougo/deoplete-clangx'
-hook_add = '''
 '''
 
 #エラー表示(lintちゃんがあれば自動でやってくれる)
@@ -62,9 +51,6 @@ hook_add = '''
   let g:indent_guides_guide_size = 1
 '''
 
-#C/C++用の拡張ハイライト
-[[plugins]]
-repo = 'octol/vim-cpp-enhanced-highlight'
 
 #パワーライン。
 [[plugins]]
@@ -89,18 +75,6 @@ hook_add = '''
 #変更点を左側に表示(git使用)
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-
-#python用のdeoplete拡張
-[[plugins]]
-repo = 'zchee/deoplete-jedi'
-
-#Vimでmarkdown書く時用
-[[plugins]]
-repo = 'plasticboy/vim-markdown'
-[[plugins]]
-repo = 'kannokanno/previm'
-[[plugins]]
-repo = 'tyru/open-browser.vim'
 
 #lightlineにaleのエラー情報を表示するためのツール
 [[plugins]]
