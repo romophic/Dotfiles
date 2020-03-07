@@ -1,6 +1,6 @@
-################
-#dein_lazy.toml#
-################
+###################################
+# dein_lazy.toml | Made by NULLCT #
+###################################
 [[plugins]]
 repo = "rhysd/vim-clang-format"
 on_event = 'InsertEnter'

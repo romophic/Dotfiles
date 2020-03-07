@@ -1,6 +1,6 @@
-"""""""""""""""""""""""""""""""""""""""
-"1>_Made by NULLCT Neovim config files"
-"""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""
+" init.vim | Made by NULLCT "
+"""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " dein install command
 " $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh

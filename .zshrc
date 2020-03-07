@@ -1,8 +1,6 @@
-###########################################
-#  ↓in .zshenv↓                           #
-#  export XDG_CONFIG_HOME="$HOME/.config" #
-#  export ZDOTDIR="$XDG_CONFIG_HOME/zsh"  #
-###########################################
+#########################
+# .zshrc | Made by NULLCT#
+#########################
 
 ###################
 #Zinit's installer#

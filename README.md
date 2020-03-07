@@ -15,4 +15,3 @@
 - [ ] 汚い設定ファイルを直す
 
 tmux-powerlineか統一された方のpowerlineを使おうか迷ってます。
-
