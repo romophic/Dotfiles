@@ -1,11 +1,6 @@
 """""""""""""""""""""""""""""
 " init.vim | Made by NULLCT "
 """""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" dein install command
-" $ curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh > installer.sh
-" $ sh ./installer.sh ~/.cache/dein
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""
 "Configs"
 """""""""
@@ -67,8 +62,6 @@ set incsearch
 let g:dein#auto_recache = 1
 "エラー時の音を鳴らさない
 set noerrorbells
-"行をまたいで左右移動できる
-set whichwrap=b,s,h,l,<,>,[,],~
 "deinの読み込み
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 "インデントのロードを有効化
@@ -109,8 +102,13 @@ noremap <S-h> ^
 noremap <S-l> $
 noremap <S-k> 5k
 noremap <S-j> 5j
+"Insertでカーソル移動
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
 "Markdownをプレビュー
-nnoremap <C-m> :PrevimOpen<CR>
+noremap <C-m> :PrevimOpen<CR>
 
 """"""""
 "Others"
