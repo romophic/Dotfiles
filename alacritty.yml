@@ -1,18 +1,17 @@
 ##################################
 # alacritty.yml | Made by NULLCT #
 ##################################
-
 font:
   normal:
-    family: 'HackGen35 Console for Powerline'
+    family: 'Hack Nerd Font'
     style: Regular
 
   bold:
-    family: 'HackGen35 Console for Powerline'
+    family: 'Hack Nerd Font'
     style: Bold
 
   italic:
-    family: 'HackGen35 Console for Powerline'
+    family: 'Hack Nerd Font'
     style: Italic
 
   size: 16
