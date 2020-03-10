@@ -44,9 +44,11 @@ hook_add = '''
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
+#vimのpowerline
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
+  set laststatus=2
   "タブ一覧もpowerline
   let g:airline#extensions#tabline#enabled = 1
   "ALEの表示
@@ -66,3 +68,7 @@ repo = 'vim-airline/vim-airline-themes'
 #ファイルのアイコンをnerdfontを使って表示
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+
+#vimからgitを操作
+[[plugins]]
+repo = 'tpope/vim-fugitive'
