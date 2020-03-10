@@ -7,9 +7,9 @@ repo = 'Shougo/dein.vim'
 
 #カラースキーム
 [[plugins]]
-repo = 'joshdick/onedark.vim'
+repo = 'morhetz/gruvbox'
 hook_add = '''
-  colorscheme onedark
+  colorscheme gruvbox
 '''
 
 #色々と補完
@@ -17,8 +17,6 @@ hook_add = '''
 repo = 'Shougo/deoplete.nvim'
 hook_add = '''
   call deoplete#enable()
-  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang-3.8.so.1'
-  let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
 '''
 
 #エラー表示(lintちゃんがあれば自動でやってくれる)
@@ -33,64 +31,38 @@ hook_add = '''
   let g:ale_fix_on_save = 1
 '''
 
-#インデントを強調表示(スペース民用)
+#インデントをわかりやすく
 [[plugins]]
-repo = 'nathanaelkane/vim-indent-guides'
+repo = 'Yggdroot/indentLine'
 hook_add = '''
-  " Vim 起動時 vim-indent-guides を自動起動
-  let g:indent_guides_enable_on_vim_startup=1
-  " ガイドをスタートするインデントの量
-  let g:indent_guides_start_level=1
-  " 自動カラー無効
-  let g:indent_guides_auto_colors=0
-  " 奇数番目のインデントの色
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#444433 ctermbg=black
-  " 偶数番目のインデントの色
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#333344 ctermbg=darkgray
-  " ガイドの幅
-  let g:indent_guides_guide_size = 1
-'''
-
-
-#パワーライン。
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = '''
-    let g:lightline = {
-   \ 'colorscheme': 'one',
-   \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-   \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-   \ 'active': {
-   \   'left': [ [ 'mode', 'paste' ],
-   \             [ 'readonly', 'filename', 'modified' ],
-   \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ]
-   \ },
-   \ 'component_function': {
-   \   'readonly': 'LightlineReadonly',
-   \   'filename': 'LightlineFilename',
-   \ },
-   \}
+  let g:indentLine_color_term = 239
+  let g:indentLine_color_gui = '#708090'
+  let g:indentLine_char = '|' "use ¦, ┆ or │
 '''
 
 #変更点を左側に表示(git使用)
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
-#lightlineにaleのエラー情報を表示するためのツール
 [[plugins]]
-repo = 'maximbaz/lightline-ale'
-depends = ['lightline.vim', 'ale']
+repo = 'vim-airline/vim-airline'
 hook_add = '''
-let g:lightline.component_expand = {
-   \  'linter_checking': 'lightline#ale#checking',
-   \  'linter_warnings': 'lightline#ale#warnings',
-   \  'linter_errors': 'lightline#ale#errors',
-   \  'linter_ok': 'lightline#ale#ok',
-   \ }
-let g:lightline.component_type = {
-   \     'linter_checking': 'left',
-   \     'linter_warnings': 'warning',
-   \     'linter_errors': 'error',
-   \     'linter_ok': 'left',
-   \ }
+  "タブ一覧もpowerline
+  let g:airline#extensions#tabline#enabled = 1
+  "ALEの表示
+  let g:airline#extensions#ale#enabled = 1
+  "powerline有効
+  let g:airline_powerline_fonts = 1
+  "テーマをgruvboxに
+  let g:airline_theme = 'gruvbox'
+  "タブ一覧に数字を表示
+  let g:airline#extensions#tabline#buffer_idx_mode = 1
 '''
+
+#vim-airlineのカラーテーマ拡張
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+#ファイルのアイコンをnerdfontを使って表示
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'

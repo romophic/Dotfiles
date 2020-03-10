@@ -5,6 +5,7 @@
 repo = "rhysd/vim-clang-format"
 on_ft = ['c', 'cpp']
 
+#C/C++用のdeoplete拡張
 [[plugins]]
 repo = 'Shougo/deoplete-clangx'
 on_ft = ['c', 'cpp']
@@ -30,6 +31,7 @@ on_ft = ['markdown']
 repo = 'tyru/open-browser.vim'
 on_ft = ['markdown']
 
+#フォルダとかをツリー表示する
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
@@ -37,10 +39,12 @@ hook_add = '''
   let g:NERDTreeQuitOnOpen=1
 '''
 
+#C/C++用のinclude補完
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
 on_ft = ['c', 'cpp']
 
+#ショットカット？よう分からん
 [[plugins]]
 repo = 'osyo-manga/vim-anzu'
 hook_add = '''
@@ -50,11 +54,13 @@ hook_add = '''
   nmap # <Plug>(anzu-sharp)
 '''
 
+#強いと噂。ファイルとか一瞬で開ける？
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
 '''
 
+#classとか関数と一覧表示できる
 [[plugins]]
 repo = 'majutsushi/tagbar'
 hook_add = '''

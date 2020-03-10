@@ -76,8 +76,6 @@ augroup HighlightTrailingSpaces
 augroup END
 "挿入モードからノーマルモードへ移行する際のラグをなくす
 set timeoutlen=0 ttimeoutlen=0
-"背景を透明化させる
-autocmd Colorscheme * highlight Normal ctermbg=none
 "lightline用。モードを非表示にする
 set noshowmode
 "markdown
