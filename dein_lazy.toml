@@ -35,8 +35,8 @@ on_ft = ['markdown']
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 hook_add = '''
-  nmap <C-t> :NERDTreeToggle<CR>
   let g:NERDTreeQuitOnOpen=1
+  let g:NERDTreeWinSize=20
 '''
 
 #C/C++用のinclude補完
