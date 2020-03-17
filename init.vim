@@ -1,9 +1,9 @@
 """""""""""""""""""""""""""""
 " init.vim | Made by NULLCT "
 """""""""""""""""""""""""""""
-"""""""""
-"Configs"
-"""""""""
+"""""""""""
+" Configs "
+"""""""""""
 "init.vimの文字コードをUTF-8にする
 scriptencoding utf-8
 "vim内部文字コードをUTF-8にする
@@ -58,12 +58,8 @@ set smartcase
 set wrapscan
 "インクリメンタルサーチする
 set incsearch
-"プラグイン自動更新
-let g:dein#auto_recache = 1
 "エラー時の音を鳴らさない
 set noerrorbells
-"deinの読み込み
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 "インデントのロードを有効化
 filetype plugin indent on
 "対応するカッコを強調表示
@@ -76,20 +72,16 @@ augroup HighlightTrailingSpaces
 augroup END
 "挿入モードからノーマルモードへ移行する際のラグをなくす
 set timeoutlen=0 ttimeoutlen=0
-"lightline用。モードを非表示にする
-set noshowmode
-"markdown
-autocmd BufRead,BufNewFile *.mkd  set filetype=markdown
-autocmd BufRead,BufNewFile *.md  set filetype=markdown
-" 自動で折りたたまないようにする
-let g:vim_markdown_folding_disabled=1
+"listcharsの読み込み
 set list
-set listchars=tab:>-,trail:~,extends:>,precedes:<
+"不可視文字の表示設定
+set listchars=tab:»-,space:･,trail:~,nbsp:%,eol:↲
+"行数の動的表示
 set relativenumber
 
-"""""""""""
-"Keymaping"
-"""""""""""
+"""""""""""""
+" Keymaping "
+"""""""""""""
 "バッファ切り替え
 nmap <C-p> <Plug>AirlineSelectPrevTab
 nmap <C-n> <Plug>AirlineSelectNextTab
@@ -111,13 +103,21 @@ noremap <C-m> :PrevimOpen<CR>
 noremap <C-f> :ClangFormat<CR>
 "NERDTreeを開く
 noremap <C-t> :NERDTreeToggle<CR>
+"括弧補完
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
 inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
-""""""""
-"Others"
-""""""""
+""""""""""""""""""
+" Others(plugin) "
+""""""""""""""""""
+" 自動で折りたたまないようにする
+let g:vim_markdown_folding_disabled=1
+"deinの読み込み
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+"プラグイン自動更新
+let g:dein#auto_recache = 1
+"アップデートコマンド
 "call dein#update()
 if &compatible
   set nocompatible
