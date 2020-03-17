@@ -16,13 +16,8 @@
 - [ ] 汚い設定ファイルを直す
 ---
 #### 雑多:
-nerd-font対応の良い日本語フォントが見つかりません。  
-Cica-fontは対応って書いてあるけどなぜかちょっと下にずれるし...  
-とりあえずHack Nerd Font使うことに決めました。  
-[Hack Nerd Font](https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip)  
-一回脱Powerline化しようかなぁとも思いましたが、(フォントにあんまり依存しなくもなるし...)  
-やっぱpowerlineだとステータスとか見やすいんですよねぇ...
-とりあえずは現状維持で
-
+やっぱりテーマをgruvboxからonedarkに戻そうと思います。
+gruvboxは暖色系で落ち着いてて良いんだけど
+onedark方がコードとか読みやすいし何よりターミナルターミナルっぽい
 #### License
 MIT
