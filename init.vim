@@ -108,9 +108,12 @@ inoremap <C-k> <Up>
 "Markdownをプレビュー
 noremap <C-m> :PrevimOpen<CR>
 "C/C++を整形
-noremap <C-C> :ClangFormat<CR>
+noremap <C-f> :ClangFormat<CR>
 "NERDTreeを開く
 noremap <C-t> :NERDTreeToggle<CR>
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 """"""""
 "Others"

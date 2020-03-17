@@ -9,8 +9,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = 'morhetz/gruvbox'
 hook_add = '''
-syntax enable
-set background=dark
 colorscheme gruvbox
 '''
 
