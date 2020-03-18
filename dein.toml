@@ -7,9 +7,9 @@ repo = 'Shougo/dein.vim'
 
 #カラースキーム
 [[plugins]]
-repo = 'morhetz/gruvbox'
+repo = 'joshdick/onedark.vim'
 hook_add = '''
-colorscheme gruvbox
+  colorscheme onedark
 '''
 
 #色々と補完
@@ -55,8 +55,8 @@ hook_add = '''
   let g:airline#extensions#ale#enabled = 1
   "powerline有効
   let g:airline_powerline_fonts = 1
-  "テーマをgruvboxに
-  let g:airline_theme = 'gruvbox'
+  "テーマをonedarkに
+  let g:airline_theme = 'onedark'
   "タブ一覧に数字を表示
   let g:airline#extensions#tabline#buffer_idx_mode = 1
 '''

@@ -78,7 +78,7 @@ set list
 set listchars=tab:»-,space:･,trail:~,nbsp:%,eol:↲
 "行数の動的表示
 set relativenumber
-
+set noshowmode
 """""""""""""
 " Keymaping "
 """""""""""""
