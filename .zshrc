@@ -56,8 +56,6 @@ alias la='ls -la'
 export LANG=ja_JP.UTF-8
 #パスとかの設定
 export PATH="/usr/local/sbin:$PATH"
-#起動時にtmuxを実行
-[[ -z "$TMUX" && ! -z "$PS1" ]] && tmux
 #補完
 autoload -Uz compinit
 compinit
@@ -66,7 +64,7 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 #vi風のキーバインド
-bindkey -v
+#bindkey -v
 #補完候補を一覧表示にする
 setopt auto_list
 #TABで順に補完候補を切り替える
