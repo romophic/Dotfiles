@@ -3,18 +3,18 @@
 ##################################
 font:
   normal:
-    family: 'Hack Nerd Font'
+    family: 'HackGen35 Console for Powerline'
     style: Regular
 
   bold:
-    family: 'Hack Nerd Font'
+    family: 'HackGen35 Console for Powerline'
     style: Bold
 
   italic:
-    family: 'Hack Nerd Font'
+    family: 'HackGen35 Console for Powerline'
     style: Italic
 
-  size: 16
+  size: 14
 
 background_opacity: 1
 
