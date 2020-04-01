@@ -1,91 +1,51 @@
-" ファイルを上書きする前にバックアップを作ることを無効化
-set nowritebackup
-" ファイルを上書きする前にバックアップを作ることを無効化
-set nobackup
+"----------検索----------
+set ignorecase "検索するときに大文字小文字を区別しない
+set smartcase "小文字で検索すると大文字と小文字を無視して検索
+set wrapscan "検索がファイル末尾まで進んだら、ファイル先頭から再び検索
+set incsearch "インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
+set hlsearch "検索結果をハイライト表示
 
-let _curfile=expand("%:r")
+"----------表示設定----------
+set cursorline "カーソルのある行を強調表示
+set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
+set shellslash "Windowsでパスの区切り文字をスラッシュで扱う
+set showmatch matchtime=1 "対応する括弧やブレースを表示
+set cinoptions+=:0 "インデント方法の変更
+set cmdheight=2 "メッセージ表示欄を2行確保
+set laststatus=2 "ステータス行を常に表示
+set showcmd "ウィンドウの右下にまだ実行していない入力中のコマンドを表示
+set display=lastline "省略されずに表示
+set list "タブ文字を CTRL-I で表示し、行末に $ で表示する
+set listchars=tab:^\ ,trail:~ "行末のスペースを可視化
+set history=10000 "コマンドラインの履歴を10000件保存する
+set expandtab "入力モードでTabキー押下時に半角スペースを挿入
+set shiftwidth=2 "インデント幅
+set softtabstop=2 "タブキー押下時に挿入される文字幅を指定
+set tabstop=2 "ファイル内にあるタブ文字の表示幅
+set guioptions-=T "ツールバーを非表示にする
+set guioptions+=a "yでコピーした時にクリップボードに入る
+set guioptions-=m "メニューバーを非表示にする
+set guioptions+=R "右スクロールバーを非表示
+set showmatch "対応する括弧を強調表示
+set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+set noswapfile "スワップファイルを作成しない
+set nofoldenable "検索にマッチした行以外を折りたたむ(フォールドする)機能
+set title "タイトルを表示
+set number "行番号の表示
+set clipboard=unnamed,autoselect "ヤンクでクリップボードにコピー
+syntax on "シンタックスハイライト
+set nrformats= "すべての数を10進数として扱う
+set mouse=a "バッファスクロール
+
+"----------その他----------
+set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化
+set nobackup
+let _curfile=expand("%:r") "Makefileを書いてるときにtabにする
 if _curfile == 'Makefile'
   set noexpandtab
 endif
 
-"----------------------------------------
-" 検索
-"----------------------------------------
-" 検索するときに大文字小文字を区別しない
-set ignorecase
-" 小文字で検索すると大文字と小文字を無視して検索
-set smartcase
-" 検索がファイル末尾まで進んだら、ファイル先頭から再び検索
-set wrapscan
-" インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
-set incsearch
-" 検索結果をハイライト表示
-set hlsearch
-
-"----------------------------------------
-" 表示設定
-"----------------------------------------
-" エラーメッセージの表示時にビープを鳴らさない
-set noerrorbells
-" Windowsでパスの区切り文字をスラッシュで扱う
-set shellslash
-" 対応する括弧やブレースを表示
-set showmatch matchtime=1
-" インデント方法の変更
-set cinoptions+=:0
-" メッセージ表示欄を2行確保
-set cmdheight=2
-" ステータス行を常に表示
-set laststatus=2
-" ウィンドウの右下にまだ実行していない入力中のコマンドを表示
-set showcmd
-" 省略されずに表示
-set display=lastline
-" タブ文字を CTRL-I で表示し、行末に $ で表示する
-set list
-" 行末のスペースを可視化
-set listchars=tab:^\ ,trail:~
-" コマンドラインの履歴を10000件保存する
-set history=10000
-" 入力モードでTabキー押下時に半角スペースを挿入
-set expandtab
-" インデント幅
-set shiftwidth=2
-" タブキー押下時に挿入される文字幅を指定
-set softtabstop=2
-" ファイル内にあるタブ文字の表示幅
-set tabstop=2
-" ツールバーを非表示にする
-set guioptions-=T
-" yでコピーした時にクリップボードに入る
-set guioptions+=a
-" メニューバーを非表示にする
-set guioptions-=m
-" 右スクロールバーを非表示
-set guioptions+=R
-" 対応する括弧を強調表示
-set showmatch
-" 改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-set smartindent
-" スワップファイルを作成しない
-set noswapfile
-" 検索にマッチした行以外を折りたたむ(フォールドする)機能
-set nofoldenable
-" タイトルを表示
-set title
-" 行番号の表示
-set number
-" ヤンクでクリップボードにコピー
-set clipboard=unnamed,autoselect
-" シンタックスハイライト
-syntax on
-" すべての数を10進数として扱う
-set nrformats=
-" バッファスクロール
-set mouse=a
-
-"-----------------------colorscheme onedark------------------------------
-
+"-----------------------colorscheme molokai------------------------------
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
