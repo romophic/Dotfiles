@@ -6,18 +6,15 @@ set incsearch "インクリメンタル検索 (検索ワードの最初の文字
 set hlsearch "検索結果をハイライト表示
 
 "----------表示設定----------
+syntax on "シンタックスハイライト
 set cursorline "カーソルのある行を強調表示
 set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
 set shellslash "Windowsでパスの区切り文字をスラッシュで扱う
 set showmatch matchtime=1 "対応する括弧やブレースを表示
-set cinoptions+=:0 "インデント方法の変更
-set cmdheight=2 "メッセージ表示欄を2行確保
-set laststatus=2 "ステータス行を常に表示
 set showcmd "ウィンドウの右下にまだ実行していない入力中のコマンドを表示
 set display=lastline "省略されずに表示
 set list "タブ文字を CTRL-I で表示し、行末に $ で表示する
-set listchars=tab:^\ ,trail:~ "行末のスペースを可視化
-set history=10000 "コマンドラインの履歴を10000件保存する
+set listchars=tab:»\ ,trail:~,space:･,eol:↲,extends:»,precedes:«,nbsp:% "行末のスペースを可視化
 set expandtab "入力モードでTabキー押下時に半角スペースを挿入
 set shiftwidth=2 "インデント幅
 set softtabstop=2 "タブキー押下時に挿入される文字幅を指定
@@ -26,16 +23,25 @@ set guioptions-=T "ツールバーを非表示にする
 set guioptions+=a "yでコピーした時にクリップボードに入る
 set guioptions-=m "メニューバーを非表示にする
 set guioptions+=R "右スクロールバーを非表示
-set showmatch "対応する括弧を強調表示
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set noswapfile "スワップファイルを作成しない
 set nofoldenable "検索にマッチした行以外を折りたたむ(フォールドする)機能
 set title "タイトルを表示
 set number "行番号の表示
+set relativenumber "行番号を動的表示
 set clipboard=unnamed,autoselect "ヤンクでクリップボードにコピー
-syntax on "シンタックスハイライト
 set nrformats= "すべての数を10進数として扱う
 set mouse=a "バッファスクロール
+augroup HighlightTrailingSpaces "行末のスペースを可視化
+  autocmd!
+    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+
+"----------ステータスライン----------
+set laststatus=2
+set statusline=%F%m%h%w[%Y]\ %=%<\|%{&fenc!=''?&fenc:&enc}\/%{&ff}\|\%03.3b/%04v:%04l/%L\|
+
 
 "----------その他----------
 set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化
@@ -45,7 +51,7 @@ if _curfile == 'Makefile'
   set noexpandtab
 endif
 
-"-----------------------colorscheme molokai------------------------------
+"----------colorscheme molokai(custom for fit onedark)----------
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
@@ -55,9 +61,7 @@ endif
 " by Wimer Hazenberg and its darker variant
 " by Hamish Stuart Macpherson
 "
-
 hi clear
-
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
     " complaining
@@ -67,14 +71,11 @@ if version > 580
     endif
 endif
 let g:colors_name="molokai"
-
 if exists("g:molokai_original")
     let s:molokai_original = g:molokai_original
 else
     let s:molokai_original = 0
 endif
-
-
 hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF
@@ -185,7 +186,7 @@ end
 if &t_Co > 255
    if s:molokai_original == 1
       hi Normal                   ctermbg=none
-      hi CursorLine               ctermbg=235   cterm=none
+      hi CursorLine               ctermbg=238   cterm=none
       hi CursorLineNr ctermfg=208               cterm=none
    else
       hi Normal       ctermfg=252 ctermbg=none
@@ -243,7 +244,7 @@ if &t_Co > 255
    hi Search          ctermfg=0   ctermbg=222   cterm=NONE
 
    " marks column
-   hi SignColumn      ctermfg=118 ctermbg=235
+   hi SignColumn      ctermfg=118 ctermbg=238
    hi SpecialChar     ctermfg=161               cterm=bold
    hi SpecialComment  ctermfg=245               cterm=bold
    hi Special         ctermfg=81
@@ -268,7 +269,7 @@ if &t_Co > 255
 
    hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
    hi VisualNOS                   ctermbg=238
-   hi Visual                      ctermbg=235
+   hi Visual                      ctermbg=238
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
@@ -313,7 +314,7 @@ if &t_Co > 255
        hi Visual                      ctermbg=238
 
        hi Comment         ctermfg=244
-       hi LineNr          ctermfg=239 ctermbg=235
+       hi LineNr          ctermfg=239 ctermbg=238
        hi NonText         ctermfg=239
        hi SpecialKey      ctermfg=239
    endif
