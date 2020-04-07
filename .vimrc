@@ -21,7 +21,6 @@ set softtabstop=2 "タブキー押下時に挿入される文字幅を指定
 set tabstop=2 "ファイル内にあるタブ文字の表示幅
 set guioptions-=T "ツールバーを非表示にする
 set guioptions+=a "yでコピーした時にクリップボードに入る
-set guioptions-=m "メニューバーを非表示にする
 set guioptions+=R "右スクロールバーを非表示
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
 set noswapfile "スワップファイルを作成しない
@@ -52,6 +51,46 @@ let _curfile=expand("%:r") "Makefileを書いてるときにtabにする
 if _curfile == 'Makefile'
   set noexpandtab
 endif
+function! s:SID_PREFIX() "tabを便利に使うために
+  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
+endfunction
+" Set tabline.
+function! s:my_tabline()  "{{{
+  let s = ''
+  for i in range(1, tabpagenr('$'))
+    let bufnrs = tabpagebuflist(i)
+    let bufnr = bufnrs[tabpagewinnr(i) - 1]  " first window, first appears
+    let no = i  " display 0-origin tabpagenr.
+    let mod = getbufvar(bufnr, '&modified') ? '!' : ' '
+    let title = fnamemodify(bufname(bufnr), ':t')
+    let title = '[' . title . ']'
+    let s .= '%'.i.'T'
+    let s .= '%#' . (i == tabpagenr() ? 'TabLineSel' : 'TabLine') . '#'
+    let s .= no . ':' . title
+    let s .= mod
+    let s .= '%#TabLineFill# '
+  endfor
+  let s .= '%#TabLineFill#%T%=%#TabLine#'
+  return s
+endfunction "}}}
+let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
+set showtabline=2 " 常にタブラインを表示
+" The prefix key.
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
+" Tab jump
+for n in range(1, 9)
+  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+endfor
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tc 新しいタブを一番右に作る
+map <silent> [Tag]x :tabclose<CR>
+" tx タブを閉じる
+map <silent> [Tag]n :tabnext<CR>
+" tn 次のタブ
+map <silent> [Tag]p :tabprevious<CR>
+" tp 前のタブ
 
 "----------colorscheme molokai(custom for fit onedark)----------
 " Vim color file
@@ -63,7 +102,9 @@ endif
 " by Wimer Hazenberg and its darker variant
 " by Hamish Stuart Macpherson
 "
+
 hi clear
+
 if version > 580
     " no guarantees for version 5.8 and below, but this makes it stop
     " complaining
@@ -72,12 +113,15 @@ if version > 580
         syntax reset
     endif
 endif
+let g:colors_name="molokai"
 
 if exists("g:molokai_original")
     let s:molokai_original = g:molokai_original
 else
     let s:molokai_original = 0
 endif
+
+
 hi Boolean         guifg=#AE81FF
 hi Character       guifg=#E6DB74
 hi Number          guifg=#AE81FF
@@ -187,11 +231,11 @@ end
 "
 if &t_Co > 255
    if s:molokai_original == 1
-      hi Normal                   ctermbg=none
-      hi CursorLine               ctermbg=238   cterm=none
+      hi Normal                   ctermbg=234
+      hi CursorLine               ctermbg=235   cterm=none
       hi CursorLineNr ctermfg=208               cterm=none
    else
-      hi Normal       ctermfg=252 ctermbg=none
+      hi Normal       ctermfg=252 ctermbg=233
       hi CursorLine               ctermbg=234   cterm=none
       hi CursorLineNr ctermfg=208               cterm=none
    endif
@@ -246,7 +290,7 @@ if &t_Co > 255
    hi Search          ctermfg=0   ctermbg=222   cterm=NONE
 
    " marks column
-   hi SignColumn      ctermfg=118 ctermbg=238
+   hi SignColumn      ctermfg=118 ctermbg=235
    hi SpecialChar     ctermfg=161               cterm=bold
    hi SpecialComment  ctermfg=245               cterm=bold
    hi Special         ctermfg=81
@@ -271,7 +315,7 @@ if &t_Co > 255
 
    hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
    hi VisualNOS                   ctermbg=238
-   hi Visual                      ctermbg=238
+   hi Visual                      ctermbg=235
    hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
@@ -316,7 +360,7 @@ if &t_Co > 255
        hi Visual                      ctermbg=238
 
        hi Comment         ctermfg=244
-       hi LineNr          ctermfg=239 ctermbg=238
+       hi LineNr          ctermfg=239 ctermbg=235
        hi NonText         ctermfg=239
        hi SpecialKey      ctermfg=239
    endif

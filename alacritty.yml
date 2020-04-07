@@ -3,15 +3,15 @@
 ##################################
 font:
   normal:
-    family: "HackGen35 Console for Powerline"
+    family: "HackGen35 Console"
     style: Regular
 
   bold:
-    family: "HackGen35 Console for Powerline"
+    family: "HackGen35 Console"
     style: Bold
 
   italic:
-    family: "HackGen35 Console for Powerline"
+    family: "HackGen35 Console"
     style: Italic
 
   size: 14
