@@ -32,6 +32,7 @@ set relativenumber "行番号を動的表示
 set clipboard=unnamed,autoselect "ヤンクでクリップボードにコピー
 set nrformats= "すべての数を10進数として扱う
 set mouse=a "バッファスクロール
+"set completeopt=menuone,noinsert "補完
 augroup HighlightTrailingSpaces "行末のスペースを可視化
   autocmd!
     autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
@@ -40,8 +41,9 @@ augroup END
 
 "----------ステータスライン----------
 set laststatus=2
-set statusline=%F%m%h%w[%Y]\ %=%<\|%{&fenc!=''?&fenc:&enc}\/%{&ff}\|\%03.3b/%04v:%04l/%L\|
+set statusline=%F%m%h%w[%Y]\ %=%<[%{&fenc!=''?&fenc:&enc}\/%{&ff}][\%03.3b/%04v:%04l/%L\]
 
+"----------キーマップ----------
 
 "----------その他----------
 set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化
@@ -70,7 +72,7 @@ if version > 580
         syntax reset
     endif
 endif
-let g:colors_name="molokai"
+
 if exists("g:molokai_original")
     let s:molokai_original = g:molokai_original
 else
