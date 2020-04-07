@@ -37,7 +37,6 @@ augroup HighlightTrailingSpaces "行末のスペースを可視化
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
-
 "----------キーマップ----------
 
 "----------その他----------

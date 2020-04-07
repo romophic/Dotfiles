@@ -6,3 +6,16 @@ hook_add = '''
   inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
   inoremap <expr><S-Tab> pumvisible() ? "\<UP>" : "\<S-Tab>"
 '''
+
+[[plugins]]
+repo = 'Shougo/deoplete-clangx'
+on_ft = 'c++'
+
+[[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+on_ft = 'c++'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = 'c++'
+
