@@ -18,4 +18,3 @@ on_ft = 'c++'
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
 on_ft = 'c++'
-
