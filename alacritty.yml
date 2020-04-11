@@ -3,18 +3,18 @@
 ##################################
 font:
   normal:
-    family: "HackGen35 Console"
+    family: "Ricty Diminished Discord"
     style: Regular
 
   bold:
-    family: "HackGen35 Console"
+    family: "Ricty Diminished Discord"
     style: Bold
 
   italic:
-    family: "HackGen35 Console"
+    family: "Ricty Diminished Discord"
     style: Italic
 
-  size: 14
+  size: 16
 
 background_opacity: 1
 
