@@ -1,10 +1,9 @@
 "----------検索----------
 set ignorecase "検索するときに大文字小文字を区別しない
 set smartcase "小文字で検索すると大文字と小文字を無視して検索
-set wrapscan "検索がファイル末尾まで進んだら、ファイル先頭から再び検索
 set incsearch "インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
 set hlsearch "検索結果をハイライト表示
-
+"
 "----------表示設定----------
 syntax on "シンタックスハイライト
 set cursorline "カーソルのある行を強調表示
@@ -30,7 +29,8 @@ set number "行番号の表示
 set relativenumber "行番号を動的表示
 set nrformats= "すべての数を10進数として扱う
 set mouse=a "バッファスクロール
-"set completeopt=menuone,noinsert "補完
+au ColorScheme * hi Normal ctermbg=none "背景透過
+set completeopt=menuone,noinsert "補完
 augroup HighlightTrailingSpaces "行末のスペースを可視化
   autocmd!
     autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
@@ -109,4 +109,3 @@ if dein#check_install()
   call dein#install()
 endif
 filetype plugin indent on
-syntax enable

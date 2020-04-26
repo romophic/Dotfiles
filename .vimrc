@@ -1,12 +1,11 @@
 "----------検索----------
 set ignorecase "検索するときに大文字小文字を区別しない
 set smartcase "小文字で検索すると大文字と小文字を無視して検索
-set wrapscan "検索がファイル末尾まで進んだら、ファイル先頭から再び検索
 set incsearch "インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
 set hlsearch "検索結果をハイライト表示
 
 "----------表示設定----------
-syntax on "シンタックスハイライト
+syntax enable "シンタックスハイライト
 set cursorline "カーソルのある行を強調表示
 set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
 set shellslash "Windowsでパスの区切り文字をスラッシュで扱う
@@ -43,6 +42,15 @@ set laststatus=2
 set statusline=%F%m%h%w[%Y]\ %=%<[%{&fenc!=''?&fenc:&enc}\/%{&ff}][\%03.3b/%04v:%04l/%L\]
 
 "----------キーマップ----------
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" tc 新しいタブを一番右に作る
+map <silent> [Tag]x :tabclose<CR>
+" tx タブを閉じる
+map <silent> [Tag]n :tabnext<CR>
+" tn 次のタブ
+map <silent> [Tag]p :tabprevious<CR>
+" tp 前のタブ
 
 "----------その他----------
 set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化
@@ -82,17 +90,8 @@ nmap    t [Tag]
 for n in range(1, 9)
   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
-" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-" tc 新しいタブを一番右に作る
-map <silent> [Tag]x :tabclose<CR>
-" tx タブを閉じる
-map <silent> [Tag]n :tabnext<CR>
-" tn 次のタブ
-map <silent> [Tag]p :tabprevious<CR>
-" tp 前のタブ
 
-"----------colorscheme molokai(custom for fit onedark)----------
+
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>

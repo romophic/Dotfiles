@@ -16,7 +16,7 @@ font:
 
   size: 16
 
-background_opacity: 1
+background_opacity: 0.9
 
 # Colors (One Dark(Only joshdick/onedark.vim ? background color isn't true))
 colors:
