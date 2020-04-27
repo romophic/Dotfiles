@@ -13,6 +13,7 @@
 - [ ] 各種キーバインドを整理/拡張
 - [ ] 汚い設定ファイルを直す
 ### Path:
+```
 ~  
 |-- .tmux.conf -> /home/"Username"/Dotfiles/.tmux.conf  
 |-- .vimrc -> /home/"Username"/Dotfiles/.vimrc  
@@ -28,5 +29,6 @@
     |-- dein.toml -> /home/"Usermame"/Dotfiles/dein.toml  
     |-- dein_lazy.toml -> /home/"Username"/Dotfiles/dein_lazy.toml  
     `-- init.vim -> /home/"Username"/Dotfiles/init.vim  
+```
 ### License
 MIT
