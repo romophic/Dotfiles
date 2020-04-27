@@ -50,11 +50,10 @@ let g:lightline.component_type = {
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
-
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
   let g:indentLine_color_term = 239
   let g:indentLine_color_gui = '#708090'
-  let g:indentLine_char = '|' "use ¦, ┆ or │
+  let g:indentLine_char = '¦' "use ¦, ┆ or │
 '''
