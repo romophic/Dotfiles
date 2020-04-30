@@ -5,3 +5,4 @@ ln -sf ~/Dotfiles/.tmux.conf ~/.tmux.conf
 ln -sf ~/Dotfiles/.zshenv ~/.zshenv
 ln -sf ~/Dotfiles/.zshrc ~/.zshrc
 ln -sf ~/Dotfiles/.vimrc ~/.vimrc
+ln -sf ~/Dotfiles/init.toml ~/.SpaceVim.d/init.toml
