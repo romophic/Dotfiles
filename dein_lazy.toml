@@ -8,9 +8,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'octol/vim-cpp-enhanced-highlight'
+
+[[plugins]]
 repo = 'Shougo/deoplete-clangx'
-on_ft = 'c++'
 
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
-on_ft = 'c++'

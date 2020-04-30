@@ -3,18 +3,18 @@
 ##################################
 font:
   normal:
-    family: "Ricty Diminished Discord"
+    family: "Cica"
     style: Regular
 
   bold:
-    family: "Ricty Diminished Discord"
+    family: "Cica"
     style: Bold
 
   italic:
-    family: "Ricty Diminished Discord"
+    family: "Cica"
     style: Italic
 
-  size: 16
+  size: 12
 
 background_opacity: 0.9
 
