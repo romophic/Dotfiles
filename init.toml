@@ -15,12 +15,9 @@ enable_statusline_mode = true
 enable_neomake = false
 enable_ale = true
 
-
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
-auto_completion_return_key_behavior = "complete"
-auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
 name = "lang#c"
