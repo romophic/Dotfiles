@@ -27,12 +27,12 @@ zinit light rupa/z
 #########
 # Alias #
 #########
-#凡長だったので省略
-alias ytm='youtube-dl --extract-audio --audio-format mp3'
 #lsのカスタム(フォルダに/引いたり...)
 alias ls="ls -GF"
 #省略
 alias la='ls -la'
+#長いから省略
+alias ytm='youtube-dl --extract-audio --audio-format mp3'
 
 ##############
 #Other config#
