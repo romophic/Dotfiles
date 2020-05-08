@@ -12,9 +12,6 @@ colorscheme_bg = "dark"
 enable_guicolors = true
 enable_statusline_mode = true
 
-enable_neomake = false
-enable_ale = true
-
 # Enable autocomplete layer
 [[layers]]
 name = 'autocomplete'
