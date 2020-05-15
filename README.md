@@ -12,6 +12,7 @@
 - [ ] 汚い設定ファイルを直す
 ### Path:
 ```
+~
 |-- .tmux.conf -> /home/"Username"/Dotfiles/.tmux.conf
 |-- .vimrc -> /home/"Username"/Dotfiles/.vimrc
 |-- .zshenv -> /home/"Username"/Dotfiles/.zshenv
