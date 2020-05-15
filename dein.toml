@@ -3,12 +3,13 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'joshdick/onedark.vim'
-hook_add = '''
-  colorscheme onedark
-'''
+hook_add = 'colorscheme onedark'
 
 [[plugins]]
 repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
@@ -18,13 +19,13 @@ hook_add = '''
     \ 'colorscheme': 'onedark',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'gitbranch', 'readonly', 'filename', 'modified' ],
-    \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'] ],
+    \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ]
+    \           ],
     \ },
-    \ 'component_function': {
-    \   'gitbranch': 'FugitiveHead'
+    \ 'component': {
+    \   'charvaluehex': '%b'
     \ },
-  \ }
+    \ }
 '''
 
 [[plugins]]
@@ -39,6 +40,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'cohama/lexima.vim'
+
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter'
 hook_add = '''
@@ -48,9 +53,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'cespare/vim-toml'
-
-[[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 build = ['./install.sh']
 hook_add = '''
@@ -58,11 +60,9 @@ hook_add = '''
   let g:LanguageClient_serverCommands = {
     \ 'c': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
     \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
+    \ 'python': ['pyls'],
     \ }
 '''
 
 [[plugins]]
 repo = 'octol/vim-cpp-enhanced-highlight'
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
