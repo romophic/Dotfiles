@@ -1,10 +1,10 @@
-"----------検索----------
+"----------Search----------
 set ignorecase "検索するときに大文字小文字を区別しない
 set smartcase "小文字で検索すると大文字と小文字を無視して検索
 set incsearch "インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
 set hlsearch "検索結果をハイライト表示
 "
-"----------表示設定----------
+"----------Views----------
 syntax on "シンタックスハイライト
 set cursorline "カーソルのある行を強調表示
 set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
@@ -36,7 +36,7 @@ augroup HighlightTrailingSpaces "行末のスペースを可視化
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
-"----------キーマップ----------
+"----------Keymap----------
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 map <silent> [Tag]c :tablast <bar> tabnew<CR>
 " tc 新しいタブを一番右に作る
@@ -47,7 +47,7 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
-"----------その他----------
+"----------Others----------
 set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化
 set nobackup
 let g:dein#auto_recache = 1 "リキャッシュ.

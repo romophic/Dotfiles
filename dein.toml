@@ -1,6 +1,8 @@
+#Kernel
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+#Colorschemes
 [[plugins]]
 repo = 'joshdick/onedark.vim'
 hook_add = 'colorscheme onedark'
@@ -11,6 +13,7 @@ repo = 'tomasr/molokai'
 [[plugins]]
 repo = 'morhetz/gruvbox'
 
+#Status
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
@@ -28,6 +31,7 @@ hook_add = '''
     \ }
 '''
 
+#Views
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
 
@@ -39,10 +43,8 @@ hook_add = '''
   let g:indentLine_char = '¦' "use ¦, ┆ or │
 '''
 
-[[plugins]]
-repo = 'cohama/lexima.vim'
 
-
+#Complement
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter'
@@ -64,5 +66,9 @@ hook_add = '''
     \ }
 '''
 
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+#Highlight
 [[plugins]]
 repo = 'octol/vim-cpp-enhanced-highlight'
