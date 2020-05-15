@@ -23,9 +23,9 @@
   |-- git
   |   `-- ignore -> /home/"Username"/Dotfiles/ignore
   `-- nvim
-    |-- dein.toml -> /home/"Usermame"/Dotfiles/dein.toml
-    |-- dein_lazy.toml -> /home/"Username"/Dotfiles/dein_lazy.toml
-    `-- init.vim -> /home/"Username"/Dotfiles/init.vim
+      |-- dein.toml -> /home/"Usermame"/Dotfiles/dein.toml
+      |-- dein_lazy.toml -> /home/"Username"/Dotfiles/dein_lazy.toml
+      `-- init.vim -> /home/"Username"/Dotfiles/init.vim
 ```
 ### License
 MIT
