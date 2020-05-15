@@ -13,20 +13,21 @@
 ### Path:
 ```
 ~  
-|-- .tmux.conf -> /home/"Username"/Dotfiles/.tmux.conf
-|-- .vimrc -> /home/"Username"/Dotfiles/.vimrc
-|-- .zshenv -> /home/"Username"/Dotfiles/.zshenv
-|-- .zshrc -> /home/"Username"/Dotfiles/.zshrc
+|-- .vimrc -> ~/Dotfiles/.vimrc
+|-- .zshenv -> ~/Dotfiles/.zshenv
+|-- .zshrc -> ~/Dotfiles/.zshrc
 |
 `--config
   |-- alacritty
-  |   `-- alacritty.yml -> /home/"Username"/Dotfiles/alacritty.yml
+  |   `-- alacritty.yml -> ~/Dotfiles/alacritty.yml
   |-- git
-  |   `-- ignore -> /home/"Username"/Dotfiles/ignore
-  `-- nvim
-    |-- dein.toml -> /home/"Usermame"/Dotfiles/dein.toml
-    |-- dein_lazy.toml -> /home/"Username"/Dotfiles/dein_lazy.toml
-    `-- init.vim -> /home/"Username"/Dotfiles/init.vim
+  |   `-- ignore -> ~/Dotfiles/ignore
+  |-- nvim
+  |  |-- dein.toml -> ~/Dotfiles/dein.toml
+  |  |-- dein_lazy.toml -> ~/Dotfiles/dein_lazy.toml
+  |  `-- init.vim -> ~/Dotfiles/init.vim
+   `--tmux
+      `-- tmux.conf -> ~/Dotfiles/tmux.conf
 ```
 ### License
 MIT
