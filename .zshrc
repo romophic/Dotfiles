@@ -24,6 +24,11 @@ zinit light zdharma/fast-syntax-highlighting
 zinit light sindresorhus/pure
 zinit light rupa/z
 
+######
+#Path#
+######
+export PATH="$PATH:/usr/local/Cellar/llvm/10.0.0_3/bin"
+
 #########
 # Alias #
 #########
