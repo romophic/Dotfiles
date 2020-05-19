@@ -27,6 +27,7 @@ zinit light rupa/z
 ######
 #Path#
 ######
+#for mac clangd path
 export PATH="$PATH:/usr/local/Cellar/llvm/10.0.0_3/bin"
 
 #########
