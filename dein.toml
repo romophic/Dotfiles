@@ -5,16 +5,13 @@ repo = 'Shougo/dein.vim'
 #Colorschemes
 [[plugins]]
 repo = 'joshdick/onedark.vim'
-hook_add = 'colorscheme gruvbox'
 
 [[plugins]]
 repo = 'tomasr/molokai'
 
 [[plugins]]
 repo = 'morhetz/gruvbox'
-
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
+hook_add = 'colorscheme gruvbox'
 
 #Status
 [[plugins]]
@@ -83,4 +80,10 @@ hook_add = '''
   let g:cpp_experimental_template_highlight = 1
   let g:cpp_concepts_highlight = 1
   let g:cpp_no_function_highlight = 1
+'''
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = '''
+  let g:rainbow_active = 1
 '''
