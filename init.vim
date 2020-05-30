@@ -28,7 +28,7 @@ set title "タイトルを表示
 set number "行番号の表示
 set relativenumber "行番号を動的表示
 set mouse=a "バッファスクロール
-au ColorScheme * hi Normal ctermbg=none "背景透過
+"au ColorScheme * hi Normal ctermbg=none "背景透過
 set completeopt=menuone,noinsert "補完
 augroup HighlightTrailingSpaces "行末のスペースを可視化
   autocmd!

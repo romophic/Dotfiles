@@ -5,7 +5,7 @@ repo = 'Shougo/dein.vim'
 #Colorschemes
 [[plugins]]
 repo = 'joshdick/onedark.vim'
-hook_add = 'colorscheme onedark'
+hook_add = 'colorscheme gruvbox'
 
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -13,13 +13,16 @@ repo = 'tomasr/molokai'
 [[plugins]]
 repo = 'morhetz/gruvbox'
 
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
 #Status
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
   set noshowmode
   let g:lightline = {
-    \ 'colorscheme': 'onedark',
+    \ 'colorscheme': 'gruvbox',
     \ 'active': {
     \   'left': [ [ 'mode', 'paste' ],
     \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ]
@@ -71,3 +74,13 @@ repo = 'cohama/lexima.vim'
 #Highlight
 [[plugins]]
 repo = 'octol/vim-cpp-enhanced-highlight'
+hook_add = '''
+  let g:cpp_class_scope_highlight = 1
+  let g:cpp_member_variable_highlight = 1
+  let g:cpp_class_decl_highlight = 1
+  let g:cpp_posix_standard = 1
+  let g:cpp_experimental_simple_template_highlight = 1
+  let g:cpp_experimental_template_highlight = 1
+  let g:cpp_concepts_highlight = 1
+  let g:cpp_no_function_highlight = 1
+'''
