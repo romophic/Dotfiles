@@ -7,7 +7,6 @@ set hlsearch "検索結果をハイライト表示
 "----------Views----------
 syntax on "シンタックスハイライト
 set cursorline "カーソルのある行を強調表示
-set cursorcolumn "カーソルのある列を強調表示
 set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
 set shellslash "Windowsでパスの区切り文字をスラッシュで扱う
 set showmatch matchtime=1 "対応する括弧やブレースを表示
