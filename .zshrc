@@ -29,6 +29,8 @@ zinit light rupa/z
 ######
 #for mac clangd path
 export PATH="$PATH:/usr/local/Cellar/llvm/10.0.0_3/bin"
+#for pyenv setting
+eval "$(pyenv init -)"
 
 #########
 # Alias #
