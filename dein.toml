@@ -46,7 +46,6 @@ hook_add = '''
 #Complement
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter'
 hook_add = '''
   let g:deoplete#enable_at_startup = 1
   inoremap <expr><Tab> pumvisible() ? "\<DOWN>" : "\<Tab>"
@@ -69,18 +68,6 @@ hook_add = '''
 repo = 'cohama/lexima.vim'
 
 #Highlight
-[[plugins]]
-repo = 'octol/vim-cpp-enhanced-highlight'
-hook_add = '''
-  let g:cpp_class_scope_highlight = 1
-  let g:cpp_member_variable_highlight = 1
-  let g:cpp_class_decl_highlight = 1
-  let g:cpp_posix_standard = 1
-  let g:cpp_experimental_simple_template_highlight = 1
-  let g:cpp_experimental_template_highlight = 1
-  let g:cpp_concepts_highlight = 1
-  let g:cpp_no_function_highlight = 1
-'''
 
 [[plugins]]
 repo = 'luochen1990/rainbow'
