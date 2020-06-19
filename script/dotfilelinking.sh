@@ -9,6 +9,10 @@ ln -sf ~/Dotfiles/git_ignore ~/.config/git/ignore
 #i3
 ln -sf ~/Dotfiles/i3_config ~/.config/i3/config
 
+#rofi
+ln -sf ~/Dotfiles/rofi_config ~/.config/rofi/config
+ln -sf ~/Dotfiles/rofi_system.sh ~/.config/rofi/system.sh
+
 #vim
 ln -sf ~/Dotfiles/vimrc ~/.vimrc
 
