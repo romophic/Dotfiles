@@ -15,9 +15,9 @@ font:
     family: "Cica"
     style: Bold Italic
 
-  size: 16
+  size: 14
 
-background_opacity: 1
+background_opacity: 9
 
 # Colors (Gruvbox dark)
 colors:
