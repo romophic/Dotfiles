@@ -6,7 +6,7 @@ set hlsearch "検索結果をハイライト表示
 "
 "----------Views----------
 syntax on "シンタックスハイライト
-"set cursorline "カーソルのある行を強調表示
+set cursorline "カーソルのある行を強調表示
 set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
 set shellslash "Windowsでパスの区切り文字をスラッシュで扱う
 set showmatch matchtime=1 "対応する括弧やブレースを表示
@@ -25,27 +25,33 @@ set smartindent "改行時に入力された行の末尾に合わせて次の行
 set noswapfile "スワップファイルを作成しない
 set nofoldenable "検索にマッチした行以外を折りたたむ(フォールドする)機能
 set title "タイトルを表示
+set showtabline=2 "常にタブラインを表示
 set number "行番号の表示
 set relativenumber "行番号を動的表示
 set mouse=a "バッファスクロール
-"au ColorScheme * hi Normal ctermbg=none "背景透過
 set completeopt=menuone,noinsert "補完
 augroup HighlightTrailingSpaces "行末のスペースを可視化
   autocmd!
-    autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+augroup TransparentBG "背景透過
+  autocmd!
+  autocmd Colorscheme * highlight Normal ctermbg=NONE guibg=NONE
 augroup END
 
 "----------Keymap----------
-" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
+" The prefix key.
+nnoremap    [Tag]   <Nop>
+nmap    t [Tag]
 " tc 新しいタブを一番右に作る
-map <silent> [Tag]x :tabclose<CR>
+map <silent> [Tag]c :tablast <bar> tabnew<CR>
 " tx タブを閉じる
-map <silent> [Tag]n :tabnext<CR>
+map <silent> [Tag]x :tabclose<CR>
 " tn 次のタブ
-map <silent> [Tag]p :tabprevious<CR>
+map <silent> [Tag]n :tabnext<CR>
 " tp 前のタブ
+map <silent> [Tag]p :tabprevious<CR>
 
 "----------Others----------
 set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化
@@ -74,10 +80,6 @@ function! s:my_tabline()  "{{{
   return s
 endfunction "}}}
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-set showtabline=2 " 常にタブラインを表示
-" The prefix key.
-nnoremap    [Tag]   <Nop>
-nmap    t [Tag]
 " Tab jump
 for n in range(1, 9)
   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'

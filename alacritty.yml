@@ -1,4 +1,11 @@
+background_opacity: 0.95
+
+window:
+  decorations: none
+
 font:
+  size: 20
+
   normal:
     family: "Cica"
     style: Regular
@@ -14,10 +21,6 @@ font:
   bold_italic:
     family: "Cica"
     style: Bold Italic
-
-  size: 14
-
-background_opacity: 9
 
 # Colors (Gruvbox dark)
 colors:
