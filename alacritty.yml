@@ -27,7 +27,7 @@ colors:
   # Default colors
   primary:
     # hard contrast: background = '#1d2021'
-    background: '#282828'
+    background: '#32302f'
     # soft contrast: background = '#32302f'
     foreground: '#ebdbb2'
 
