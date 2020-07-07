@@ -39,6 +39,8 @@ augroup TransparentBG "背景透過
   autocmd!
   autocmd Colorscheme * highlight Normal ctermbg=NONE guibg=NONE
 augroup END
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "NerdTreeのみが残っていた場合閉じる
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "ファイル指定せずにVimを開いたのであればNerdTreeを表示
 
 "----------Keymap----------
 " The prefix key.
@@ -52,6 +54,9 @@ map <silent> [Tag]x :tabclose<CR>
 map <silent> [Tag]n :tabnext<CR>
 " tp 前のタブ
 map <silent> [Tag]p :tabprevious<CR>
+
+" NerdTreeの切り替え
+map <C-n> :NERDTreeToggle<CR>
 
 "----------Others----------
 set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化

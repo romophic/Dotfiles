@@ -4,22 +4,22 @@ window:
   decorations: none
 
 font:
-  size: 20
+  size: 16
 
   normal:
-    family: "Cica"
+    family: "Fira Code"
     style: Regular
 
   bold:
-    family: "Cica"
+    family: "Fira Code"
     style: Bold
 
   italic:
-    family: "Cica"
+    family: "Fira Code"
     style: Italic
 
   bold_italic:
-    family: "Cica"
+    family: "Fira Code"
     style: Bold Italic
 
 # Colors (Gruvbox dark)

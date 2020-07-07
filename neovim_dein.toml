@@ -17,20 +17,13 @@ hook_add = 'colorscheme gruvbox'
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 hook_add = '''
-  set noshowmode
-  let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2 " },
-    \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3 " },
-    \ 'active': {
-    \   'left': [ [ 'mode', 'paste' ],
-    \             [ 'readonly', 'filename', 'modified', 'charvaluehex' ]
-    \           ],
-    \ },
-    \ 'component': {
-    \   'charvaluehex': '%b'
-    \ },
-    \ }
+set noshowmode
+let g:lightline = {
+  \ 'colorscheme': 'gruvbox',
+  \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+  \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+  \ 'active': { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ] }
+  \ }
 '''
 
 #Views
@@ -40,9 +33,17 @@ repo = 'airblade/vim-gitgutter'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
-  let g:indentLine_color_term = 239
-  let g:indentLine_color_gui = '#708090'
-  let g:indentLine_char = '¦' "use ¦, ┆ or │
+  let g:indentLine_color_term = 238
+  let g:indentLine_char = '│' "use ¦, ┆ or │
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+hook_add = '''
+  let NERDTreeShowHidden = 1
+  let NERDTreeQuitOnOpen = 1
+  let NERDTreeMinimalUI = 1
+  let NERDTreeDirArrows = 1
 '''
 
 #Complement
