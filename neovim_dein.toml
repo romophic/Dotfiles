@@ -42,8 +42,6 @@ repo = 'scrooloose/nerdtree'
 hook_add = '''
   let NERDTreeShowHidden = 1
   let NERDTreeQuitOnOpen = 1
-  let NERDTreeMinimalUI = 1
-  let NERDTreeDirArrows = 1
 '''
 
 #Complement

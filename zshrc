@@ -1,6 +1,6 @@
-#########################
-# .zshrc | Made by NULLCT#
-#########################
+###########################
+# .zshrc | Made by NULLCT #
+###########################
 
 ###################
 #Zinit's installer#
@@ -57,3 +57,4 @@ bindkey -v
 autoload -Uz compinit
 compinit
 zstyle ':completion:*:default' menu select=1
+PURE_CMD_MAX_EXEC_TIME=0

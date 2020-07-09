@@ -5,7 +5,7 @@ set incsearch "インクリメンタル検索 (検索ワードの最初の文字
 set hlsearch "検索結果をハイライト表示
 "
 "----------Views----------
-syntax on "シンタックスハイライト
+syntax enable "シンタックスハイライト
 set cursorline "カーソルのある行を強調表示
 set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
 set shellslash "Windowsでパスの区切り文字をスラッシュで扱う
@@ -39,7 +39,6 @@ augroup TransparentBG "背景透過
   autocmd!
   autocmd Colorscheme * highlight Normal ctermbg=NONE guibg=NONE
 augroup END
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "NerdTreeのみが残っていた場合閉じる
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif "ファイル指定せずにVimを開いたのであればNerdTreeを表示
 
 "----------Keymap----------
