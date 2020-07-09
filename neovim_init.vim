@@ -5,7 +5,7 @@ set incsearch "インクリメンタル検索 (検索ワードの最初の文字
 set hlsearch "検索結果をハイライト表示
 "
 "----------Views----------
-syntax enable "シンタックスハイライト
+syntax on "シンタックスハイライト
 set cursorline "カーソルのある行を強調表示
 set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
 set shellslash "Windowsでパスの区切り文字をスラッシュで扱う
