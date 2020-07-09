@@ -3,6 +3,9 @@ background_opacity: 0.9
 window:
   decorations: none
 
+key_bindings:
+- { key: "LBracket", mods: Control, chars: "\x1b" }
+
 font:
   size: 16
 

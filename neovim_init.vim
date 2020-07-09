@@ -6,6 +6,7 @@ set hlsearch "検索結果をハイライト表示
 "
 "----------Views----------
 syntax on "シンタックスハイライト
+set background=dark "背景を暗くする
 set cursorline "カーソルのある行を強調表示
 set noerrorbells "エラーメッセージの表示時にビープを鳴らさない
 set shellslash "Windowsでパスの区切り文字をスラッシュで扱う
@@ -18,6 +19,7 @@ set expandtab "入力モードでTabキー押下時に半角スペースを挿�
 set shiftwidth=2 "インデント幅
 set softtabstop=2 "タブキー押下時に挿入される文字幅を指定
 set tabstop=2 "ファイル内にあるタブ文字の表示幅
+set autoindent "インデントを揃える
 set guioptions-=T "ツールバーを非表示にする
 set guioptions+=a "yでコピーした時にクリップボードに入る
 set guioptions+=R "右スクロールバーを非表示
