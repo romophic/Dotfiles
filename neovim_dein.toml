@@ -71,9 +71,12 @@ hook_add = '''
 repo = 'cohama/lexima.vim'
 
 #Highlight
-
 [[plugins]]
-repo = 'luochen1990/rainbow'
+repo = 'bfrg/vim-cpp-modern'
 hook_add = '''
-  let g:rainbow_active = 1
+  " Enable highlighting of named requirements (C++20 library concepts)
+  let g:cpp_named_requirements_highlight = 1
+  " Put all standard C and C++ keywords under Vims highlight group Statement
+  " (affects both C and C++ files)
+  let g:cpp_simple_highlight = 1
 '''

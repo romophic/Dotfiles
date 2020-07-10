@@ -27,3 +27,10 @@ ln -sf ~/Dotfiles/tmux.conf ~/.tmux.conf
 #zsh
 ln -sf ~/Dotfiles/zshrc ~/.zshrc
 ln -sf ~/Dotfiles/zshenv ~/.zshenv
+
+#ranger
+ln -sf ~/Dotfiles/ranger_commands.py ~/.config/ranger/commands.py
+ln -sf ~/Dotfiles/ranger_commands_full.py ~/.config/ranger/commands_full.py
+ln -sf ~/Dotfiles/ranger_rc.conf ~/.config/ranger/rc.conf
+ln -sf ~/Dotfiles/ranger_rifle.conf ~/.config/ranger/rifle.conf
+ln -sf ~/Dotfiles/ranger_scope.sh ~/.config/ranger/scope.sh
