@@ -29,8 +29,8 @@ ln -sf ~/Dotfiles/home/zshrc ~/.zshrc
 ln -sf ~/Dotfiles/home/zshenv ~/.zshenv
 
 #ranger
-ln -sf ~/Dotfiles/home/commands.py ~/.config/ranger/commands.py
-ln -sf ~/Dotfiles/home/commands_full.py ~/.config/ranger/commands_full.py
-ln -sf ~/Dotfiles/home/rc.conf ~/.config/ranger/rc.conf
-ln -sf ~/Dotfiles/home/rifle.conf ~/.config/ranger/rifle.conf
-ln -sf ~/Dotfiles/home/scope.sh ~/.config/ranger/scope.sh
+ln -sf ~/Dotfiles/ranger/commands.py ~/.config/ranger/commands.py
+ln -sf ~/Dotfiles/ranger/commands_full.py ~/.config/ranger/commands_full.py
+ln -sf ~/Dotfiles/ranger/rc.conf ~/.config/ranger/rc.conf
+ln -sf ~/Dotfiles/ranger/rifle.conf ~/.config/ranger/rifle.conf
+ln -sf ~/Dotfiles/ranger/scope.sh ~/.config/ranger/scope.sh
