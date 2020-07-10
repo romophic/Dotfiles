@@ -1,14 +1,15 @@
 # 俺の*Dotfiles*
 
 ## tl;dr
-- Alacritty
-- Vim
-- NeoVim
-- Tmux
-- Zsh
-- Git
-- i3wm
-- Rofi
+- alacritty
+- vim
+- nvim
+- tmux
+- zsh
+- git
+- i3
+- rofi
+- ranger
 
 ### 導入方法:
 1. ~/Dotfiles に設置
@@ -22,27 +23,39 @@
 
 ### Path:
 ```
-Dotfiles
+~/Dotfile
   ├── LICENSE.txt
   ├── README.md
-  ├── alacritty.yml
-  ├── git_ignore
-  ├── i3_config
-  ├── i3_wallpaper.jpg
-  ├── neovim_dein.toml
-  ├── neovim_dein_lazy.toml
-  ├── neovim_init.vim
-  ├── rofi_config
-  ├── rofi_system.sh
-  ├── script
-  │   ├── colorpalette.sh
-  │   └── dotfilelinking.sh
-  ├── tmux.conf
-  ├── vimrc
-  ├── zshenv
-  └── zshrc
+  ├── alacritty
+  │   └── alacritty.yml
+  ├── git
+  │   └── ignore
+  ├── home
+  │   ├── tmux.conf
+  │   ├── vimrc
+  │   ├── zshenv
+  │   └── zshrc
+  ├── i3
+  │   ├── config
+  │   └── wallpaper.jpg
+  ├── nvim
+  │   ├── dein.toml
+  │   ├── dein_lazy.toml
+  │   └── init.vim
+  ├── ranger
+  │   ├── commands.py
+  │   ├── commands_full.py
+  │   ├── rc.conf
+  │   ├── rifle.conf
+  │   └── scope.sh
+  ├── rofi
+  │   ├── config
+  │   └── system.sh
+  └── script
+      ├── colorpalette.sh
+      └── dotfilelinking.sh
 
-1 directory, 17 files
+8 directories, 22 files
 ```
 
 ### License
