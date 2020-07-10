@@ -1,36 +1,36 @@
 #!/bin/sh
 
 #alacritty
-ln -sf ~/Dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -sf ~/Dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 #git
-ln -sf ~/Dotfiles/git_ignore ~/.config/git/ignore
+ln -sf ~/Dotfiles/git/ignore ~/.config/git/ignore
 
 #i3
-ln -sf ~/Dotfiles/i3_config ~/.config/i3/config
+ln -sf ~/Dotfiles/i3/config ~/.config/i3/config
 
 #rofi
-ln -sf ~/Dotfiles/rofi_config ~/.config/rofi/config
-ln -sf ~/Dotfiles/rofi_system.sh ~/.config/rofi/system.sh
+ln -sf ~/Dotfiles/rofi/config ~/.config/rofi/config
+ln -sf ~/Dotfiles/rofi/system.sh ~/.config/rofi/system.sh
 
 #vim
 ln -sf ~/Dotfiles/vimrc ~/.vimrc
 
 #neovim
-ln -sf ~/Dotfiles/neovim_init.vim ~/.config/nvim/init.vim
-ln -sf ~/Dotfiles/neovim_dein.toml ~/.config/nvim/dein.toml
-ln -sf ~/Dotfiles/neovim_dein_lazy.toml ~/.config/nvim/dein_lazy.toml
+ln -sf ~/Dotfiles/nvim/init.vim ~/.config/nvim/init.vim
+ln -sf ~/Dotfiles/nvim/dein.toml ~/.config/nvim/dein.toml
+ln -sf ~/Dotfiles/nvim/dein_lazy.toml ~/.config/nvim/dein_lazy.toml
 
 #tmux
-ln -sf ~/Dotfiles/tmux.conf ~/.tmux.conf
+ln -sf ~/Dotfiles/home/tmux.conf ~/.tmux.conf
 
 #zsh
-ln -sf ~/Dotfiles/zshrc ~/.zshrc
-ln -sf ~/Dotfiles/zshenv ~/.zshenv
+ln -sf ~/Dotfiles/home/zshrc ~/.zshrc
+ln -sf ~/Dotfiles/home/zshenv ~/.zshenv
 
 #ranger
-ln -sf ~/Dotfiles/ranger_commands.py ~/.config/ranger/commands.py
-ln -sf ~/Dotfiles/ranger_commands_full.py ~/.config/ranger/commands_full.py
-ln -sf ~/Dotfiles/ranger_rc.conf ~/.config/ranger/rc.conf
-ln -sf ~/Dotfiles/ranger_rifle.conf ~/.config/ranger/rifle.conf
-ln -sf ~/Dotfiles/ranger_scope.sh ~/.config/ranger/scope.sh
+ln -sf ~/Dotfiles/home/commands.py ~/.config/ranger/commands.py
+ln -sf ~/Dotfiles/home/commands_full.py ~/.config/ranger/commands_full.py
+ln -sf ~/Dotfiles/home/rc.conf ~/.config/ranger/rc.conf
+ln -sf ~/Dotfiles/home/rifle.conf ~/.config/ranger/rifle.conf
+ln -sf ~/Dotfiles/home/scope.sh ~/.config/ranger/scope.sh
