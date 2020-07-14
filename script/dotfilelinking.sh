@@ -14,7 +14,7 @@ ln -sf ~/Dotfiles/rofi/config ~/.config/rofi/config
 ln -sf ~/Dotfiles/rofi/system.sh ~/.config/rofi/system.sh
 
 #vim
-ln -sf ~/Dotfiles/vimrc ~/.vimrc
+ln -sf ~/Dotfiles/home/vimrc ~/.vimrc
 
 #neovim
 ln -sf ~/Dotfiles/nvim/init.vim ~/.config/nvim/init.vim
