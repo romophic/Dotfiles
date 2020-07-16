@@ -117,7 +117,7 @@ mode "resize" {
 #feh for wallpaper
 exec --no-startup-id feh --bg-scale $HOME/Dotfiles/i3/wallpaper.jpg
 #compton for alpha window
-exec --no-startup-id compton -cbm 0.95
+exec --no-startup-id compton -cbm 0.7
 #xss-look for auto look down
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 #nm-applet for network setting
