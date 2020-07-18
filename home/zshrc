@@ -68,3 +68,6 @@ zstyle ':completion:*:default' menu select=1
 [[ ! -f ~/Dotfiles/home/.p10k.zsh ]] || source ~/Dotfiles/home/.p10k.zsh
 #set to no error
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/Dotfiles/home/p10k.zsh ]] || source ~/Dotfiles/home/p10k.zsh

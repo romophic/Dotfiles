@@ -103,6 +103,11 @@ if executable('clang-format')
   augroup END
 endif
 
+augroup LspAutoFormatting "Pythonファイルをpyls-blackで自動整形
+  autocmd!
+  autocmd BufWritePre *.py LspDocumentFormatSync
+augroup END
+
 "----------dein script----------
 if &compatible
   set nocompatible
