@@ -42,6 +42,8 @@ repo = 'scrooloose/nerdtree'
 hook_add = '''
   let NERDTreeShowHidden = 1
   let NERDTreeQuitOnOpen = 1
+  autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+  map <C-n> :NERDTreeToggle<CR>
 '''
 
 #Complement
