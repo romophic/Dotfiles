@@ -57,6 +57,14 @@ export PATH="/usr/local/sbin:$PATH"
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+#フォルダ名だけで移動
+setopt auto_cd
+#移動履歴
+setopt auto_pushd
+#コマンド訂正
+setopt correct
+#補間候補を詰める
+setopt list_packed
 #vi風のキーバインド
 bindkey -v
 #補完&色つけ
