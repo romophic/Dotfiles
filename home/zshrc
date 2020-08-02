@@ -23,7 +23,7 @@ fi
 
 #--------zsh setting--------#
 #Alias
-alias ls="ls -GF --color=auto" #lsのカスタム(フォルダに/引いたり...)
+alias ls="ls -GF" #lsのカスタム(フォルダに/引いたり...)
 alias la='ls -la' #省略
 alias ytm='youtube-dl --extract-audio --audio-format mp3' #長いから省略
 
@@ -49,33 +49,15 @@ zstyle ':completion:*:default' menu select #補間メニュー
 #Press C-r to complete from past command with fzf
 bindkey -v #Like Vim
 bindkey '\e[3~' delete-char
-bindkey '^r' select-history
-function select-history() {
-  BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
-  CURSOR=$#BUFFER
+# fd - cd to selected directory
+fd() {
+  local dir
+  dir=$(find ${1:-.} -path '*/\.*' -prune \
+                  -o -type d -print 2> /dev/null | fzf +m) &&
+  cd "$dir"
 }
-zle -N select-history
-
-#Go to a directory been to before
-bindkey '^u' fzf-cdr
-#cdr
-if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
-  autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
-  add-zsh-hook chpwd chpwd_recent_dirs
-  zstyle ':completion:*' recent-dirs-insert both
-  zstyle ':chpwd:*' recent-dirs-default true
-  zstyle ':chpwd:*' recent-dirs-max 1000
-  zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
-fi
-#fzf
-function fzf-cdr () {
-  local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | fzf --prompt="cdr >" --query "$LBUFFER")"
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-}
-zle -N fzf-cdr
+zle -N fd
+bindkey '^R' fd
 
 
 #View

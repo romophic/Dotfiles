@@ -7,21 +7,21 @@ key_bindings:
 - { key: "LBracket", mods: Control, chars: "\x1b" }
 
 font:
-  size: 16
+  size: 17
   normal:
-    family: "Fira Code"
+    family: "FiraCode Nerd Font"
     style: Regular
 
   bold:
-    family: "Fira Code"
+    family: "FiraCode Nerd Font"
     style: Bold
 
   italic:
-    family: "Fira Code"
+    family: "FiraCode Nerd Font"
     style: Italic
 
   bold_italic:
-    family: "Fira Code"
+    family: "FiraCode Nerd Font"
     style: Bold Italic
 
 # Colors (Gruvbox dark)
@@ -29,7 +29,7 @@ colors:
   # Default colors
   primary:
     # hard contrast: background = '#1d2021'
-    background: '#32302f'
+    background: '#282828'
     # soft contrast: background = '#32302f'
     foreground: '#ebdbb2'
 

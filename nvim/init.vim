@@ -62,7 +62,7 @@ set completeopt=menuone,noinsert "補完
 "Others
 
 "--------Dein Script--------"
-"let g:dein#auto_recache = 1 "リキャッシュ.
+let g:dein#auto_recache = 1 "リキャッシュ.
 if &compatible
   set nocompatible
 endif
