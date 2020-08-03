@@ -69,8 +69,8 @@ build = ['./install.sh']
 hook_add = '''
   let s:node = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
   let g:LanguageClient_serverCommands = {
-    \ 'c': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
-    \ 'cpp': ['clangd', '-compile-commands-dir=' . getcwd() . '/build'],
+    \ 'c': ['clangd'],
+    \ 'cpp': ['clangd'],
     \ 'python': ['pyls']
     \ }
 '''
