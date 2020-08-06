@@ -1,3 +1,69 @@
+"-----Vim Plug auto install-----"
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+"-----Plugin-----"
+call plug#begin(stdpath('data') . '/plugged')
+
+Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'Yggdroot/indentLine'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
+Plug 'cohama/lexima.vim'
+Plug 'octol/vim-cpp-enhanced-highlight'
+
+call plug#end()
+
+
+"-----Plugin Setting-----"
+colorscheme gruvbox
+let g:lightline = {
+\ 'colorscheme': 'gruvbox',
+\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+\ 'active': { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ] }
+\ }
+let g:indentLine_color_term = 238
+let g:indentLine_char = '│' "use ¦, ┆ or │
+map <C-n> :NERDTreeToggle<CR>
+
+if executable('clangd')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'allowlist': ['cpp'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+
 "--------Vim Setting--------"
 "Search
 set ignorecase "検索するときに大文字小文字を区別しない
@@ -56,34 +122,3 @@ set nobackup
 
 "Complete
 set completeopt=menuone,noinsert "補完
-
-"Keymap
-
-"Others
-
-"--------Dein Script--------"
-let g:dein#auto_recache = 1 "リキャッシュ.
-if &compatible
-  set nocompatible
-endif
-"dein auto install
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
-"load config file
-set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-if dein#load_state('~/.cache/dein')
-  call dein#begin('~/.cache/dein')
-  call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
-  call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
-  call dein#end()
-  call dein#save_state()
-endif
-if dein#check_install()
-  call dein#install()
-endif
-filetype plugin indent on
