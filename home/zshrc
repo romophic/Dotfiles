@@ -46,10 +46,22 @@ setopt append_history        # 履歴を追加 (毎回 .zsh_history を作るの
 setopt inc_append_history    # 履歴をインクリメンタルに追加
 zstyle ':completion:*:default' menu select #補間メニュー
 
-#Press C-r to complete from past command with fzf
 bindkey -v #Like Vim
-bindkey '\e[3~' delete-char
-# fd - cd to selected directory
+#cddの設定
+autoload -Uz is-at-least
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*'      recent-dirs-max 500
+zstyle ':chpwd:*'      recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
+function cdd() {
+    target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
+    target_dir=`echo ${target_dir/\~/$HOME}`
+    if [ -n "$target_dir" ]; then
+        cd $target_dir
+    fi
+}
+zle -N cdd
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
@@ -57,8 +69,6 @@ fd() {
   cd "$dir"
 }
 zle -N fd
-bindkey '^R' fd
-
 
 #View
 setopt list_packed #補間候補を詰める
