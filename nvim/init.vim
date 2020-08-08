@@ -1,4 +1,4 @@
-"-----Vim Plug auto install-----"
+"-----Vim-Plug auto install-----"
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
     silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -7,62 +7,17 @@ endif
 
 "-----Plugin-----"
 call plug#begin(stdpath('data') . '/plugged')
-
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'Yggdroot/indentLine'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', 'for': ['cpp', 'python'] }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 Plug 'cohama/lexima.vim'
-Plug 'octol/vim-cpp-enhanced-highlight'
-
+Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 call plug#end()
-
-
-"-----Plugin Setting-----"
-colorscheme gruvbox
-let g:lightline = {
-\ 'colorscheme': 'gruvbox',
-\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-\ 'active': { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ] }
-\ }
-let g:indentLine_color_term = 238
-let g:indentLine_char = '│' "use ¦, ┆ or │
-map <C-n> :NERDTreeToggle<CR>
-
-if executable('clangd')
-    " pip install python-language-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd']},
-        \ 'allowlist': ['cpp'],
-        \ })
-endif
-
-function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
-    nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
-    " refer to doc to add more commands
-endfunction
-
-augroup lsp_install
-    au!
-    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
-    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
-
 
 "--------Vim Setting--------"
 "Search
@@ -123,3 +78,24 @@ set nobackup
 
 "Complete
 set completeopt=menuone,noinsert "補完
+
+"-----Plugin Setting-----"
+colorscheme gruvbox
+let g:lightline = {
+\ 'colorscheme': 'gruvbox',
+\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+\ 'active': { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ] }
+\ }
+let g:indentLine_color_term = 238
+let g:indentLine_char = '│' "use ¦, ┆ or │
+map <C-n> :NERDTreeToggle<CR>
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+let g:LanguageClient_serverCommands = {
+\ 'cpp' : ['clangd'],
+\ 'python': ['pyls'],
+\ }
+
+nmap <silent>K <Plug>(lcn-hover)
