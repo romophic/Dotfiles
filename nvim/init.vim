@@ -39,17 +39,11 @@ set number "行番号の表示
 set relativenumber "行番号を動的表示
 set showcmd "ウィンドウの右下にまだ実行していない入力中のコマンドを表示
 set display=lastline "省略されずに表示
-set list "タブ文字を CTRL-I で表示し、行末に $ で表示する
-set listchars=tab:»\ ,trail:~,space:･,eol:↲,extends:»,precedes:«,nbsp:% "行末のスペースを可視化
 set noshowmode "lightlineの下のステータスを削除
 augroup HighlightTrailingSpaces "行末のスペースを可視化
   autocmd!
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
-augroup END
-augroup TransparentBG "背景透過
-  autocmd!
-  autocmd Colorscheme * highlight Normal ctermbg=NONE guibg=NONE
 augroup END
 
 "Edit
