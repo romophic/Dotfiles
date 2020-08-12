@@ -14,7 +14,7 @@ ln -sf ~/Dotfiles/rofi/config ~/.config/rofi/config
 ln -sf ~/Dotfiles/rofi/system.sh ~/.config/rofi/system.sh
 
 #vim
-ln -sf ~/Dotfiles/home/vimrc ~/.vimrc
+ln -sf ~/Dotfiles/vim/vimrc ~/.vimrc
 
 #neovim
 ln -sf ~/Dotfiles/nvim/init.vim ~/.config/nvim/init.vim
@@ -22,11 +22,11 @@ ln -sf ~/Dotfiles/nvim/dein.toml ~/.config/nvim/dein.toml
 ln -sf ~/Dotfiles/nvim/dein_lazy.toml ~/.config/nvim/dein_lazy.toml
 
 #tmux
-ln -sf ~/Dotfiles/home/tmux.conf ~/.tmux.conf
+ln -sf ~/Dotfiles/tmux/tmux.conf ~/.tmux.conf
 
 #zsh
-ln -sf ~/Dotfiles/home/zshrc ~/.zshrc
-ln -sf ~/Dotfiles/home/zshenv ~/.zshenv
+ln -sf ~/Dotfiles/zsh/zshrc ~/.zshrc
+ln -sf ~/Dotfiles/zsh/zshenv ~/.zshenv
 
 #ranger
 ln -sf ~/Dotfiles/ranger/commands.py ~/.config/ranger/commands.py

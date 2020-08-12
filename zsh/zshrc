@@ -82,4 +82,4 @@ setopt auto_pushd #移動履歴
 setopt correct #コマンド訂正
 
 #Load Powerlevel10k configure
-[[ ! -f ~/Dotfiles/home/p10k.zsh ]] || source ~/Dotfiles/home/p10k.zsh
+[[ ! -f ~/Dotfiles/zsh/p10k.zsh ]] || source ~/Dotfiles/zsh/p10k.zsh
