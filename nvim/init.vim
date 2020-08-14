@@ -9,6 +9,9 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 "ColorScheme
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
+Plug 'tomasr/molokai'
+Plug 'joshdick/onedark.vim'
 
 "Status
 Plug 'itchyny/lightline.vim'
@@ -25,8 +28,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 
 "Complete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', 'for': ['cpp', 'python'] }
+Plug 'Shougo/deoplete.nvim'
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next',
+                                       \ 'do': 'bash install.sh',
+                                       \ 'for': ['cpp', 'python'] }
 Plug 'jiangmiao/auto-pairs'
 
 "Highlight
@@ -36,7 +41,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 Plug 'markonm/traces.vim'
 call plug#end()
 
-"--------Vim Setting(no depend plugin)--------"
+"--------Vim Setting--------"
 "Search
 set ignorecase "検索するときに大文字小文字を区別しない
 set smartcase "小文字で検索すると大文字と小文字を無視して検索
@@ -89,26 +94,36 @@ set nowritebackup "ファイルを上書きする前にバックアップを作�
 set nobackup
 
 "-----Plugin Setting-----"
-colorscheme gruvbox
+"gruvbox-material
+set background=dark
+colorscheme gruvbox-material
+
+"lightline
 let g:lightline = {
-\ 'colorscheme': 'gruvbox',
+\ 'colorscheme': 'gruvbox_material',
 \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
 \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
 \ 'active': { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ] }
 \ }
+
+"indentLine
 let g:indentLine_color_term = 238
 let g:indentLine_char = '¦' "use ¦, ┆ or │
+
+"nerdtree
 map <C-n> :NERDTreeToggle<CR>
-" ファイル一覧を出すときにプレビュー表示
+
+"fzf
 command! -bang -nargs=? -complete=dir Files
 \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-" Use deoplete.
+
+"deoplete
 let g:deoplete#enable_at_startup = 1
 set pumblend=16
 
+"languageclient-neovim
+nmap <silent>K <Plug>(lcn-hover)
 let g:LanguageClient_serverCommands = {
 \ 'cpp' : ['clangd'],
 \ 'python': ['pyls'],
 \ }
-
-nmap <silent>K <Plug>(lcn-hover)
