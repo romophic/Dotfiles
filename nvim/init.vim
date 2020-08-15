@@ -76,17 +76,6 @@ set softtabstop=2 "タブキー押下時に挿入される文字幅を指定
 set tabstop=2 "ファイル内にあるタブ文字の表示幅
 set autoindent "インデントを揃える
 set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
-function! s:clang_format() "Cpp/Hppファイルをclang-formatで自動整形
-  let now_line = line(".")
-  exec ":%! clang-format"
-  exec ":" . now_line
-endfunction
-if executable('clang-format')
-  augroup cpp_clang_format
-    autocmd!
-    autocmd BufWrite,FileWritePre,FileAppendPre *.[ch]pp call s:clang_format()
-  augroup END
-endif
 
 "File
 set noswapfile "スワップファイルを作成しない
