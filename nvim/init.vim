@@ -39,6 +39,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 
 "Add function
 Plug 'markonm/traces.vim'
+Plug 'tpope/vim-surround'
 call plug#end()
 
 "--------Vim Setting--------"
