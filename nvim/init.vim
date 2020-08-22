@@ -28,7 +28,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 
 "Complete
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next',
                                        \ 'do': 'bash install.sh',
                                        \ 'for': ['cpp', 'python'] }
