@@ -18,8 +18,6 @@ ln -sf ~/Dotfiles/vim/vimrc ~/.vimrc
 
 #neovim
 ln -sf ~/Dotfiles/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf ~/Dotfiles/nvim/dein.toml ~/.config/nvim/dein.toml
-ln -sf ~/Dotfiles/nvim/dein_lazy.toml ~/.config/nvim/dein_lazy.toml
 
 #tmux
 ln -sf ~/Dotfiles/tmux/tmux.conf ~/.tmux.conf
