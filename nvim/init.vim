@@ -29,9 +29,7 @@ Plug 'Yggdroot/indentLine'
 
 "Complete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next',
-                                       \ 'do': 'bash install.sh',
-                                       \ 'for': ['cpp', 'python'] }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', 'for': ['cpp', 'python'] }
 Plug 'jiangmiao/auto-pairs'
 
 "Highlight
@@ -40,6 +38,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
 "Add function
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 "--------Vim Setting--------"
@@ -83,6 +82,22 @@ set noswapfile "スワップファイルを作成しない
 set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化
 set nobackup
 
+"-----KeyMap-----"
+"nvim
+let mapleader="\<Space>"
+
+"easy-motion
+let g:EasyMotion_do_mapping=0
+nmap <Leader>s <Plug>(easymotion-s2)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+
+"nerdtree
+map <C-n> :NERDTreeToggle<CR>
+
+"languageclient-neovim
+nmap K <Plug>(lcn-hover)
+
 "-----Plugin Setting-----"
 "gruvbox-material
 set background=dark
@@ -100,9 +115,6 @@ let g:lightline = {
 let g:indentLine_color_term = 238
 let g:indentLine_char = '¦' "use ¦, ┆ or │
 
-"nerdtree
-map <C-n> :NERDTreeToggle<CR>
-
 "fzf
 command! -bang -nargs=? -complete=dir Files
 \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
@@ -112,7 +124,6 @@ let g:deoplete#enable_at_startup = 1
 set pumblend=16
 
 "languageclient-neovim
-nmap <silent>K <Plug>(lcn-hover)
 let g:LanguageClient_serverCommands = {
 \ 'cpp' : ['clangd'],
 \ 'python': ['pyls'],
