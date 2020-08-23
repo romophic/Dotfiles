@@ -17,45 +17,47 @@
 3. えんじょい
 
 ### TODO:
-- [x] Powerline化を進める Guiエディタに押され気味なので使えるものは使う
+- [x] Powerline化終わり。自分でビルドしなくてもいいいいフォントが見つからない
 - [x] 各種キーバインドを整理/拡張
-- [ ] 汚い設定ファイルを直す 項目分けがまだまだ終わってない
+- [x] 汚い設定ファイルを直す だいたい終わったがコメントの付け方に一貫性がない
 
 ### Path:
 ```
-~/Dotfile
-  ├── LICENSE.txt
-  ├── README.md
-  ├── alacritty
-  │   └── alacritty.yml
-  ├── git
-  │   └── ignore
-  ├── home
-  │   ├── tmux.conf
-  │   ├── vimrc
-  │   ├── zshenv
-  │   └── zshrc
-  ├── i3
-  │   ├── config
-  │   └── wallpaper.jpg
-  ├── nvim
-  │   ├── dein.toml
-  │   ├── dein_lazy.toml
-  │   └── init.vim
-  ├── ranger
-  │   ├── commands.py
-  │   ├── commands_full.py
-  │   ├── rc.conf
-  │   ├── rifle.conf
-  │   └── scope.sh
-  ├── rofi
-  │   ├── config
-  │   └── system.sh
-  └── script
-      ├── colorpalette.sh
-      └── dotfilelinking.sh
+├── LICENSE.txt
+├── README.md
+├── alacritty
+│   └── alacritty.yml
+├── git
+│   └── ignore
+├── i3
+│   ├── config
+│   └── wallpaper.jpg
+├── nvim
+│   └── init.vim
+├── ranger
+│   ├── commands.py
+│   ├── commands_full.py
+│   ├── rc.conf
+│   ├── rifle.conf
+│   └── scope.sh
+├── rofi
+│   ├── config
+│   └── system.sh
+├── script
+│   ├── colorpalette.sh
+│   ├── dotfilelinking.sh
+│   └── truecolor.sh
+├── tmux
+│   ├── getip.sh
+│   └── tmux.conf
+├── vim
+│   └── vimrc
+└── zsh
+    ├── p10k.zsh
+    ├── zshenv
+    └── zshrc
 
-8 directories, 22 files
+10 directories, 23 files
 ```
 
 ### License
