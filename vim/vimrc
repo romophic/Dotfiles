@@ -32,7 +32,6 @@ augroup END
 set laststatus=2
 set statusline=%F%m%h%w[%Y]\ %=%<[%{&fenc!=''?&fenc:&enc}\/%{&ff}][\%03.3b/%04v:%04l/%L\]
 
-
 "-----Other-----
 set nowritebackup
 set nobackup
@@ -42,7 +41,6 @@ if _curfile == 'Makefile'
 endif
 
 "-----molokai-----
-
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
