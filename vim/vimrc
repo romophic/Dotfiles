@@ -1,46 +1,49 @@
-"-----Search-----
+"-----Vim Setting-----"
+"search
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
 
-"-----View-----
-syntax enable
+"looks
 set cursorline
-set noerrorbells
 set showmatch matchtime=1
 set showcmd
 set display=lastline
-set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set smartindent
-set noswapfile
-set nofoldenable
 set title
 set number
 set relativenumber
 set completeopt=menuone,noinsert
+set listchars=tab:»\ ,trail:\ ,space:･,eol:↲,nbsp:%
+set list
 augroup HighlightTrailingSpaces
   autocmd!
     autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
-"-----Status-----
-set laststatus=2
-set statusline=%F%m%h%w[%Y]\ %=%<[%{&fenc!=''?&fenc:&enc}\/%{&ff}][\%03.3b/%04v:%04l/%L\]
+"function
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+set smartindent
+set noerrorbells
 
-"-----Other-----
-set nowritebackup
+"status
+set laststatus=2
+set statusline=%F%m%h%w[%Y]\ %=%<[%{&fenc!=''?&fenc:&enc}\/%{&ff}][%04v:%04l/%L\]
+
+"other
 set nobackup
-let _curfile=expand("%:r")
-if _curfile == 'Makefile'
+set noswapfile
+set nowritebackup
+if expand("%:r") == 'Makefile'
   set noexpandtab
 endif
 
-"-----molokai-----
+"-----molokai-----"
+syntax enable
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
