@@ -28,12 +28,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'Yggdroot/indentLine'
 
 "Complete
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh', 'for': ['cpp', 'python'] }
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'jiangmiao/auto-pairs'
 
 "Highlight
-Plug 'octol/vim-cpp-enhanced-highlight', { 'for': 'cpp' }
+Plug 'bfrg/vim-cpp-modern'
 
 "Add function
 Plug 'markonm/traces.vim'
@@ -95,8 +96,10 @@ nmap <Leader>k <Plug>(easymotion-k)
 "nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-"languageclient-neovim
-nmap K <Plug>(lcn-hover)
+"asyncomplete
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 "-----Plugin Setting-----"
 "gruvbox-material
@@ -122,12 +125,34 @@ let g:indentLine_char = '¦' "use ¦, ┆ or │
 command! -bang -nargs=? -complete=dir Files
 \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-"deoplete
-let g:deoplete#enable_at_startup = 1
 set pumblend=16
 
-"languageclient-neovim
-let g:LanguageClient_serverCommands = {
-\ 'cpp' : ['clangd'],
-\ 'python': ['pyls'],
-\ }
+"vim-lsp
+if executable('clangd')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'allowlist': ['cpp'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+  setlocal omnifunc=lsp#complete
+  setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+  nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <Plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <Plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+endfunction
+
+augroup lsp_install
+  au!
+  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+let g:lsp_signs_error = {'text': '✗'}
