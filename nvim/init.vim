@@ -1,8 +1,8 @@
 "-----Vim-Plug auto install-----"
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 "-----Plugin-----"
@@ -111,11 +111,11 @@ colorscheme gruvbox-material
 
 "lightline
 let g:lightline = {
-\ 'colorscheme': 'gruvbox_material',
-\ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-\ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-\ 'active': { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ] }
-\ }
+      \ 'colorscheme': 'gruvbox_material',
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+      \ 'active': { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ] }
+      \ }
 
 "indentLine
 let g:indentLine_color_term = 238
@@ -123,7 +123,7 @@ let g:indentLine_char = '¦' "use ¦, ┆ or │
 
 "fzf
 command! -bang -nargs=? -complete=dir Files
-\ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 set pumblend=16
 
