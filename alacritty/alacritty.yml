@@ -5,21 +5,21 @@ key_bindings:
 - { key: "LBracket", mods: Control, chars: "\x1b" }
 
 font:
-  size: 17
+  size: 12
   normal:
-    family: "FiraCode Nerd Font"
-    style: Regular
+    family: "VictorMono Nerd Font"
+    style: Medium
 
   bold:
-    family: "FiraCode Nerd Font"
+    family: "VictorMono Nerd Font"
     style: Bold
 
   italic:
-    family: "Fira Code iScript"
+    family: "VictorMono Nerd Font"
     style: Italic
 
   bold_italic:
-    family: "FiraCode Nerd Font"
+    family: "VictorMono Nerd Font"
     style: Bold Italic
 
 # Colors (Gruvbox dark)
