@@ -5,6 +5,7 @@ ln -sf ~/Dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 #git
 ln -sf ~/Dotfiles/git/ignore ~/.config/git/ignore
+ln -sf ~/Dotfiles/git/config ~/.config/git/config
 
 #i3
 ln -sf ~/Dotfiles/i3/config ~/.config/i3/config
