@@ -1,6 +1,9 @@
 # 俺の*Dotfiles*
 
+![ScreenShot](Screenshot.png)
+
 ## tl;dr
+My config for
 - alacritty
 - vim
 - nvim
@@ -11,54 +14,15 @@
 - rofi
 - ranger
 
-### 導入方法:
+## Install:
 1. ~/Dotfiles に設置
-2. $ ~/Dotfiles/script/dotfilelinking.sh
-3. えんじょい
+1. $ ~/Dotfiles/script/dotfilelinking.sh
+1. えんじょい
 
-### TODO:
+## TODO:
 - [x] Powerline化終わり。フォントはVictorMonoに
 - [x] 各種キーバインドを整理/拡張
 - [x] 汚い設定ファイルを直す だいたい終わったがコメントの付け方に一貫性がない
 
-### Path:
-```
-├── LICENSE.txt
-├── README.md
-├── alacritty
-│   └── alacritty.yml
-├── git
-│   └── ignore
-├── i3
-│   ├── config
-│   └── wallpaper.jpg
-├── nvim
-│   └── init.vim
-├── ranger
-│   ├── commands.py
-│   ├── commands_full.py
-│   ├── rc.conf
-│   ├── rifle.conf
-│   └── scope.sh
-├── rofi
-│   ├── config
-│   └── system.sh
-├── script
-│   ├── colorpalette.sh
-│   ├── dotfilelinking.sh
-│   └── truecolor.sh
-├── tmux
-│   ├── getip.sh
-│   └── tmux.conf
-├── vim
-│   └── vimrc
-└── zsh
-    ├── p10k.zsh
-    ├── zshenv
-    └── zshrc
-
-10 directories, 23 files
-```
-
-### License
+## License
 MIT
