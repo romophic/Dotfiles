@@ -102,10 +102,15 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 "-----Plugin Setting-----"
-"gruvbox-material
+"gruvbox
 set background=dark
-let g:gruvbox_material_palette = 'material'
+let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_italicize_strings = 1
+
+"gruvbox-material
+let g:gruvbox_material_palette = 'mix'
 let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 
