@@ -13,13 +13,9 @@ autoload -Uz _zinit
 #--------zinit plugins--------#
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
-zinit light romkatv/powerlevel10k
+zinit light sindresorhus/pure
 
 #--------plugin setting--------#
-#Enabnle Powerlevel10k
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 #--------zsh setting--------#
 #Alias
@@ -80,6 +76,3 @@ compinit
 setopt auto_cd #フォルダ名だけで移動
 setopt auto_pushd #移動履歴
 setopt correct #コマンド訂正
-
-#Load Powerlevel10k configure
-[[ ! -f ~/Dotfiles/zsh/p10k.zsh ]] || source ~/Dotfiles/zsh/p10k.zsh
