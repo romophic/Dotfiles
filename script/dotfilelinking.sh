@@ -3,6 +3,9 @@
 #alacritty
 ln -sf ~/Dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
+#kitty
+ln -sf ~/Dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+
 #git
 ln -sf ~/Dotfiles/git/ignore ~/.config/git/ignore
 ln -sf ~/Dotfiles/git/config ~/.config/git/config
