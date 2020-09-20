@@ -25,7 +25,6 @@ Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
 "Git
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-Plug 'Yggdroot/indentLine'
 
 "Complete
 Plug 'prabirshrestha/vim-lsp'
@@ -33,8 +32,9 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'jiangmiao/auto-pairs'
 
-"Highlight
+"Looks
 Plug 'bfrg/vim-cpp-modern'
+Plug 'Yggdroot/indentLine'
 
 "Add function
 Plug 'markonm/traces.vim'
