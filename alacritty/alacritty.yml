@@ -7,19 +7,19 @@ key_bindings:
 font:
   size: 12
   normal:
-    family: "VictorMono Nerd Font"
+    family: "VictorMono Nerd Font Mono"
     style: Medium
 
   bold:
-    family: "VictorMono Nerd Font"
+    family: "VictorMono Nerd Font Mono"
     style: Bold
 
   italic:
-    family: "VictorMono Nerd Font"
-    style: Italic
+    family: "VictorMono Nerd Font Mono"
+    style: Medium Italic
 
   bold_italic:
-    family: "VictorMono Nerd Font"
+    family: "VictorMono Nerd Font Mono"
     style: Bold Italic
 
 # Colors (Gruvbox dark)
