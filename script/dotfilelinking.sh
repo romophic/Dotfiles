@@ -1,3 +1,7 @@
 #!/bin/bash
 
-ln -sf ~/Dotfiles/{alacritty,git,i3,i3blocks,nvim,ranger,rofi,tmux,vim,zsh} ~/.config/
+#in ~/.config/
+ln -sf ~/Dotfiles/{alacritty,kitty,git,i3,i3blocks,nvim,ranger,rofi} ~/.config/
+
+#in ~/
+ln -sf ~/Dotfiles/{vim,zsh,tmux}/.* ~/
