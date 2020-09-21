@@ -3,7 +3,7 @@
 set $mod Mod4
 
 #open terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 #kill focused window
 bindsym $mod+q kill
@@ -83,6 +83,18 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
+# workspace names / font-awesome
+set $ws1  "01 "
+set $ws2  "02 "
+set $ws3  "03 "
+set $ws4  "04 "
+set $ws5  "05 "
+set $ws6  "06 "
+set $ws7  "07 "
+set $ws8  "08 "
+set $ws9  "09 "
+set $ws10 "10 "
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -91,7 +103,6 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec --no-startup-id \
 "i3-nagbar -t warning -m 'Exit i3?' -b 'Shutdown' 'systemctl poweroff' -b 'Reboot' 'systemctl reboot' -b 'Logout' 'i3-msg exit'"
 #Audio key setting
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -117,30 +128,27 @@ mode "resize" {
 #feh for wallpaper
 exec --no-startup-id feh --bg-scale $HOME/Dotfiles/i3/wallpaper.jpg
 #compton for alpha window
-exec --no-startup-id compton -cbm 0.7
-#xss-look for auto look down
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id compton -cbm 0.8
 #nm-applet for network setting
 exec --no-startup-id nm-applet
 #fcitx for type japanese
 exec --no-startup-id fcitx
-#parcellite for clipboard manage
-exec --no-startup-id parcellite
-#volumeicon for set volume
-exec --no-startup-id volumeicon
 
 #----------Looks----------
 #no window title
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
 
-# class                 border  backgr. text    indicator child_border
-client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
-client.background       #ffffff
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
 
 #font
 font pango:monospace 8
@@ -152,8 +160,6 @@ floating_modifier $mod
 bar {
   # Set font Cica
   font pango:Victor Mono Nerd Font 12
-  # Set i3bar alpha
-  #i3bar_command i3bar --transparency
   # Set i3bar command
   status_command i3blocks
   separator_symbol "|"
@@ -162,15 +168,25 @@ bar {
   hidden_state hide
   modifier $mod
 
-  #colors
   colors {
-    background #000000
-    statusline #ffffff
-    separator #666666
-    focused_workspace  #4c7899 #285577 #ffffff
-    active_workspace   #333333 #5f676a #ffffff
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #2f343a #900000 #ffffff
-    binding_mode       #2f343a #900000 #ffffff
+    # bar background color
+    background $bg
+    # text color used for blocks that do not have a color specified.
+    statusline $yellow
+    # workspaces section
+    #                    border  backgr. text
+    focused_workspace    $aqua $aqua $darkgray
+    inactive_workspace   $darkgray $darkgray $yellow
+    active_workspace     $darkgray $darkgray $yellow
+    urgent_workspace     $red $red $bg
   }
 }
+
+# blue gruvbox
+# class                 border|backgr|text|indicator|child_border
+client.focused          $blue $blue $darkgray $purple $darkgray
+client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
+client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
+client.urgent           $red $red $white $red $red
+
+#end of window title bars & borders section
