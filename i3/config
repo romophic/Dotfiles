@@ -151,11 +151,12 @@ floating_modifier $mod
 #i3bar setting
 bar {
   # Set font Cica
-  font pango:Cica 12
+  font pango:Victor Mono Nerd Font 12
   # Set i3bar alpha
   #i3bar_command i3bar --transparency
   # Set i3bar command
-  status_command i3status
+  status_command i3blocks
+  separator_symbol "|"
   # if pushed $mod, show i3bar
   mode hide
   hidden_state hide
