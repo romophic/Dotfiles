@@ -15,6 +15,9 @@ ln -sf ~/Dotfiles/i3blocks/config ~/.config/i3blocks/config
 #kitty
 ln -sf ~/Dotfiles/kitty/* ~/.config/kitty/
 
+#neofetch
+ln -sf ~/Dotfiles/neofetch/* ~/.config/neofetch/
+
 #nvim
 ln -sf ~/Dotfiles/nvim/* ~/.config/nvim/
 
