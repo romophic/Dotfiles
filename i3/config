@@ -125,6 +125,8 @@ mode "resize" {
 }
 
 #----------Execution----------
+#keyboard repeat
+exec --no-startup-id xset r rate 256 32
 #feh for wallpaper
 exec --no-startup-id feh --bg-scale $HOME/Dotfiles/i3/wallpaper.jpg
 #compton for alpha window
@@ -133,6 +135,10 @@ exec --no-startup-id compton -cbm 0.8
 exec --no-startup-id nm-applet
 #fcitx for type japanese
 exec --no-startup-id fcitx
+#megasync for sync files
+exec --no-startup-id megasync
+#dunst for notification
+exec --no-startup-id dunst
 
 #----------Looks----------
 #no window title
@@ -149,9 +155,6 @@ set $purple #b16286
 set $aqua #689d68
 set $gray #a89984
 set $darkgray #1d2021
-
-#font
-font pango:monospace 8
 
 #press mod key to statusbar
 floating_modifier $mod
