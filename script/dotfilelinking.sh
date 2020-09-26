@@ -3,6 +3,9 @@
 #alacritty
 ln -sf ~/Dotfiles/alacritty/* ~/.config/alacritty/
 
+#dunst
+ln -sf ~/Dotfiles/dunst/* ~/.config/dunst/
+
 #git
 ln -sf ~/Dotfiles/git/* ~/.config/git/
 
