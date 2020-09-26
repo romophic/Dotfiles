@@ -5,14 +5,18 @@
 ## tl;dr
 My config for
 - alacritty
-- vim
-- nvim
-- tmux
-- zsh
+- dunst
 - git
 - i3
-- rofi
+- i3blocks
+- kitty
+- neofetch
+- nvim
 - ranger
+- rofi
+- tmux
+- vim
+- zsh
 
 ## Install:
 1. ~/Dotfiles に設置
