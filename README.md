@@ -19,9 +19,9 @@ My config for
 - zsh
 
 ## Install:
-1. ~/Dotfiles に設置
-1. $ ~/Dotfiles/script/dotfilelinking.sh
-1. えんじょい
+1. Set this repository in ~/Dotfiles
+1. Run `chmod 700 ~/Dotfiles/DotfilesLinker.sh && ~/Dotfiles/DotfilesLinker.sh`
+1. Enjoy!
 
 ## TODO:
 - [x] Powerline化終わり。フォントはVictorMonoに
