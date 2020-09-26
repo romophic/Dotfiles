@@ -96,11 +96,6 @@ nmap <Leader>k <Plug>(easymotion-k)
 "nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-"asyncomplete
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-
 "-----Plugin Setting-----"
 "gruvbox
 set background=dark
