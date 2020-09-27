@@ -30,6 +30,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'jiangmiao/auto-pairs'
 
 "Looks
@@ -134,6 +135,7 @@ command! -bang -nargs=? -complete=dir Files
 set pumblend=16
 
 "vim-lsp
+let g:lsp_signs_error = {'text': '✗'}
 if executable('clangd')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
@@ -148,7 +150,6 @@ if executable('pyls')
         \ 'allowlist': ['python'],
         \ })
 endif
-
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
@@ -156,10 +157,15 @@ function! s:on_lsp_buffer_enabled() abort
   nmap <buffer> <leader>rn <plug>(lsp-rename)
   nmap <buffer> <leader>K <plug>(lsp-hover)
 endfunction
-
 augroup lsp_install
   au!
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-let g:lsp_signs_error = {'text': '✗'}
+"acynccomplete-file
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+\ 'name': 'file',
+\ 'whitelist': ['*'],
+\ 'priority': 10,
+\ 'completor': function('asyncomplete#sources#file#completor')
+\ }))
