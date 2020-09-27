@@ -1,8 +1,10 @@
 key_bindings:
-- { key: "LBracket", mods: Control, chars: "\x1b" }
+  - { key: Key2,     mods: Control, action: ResetFontSize }
+  - { key: Key1,    mods: Control, action: DecreaseFontSize }
+  - { key: Key3,   mods: Control, action: IncreaseFontSize }
 
 font:
-  size: 12
+  size: 16
   normal:
     family: "VictorMono Nerd Font"
     style: Medium
