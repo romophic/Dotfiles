@@ -38,6 +38,10 @@ echo -e "\nMaking links..."
 echo "alacritty"
 ln -sf ~/Dotfiles/alacritty/* ~/.config/alacritty/
 
+#compton
+echo "compton"
+ln -sf ~/Dotfiles/compton/* ~/.config/compton/
+
 #dunst
 echo "dunst"
 ln -sf ~/Dotfiles/dunst/* ~/.config/dunst/
