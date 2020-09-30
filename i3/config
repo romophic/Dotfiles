@@ -128,7 +128,7 @@ mode "resize" {
 #keyboard repeat
 exec --no-startup-id xset r rate 256 32
 #feh for wallpaper
-exec --no-startup-id feh --bg-scale $HOME/Dotfiles/i3/wallpaper.jpg
+exec --no-startup-id feh --bg-scale ~/Dotfiles/i3/wallpaper.jpg
 #compton for alpha window
 exec --no-startup-id picom
 #nm-applet for network setting
@@ -185,11 +185,8 @@ bar {
   }
 }
 
-# blue gruvbox
 # class                 border|backgr|text|indicator|child_border
 client.focused          $blue $blue $darkgray $purple $darkgray
 client.focused_inactive $darkgray $darkgray $yellow $purple $darkgray
 client.unfocused        $darkgray $darkgray $yellow $purple $darkgray
 client.urgent           $red $red $white $red $red
-
-#end of window title bars & borders section
