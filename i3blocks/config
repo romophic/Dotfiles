@@ -6,7 +6,7 @@ interval=60
 
 [memory]
 label= 
-command=~/.config/i3blocks/memory.py
+command=~/Dotfiles/i3blocks/memory.py
 #command=free -h | awk 'match($0, /^Mem/){print $3 " / " $2}'
 color=#8fa1b3
 interval=60
@@ -16,18 +16,6 @@ label=
 command=echo "$(uptime | sed 's/.*load average: \(.*\)/\1/' | cut -d, -f1)/$(grep 'processor' /proc/cpuinfo | wc -l)"
 color=#8fa1b3
 interval=60
-
-[network]
-label= 
-command=[[ -n $(ip link show up dev wlp36s0) ]] && which wpa_cli &> /dev/null && echo "$({ echo 'status'; echo 'quit'; } | wpa_cli -i wlp4s0 | grep '^ssid=' | cut -d= -f2) : $(cat /proc/net/wireless | tail -1 | tr -s ' ' | cut -d' ' -f4 | sed 's/\./dBm/')"
-color=#8fa1b3
-interval=60
-
-[volume]
-label= 
-command=~/.config/i3blocks/volume.sh
-interval=once
-signal=1
 
 [date]
 label=
