@@ -38,10 +38,6 @@ echo -e "\nMaking links..."
 echo "alacritty"
 ln -sf ~/Dotfiles/alacritty/* ~/.config/alacritty/
 
-#compton
-echo "compton"
-ln -sf ~/Dotfiles/compton/* ~/.config/compton/
-
 #dunst
 echo "dunst"
 ln -sf ~/Dotfiles/dunst/* ~/.config/dunst/
@@ -69,6 +65,10 @@ ln -sf ~/Dotfiles/neofetch/* ~/.config/neofetch/
 #nvim
 echo "nvim"
 ln -sf ~/Dotfiles/nvim/* ~/.config/nvim/
+
+#picom
+echo "picom"
+ln -sf ~/Dotfiles/picom/* ~/.config/picom/
 
 #ranger
 echo "ranger"
