@@ -36,6 +36,10 @@ set nowritebackup
 if expand("%:r") == 'Makefile'
   set noexpandtab
 endif
+if has('persistent_undo')
+  set undodir=~/.vim/undo
+  set undofile
+endif
 
 "-----molokai-----"
 syntax enable
