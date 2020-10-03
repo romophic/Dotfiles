@@ -8,10 +8,7 @@ endif
 "-----Plugin-----"
 call plug#begin(stdpath('data') . '/plugged')
 "ColorScheme
-Plug 'morhetz/gruvbox'
 Plug 'sainnhe/gruvbox-material'
-Plug 'tomasr/molokai'
-Plug 'joshdick/onedark.vim'
 
 "Status
 Plug 'itchyny/lightline.vim'
@@ -71,6 +68,11 @@ augroup HighlightTrailingSpaces "行末のスペースを可視化
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
+if exists('$TMUX') && !exists('$NORENAME') "vimでファイルを開いたときに、tmuxのwindow名にファイル名を表示
+  au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
+  au VimLeave * call system('tmux set-window automatic-rename on')
+endif
+
 "Edit
 set expandtab "入力モードでTabキー押下時に半角スペースを挿入
 set shiftwidth=2 "インデント幅
@@ -98,11 +100,6 @@ nmap <Leader>k <Plug>(easymotion-k)
 map <C-n> :NERDTreeToggle<CR>
 
 "-----Plugin Setting-----"
-"gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = 'soft'
-let g:gruvbox_italicize_strings = 1
-
 "gruvbox-material
 let g:gruvbox_material_palette = 'mix'
 let g:gruvbox_material_background = 'medium'
