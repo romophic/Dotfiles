@@ -58,7 +58,6 @@ set nowritebackup
 set nobackup
 
 "-----molokai-----"
-syntax enable
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
