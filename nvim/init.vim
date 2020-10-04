@@ -141,7 +141,7 @@ if executable('clangd')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
         \ 'cmd': {server_info->['clangd']},
-        \ 'allowlist': ['cpp'],
+        \ 'allowlist': ['c','cpp'],
         \ })
 endif
 if executable('pyls')
