@@ -1,38 +1,49 @@
-"-----Vim Setting-----"
-"search
+"--------Vim Setting--------"
+"Search
 set ignorecase
 set smartcase
 set incsearch
 set hlsearch
+set nofoldenable
 
-"looks
+"Hightlight and Color
+syntax on
+set background=dark
 set cursorline
 set showmatch matchtime=1
-set showcmd
-set display=lastline
+
+"Look
+set termguicolors
 set title
 set number
 set relativenumber
-set completeopt=menuone,noinsert
+set showcmd
+set display=lastline
+set noshowmode
 set listchars=tab:»\ ,trail:\ ,space:･,eol:↲,nbsp:%
 set list
-
-"function
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-set smartindent
-set noerrorbells
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+if exists('$TMUX') && !exists('$NORENAME')
+  au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
+  au VimLeave * call system('tmux set-window automatic-rename on')
+endif
+language messages en_US.UTF-8
 
 "status
 set laststatus=2
 set statusline=%F%m%h%w[%Y]\ %=%<[%{&fenc!=''?&fenc:&enc}\/%{&ff}][%04v:%04l/%L\]
 
-"other
-set nobackup
-set noswapfile
-set nowritebackup
+"Edit
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set autoindent
+set smartindent
 if expand("%:r") == 'Makefile'
   set noexpandtab
 endif
@@ -40,6 +51,11 @@ if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
 endif
+
+"File
+set noswapfile
+set nowritebackup
+set nobackup
 
 "-----molokai-----"
 syntax enable
