@@ -42,52 +42,52 @@ call plug#end()
 
 "--------Vim Setting--------"
 "Search
-set ignorecase "検索するときに大文字小文字を区別しない
-set smartcase "小文字で検索すると大文字と小文字を無視して検索
-set incsearch "インクリメンタル検索 (検索ワードの最初の文字を入力した時点で検索が開始)
-set hlsearch "検索結果をハイライト表示
-set nofoldenable "検索にマッチした行以外を折りたたむ(フォールドする)機能
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set nofoldenable
 
-"Hightlight and Colors
-syntax on "シンタックスハイライト
-set background=dark "背景を暗くする
-set cursorline "カーソルのある行を強調表示
-set showmatch matchtime=1 "対応する括弧やブレースを表示
+"Hightlight and Color
+syntax on
+set background=dark
+set cursorline
+set showmatch matchtime=1
 
-"View
-set termguicolors "True Color
-set title "タイトルを表示
-set number "行番号の表示
-set relativenumber "行番号を動的表示
-set showcmd "ウィンドウの右下にまだ実行していない入力中のコマンドを表示
-set display=lastline "省略されずに表示
-set noshowmode "lightlineの下のステータスを削除
-augroup HighlightTrailingSpaces "行末のスペースを可視化
+"Look
+set termguicolors
+set title
+set number
+set relativenumber
+set showcmd
+set display=lastline
+set noshowmode
+augroup HighlightTrailingSpaces
   autocmd!
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
-
-if exists('$TMUX') && !exists('$NORENAME') "vimでファイルを開いたときに、tmuxのwindow名にファイル名を表示
+if exists('$TMUX') && !exists('$NORENAME')
   au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
   au VimLeave * call system('tmux set-window automatic-rename on')
 endif
+language messages en_US.UTF-8
 
 "Edit
-set expandtab "入力モードでTabキー押下時に半角スペースを挿入
-set shiftwidth=2 "インデント幅
-set softtabstop=2 "タブキー押下時に挿入される文字幅を指定
-set tabstop=2 "ファイル内にあるタブ文字の表示幅
-set autoindent "インデントを揃える
-set smartindent "改行時に入力された行の末尾に合わせて次の行のインデントを増減する
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set autoindent
+set smartindent
 if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
 endif
 
 "File
-set noswapfile "スワップファイルを作成しない
-set nowritebackup "ファイルを上書きする前にバックアップを作ることを無効化
+set noswapfile
+set nowritebackup
 set nobackup
 
 "-----KeyMap-----"
