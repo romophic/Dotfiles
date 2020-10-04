@@ -22,6 +22,11 @@ set display=lastline
 set noshowmode
 set listchars=tab:»\ ,trail:\ ,space:･,eol:↲,nbsp:%
 set list
+if has('vim_starting')
+    let &t_SI .= "\e[6 q"
+    let &t_EI .= "\e[2 q"
+    let &t_SR .= "\e[4 q"
+endif
 augroup HighlightTrailingSpaces
   autocmd!
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
