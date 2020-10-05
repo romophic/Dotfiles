@@ -16,6 +16,10 @@ zinit light zdharma/fast-syntax-highlighting
 zinit light sindresorhus/pure
 
 #--------plugin setting--------#
+PURE_PROMPT_SYMBOL="❯"
+PURE_PROMPT_VICMD_SYMBOL="❮"
+PURE_CMD_MAX_EXEC_TIME=1
+zstyle :prompt:pure:git:stash show yes
 
 #--------zsh setting--------#
 #Alias
