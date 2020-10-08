@@ -133,6 +133,8 @@ exec --no-startup-id feh --bg-scale ~/Dotfiles/i3/wallpaper.jpg
 exec --no-startup-id picom
 #nm-applet for network setting
 exec --no-startup-id nm-applet
+#volumeicon for audio setting
+exec --no-startup-id volumeicon
 #fcitx for type japanese
 exec --no-startup-id fcitx
 #megasync for sync files
