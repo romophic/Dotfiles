@@ -127,10 +127,12 @@ mode "resize" {
 #----------Execution----------
 #keyboard repeat
 exec --no-startup-id xset r rate 256 32
+#no beep sound
+exec --no-startup-id xset -b
 #feh for wallpaper
 exec --no-startup-id feh --bg-scale ~/Dotfiles/i3/wallpaper.jpg
 #compton for alpha window
-exec --no-startup-id picom
+exec --no-startup-id picom --config ~/Dotfiles/picom/picom.conf
 #nm-applet for network setting
 exec --no-startup-id nm-applet
 #volumeicon for audio setting
