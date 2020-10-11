@@ -16,20 +16,23 @@ zinit light zdharma/fast-syntax-highlighting
 zinit light sindresorhus/pure
 
 #--------plugin setting--------#
+#pure
 PURE_PROMPT_SYMBOL="❯"
 PURE_PROMPT_VICMD_SYMBOL="❮"
 PURE_CMD_MAX_EXEC_TIME=1
 zstyle :prompt:pure:git:stash show yes
 
 #--------zsh setting--------#
-#Alias
-alias ls="ls -GF" #lsのカスタム(フォルダに/引いたり...)
-alias la='ls -la' #省略
-alias ytm='youtube-dl --extract-audio --audio-format mp3' #長いから省略
+if [ "$(uname)" = 'Darwin' ]; then #Mac
+  alias ls="ls -GF"
+  export PATH="$PATH:/usr/local/Cellar/llvm/10.0.0_3/bin"
+  export PATH="/usr/local/sbin:$PATH"
+else #Linux
+  alias ls="ls -F --color=auto"
+fi
 
-#Path
-export PATH="$PATH:/usr/local/Cellar/llvm/10.0.0_3/bin" #for mac clangd path
-export PATH="/usr/local/sbin:$PATH"
+alias la='ls -la'
+alias ytm='youtube-dl --extract-audio --audio-format mp3'
 
 #History and complete
 HISTFILE=~/.zsh_history
@@ -79,4 +82,3 @@ compinit
 #Others
 setopt auto_cd #フォルダ名だけで移動
 setopt auto_pushd #移動履歴
-setopt correct #コマンド訂正
