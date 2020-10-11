@@ -20,7 +20,7 @@ My config for
 
 ## Install:
 1. Set this repository in ~/Dotfiles
-1. Run `chmod 700 ~/Dotfiles/DotfilesLinker.sh && ~/Dotfiles/DotfilesLinker.sh`
+1. Run `cd && git clone https://github.com/NULLCT/Dotfiles && chmod 700 ~/Dotfiles/DotfilesLinker.sh && ~/Dotfiles/DotfilesLinker.sh`
 1. Enjoy!
 
 ## TODO:
