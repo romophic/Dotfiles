@@ -3,7 +3,7 @@
 set $mod Mod4
 
 #open terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec i3-sensible-terminal
 
 #kill focused window
 bindsym $mod+q kill
@@ -130,7 +130,7 @@ exec --no-startup-id xset r rate 256 32
 #no beep sound
 exec --no-startup-id xset -b
 #feh for wallpaper
-exec --no-startup-id feh --bg-scale ~/Dotfiles/i3/wallpaper.jpg
+exec --no-startup-id feh --bg-scale ~/Dotfiles/i3/solarized-wallpaper-manjaro.png
 #compton for alpha window
 exec --no-startup-id picom --config ~/Dotfiles/picom/picom.conf
 #nm-applet for network setting
