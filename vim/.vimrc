@@ -13,7 +13,6 @@ set cursorline
 set showmatch matchtime=1
 
 "Look
-set termguicolors
 set title
 set number
 set relativenumber
