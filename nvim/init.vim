@@ -84,6 +84,7 @@ if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
 endif
+set clipboard+=unnamedplus
 
 "File
 set noswapfile
