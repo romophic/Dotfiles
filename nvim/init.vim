@@ -62,6 +62,7 @@ set number
 set relativenumber
 set showcmd
 set display=lastline
+set pumblend=16
 set noshowmode
 augroup HighlightTrailingSpaces
   autocmd!
@@ -138,7 +139,8 @@ let g:indentLine_char = '¦' "use ¦, ┆ or │
 command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-set pumblend=16
+"nerdtree
+let NERDTreeWinSize=26
 
 "vim-lsp
 let g:lsp_signs_error = {'text': '✗'}
