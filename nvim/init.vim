@@ -38,6 +38,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 "--------Vim Setting--------"
@@ -102,7 +103,7 @@ nmap <Leader>j <Plug>(easymotion-j)
 nmap <Leader>k <Plug>(easymotion-k)
 
 "nerdtree
-map <C-n> :NERDTreeToggle<CR>
+map <Leader>n :NERDTreeToggle<CR>
 
 "-----Plugin Setting-----"
 "gruvbox-material
@@ -171,3 +172,7 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 \ 'priority': 10,
 \ 'completor': function('asyncomplete#sources#file#completor')
 \ }))
+
+"vista
+let g:vista_default_executive = 'vim_lsp'
+let g:vista_icon_indent = ["╰ ", "├ "]
