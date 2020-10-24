@@ -105,6 +105,9 @@ nmap <Leader>k <Plug>(easymotion-k)
 "nerdtree
 map <Leader>n :NERDTreeToggle<CR>
 
+"vista
+map <Leader>v :Vista!!<CR>
+
 "-----Plugin Setting-----"
 "gruvbox-material
 let g:gruvbox_material_palette = 'mix'
