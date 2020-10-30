@@ -1,3 +1,6 @@
+window:
+  decorations: none
+
 key_bindings:
   - { key: "LBracket", mods: Control, chars: "\x1b" }
   - { key: Key2,     mods: Control, action: ResetFontSize }
@@ -5,7 +8,7 @@ key_bindings:
   - { key: Key3,   mods: Control, action: IncreaseFontSize }
 
 font:
-  size: 16
+  size: 18
   normal:
     family: "VictorMono Nerd Font"
     style: Medium
@@ -22,33 +25,26 @@ font:
     family: "VictorMono Nerd Font"
     style: Bold Italic
 
-# Colors (Gruvbox dark)
+# Gruvbox Material (material medium)
 colors:
-  # Default colors
   primary:
-    # hard contrast: background = '#1d2021'
-    background: '#282828'
-    # soft contrast: background = '#32302f'
-    foreground: '#ebdbb2'
-
-  # Normal colors
+    background: '0x282828'
+    foreground: '0xd4be98'
   normal:
-    black:   '#282828'
-    red:     '#cc241d'
-    green:   '#98971a'
-    yellow:  '#d79921'
-    blue:    '#458588'
-    magenta: '#b16286'
-    cyan:    '#689d6a'
-    white:   '#a89984'
-
-  # Bright colors
+    black:   '0x3c3836'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xd8a657'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xd4be98'
   bright:
-    black:   '#928374'
-    red:     '#fb4934'
-    green:   '#b8bb26'
-    yellow:  '#fabd2f'
-    blue:    '#83a598'
-    magenta: '#d3869b'
-    cyan:    '#8ec07c'
-    white:   '#ebdbb2'
+    black:   '0x3c3836'
+    red:     '0xea6962'
+    green:   '0xa9b665'
+    yellow:  '0xd8a657'
+    blue:    '0x7daea3'
+    magenta: '0xd3869b'
+    cyan:    '0x89b482'
+    white:   '0xd4be98'
