@@ -64,6 +64,7 @@ set showcmd
 set display=lastline
 set pumblend=16
 set noshowmode
+language messages en_US.UTF-8
 augroup HighlightTrailingSpaces
   autocmd!
   autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
@@ -73,7 +74,6 @@ if exists('$TMUX') && !exists('$NORENAME')
   au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
   au VimLeave * call system('tmux set-window automatic-rename on')
 endif
-language messages en_US.UTF-8
 
 "Edit
 set expandtab
@@ -82,11 +82,11 @@ set softtabstop=2
 set tabstop=2
 set autoindent
 set smartindent
+set clipboard+=unnamedplus
 if has('persistent_undo')
   set undodir=~/.vim/undo
   set undofile
 endif
-set clipboard+=unnamedplus
 
 "File
 set noswapfile
@@ -117,12 +117,6 @@ let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight Folded ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
-
 "lightline
 let g:lightline = {
       \ 'colorscheme': 'gruvbox_material',
@@ -132,15 +126,11 @@ let g:lightline = {
       \ }
 
 "indentLine
-let g:indentLine_color_term = 238
 let g:indentLine_char = '¦' "use ¦, ┆ or │
 
 "fzf
 command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-"nerdtree
-let NERDTreeWinSize=26
 
 "vim-lsp
 let g:lsp_signs_error = {'text': '✗'}
