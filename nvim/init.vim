@@ -31,7 +31,7 @@ Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'jiangmiao/auto-pairs'
 
 "Looks
-Plug 'bfrg/vim-cpp-modern'
+Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 
 "Add function
@@ -111,7 +111,7 @@ map <Leader>v :Vista!!<CR>
 
 "-----Plugin Setting-----"
 "gruvbox-material
-let g:gruvbox_material_palette = 'mix'
+let g:gruvbox_material_palette = 'material'
 let g:gruvbox_material_background = 'medium'
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
