@@ -11,7 +11,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'sainnhe/gruvbox-material'
 
 "Status
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
 
 "File explor
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -123,13 +123,8 @@ highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
-"lightline
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox_material',
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-      \ 'active': { 'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ] }
-      \ }
+"airline
+let g:airline_powerline_fonts = 1
 
 "indentLine
 let g:indentLine_char = '¦' "use ¦, ┆ or │
