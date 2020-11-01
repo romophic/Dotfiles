@@ -36,8 +36,6 @@ Plug 'Yggdroot/indentLine'
 
 "Add function
 Plug 'markonm/traces.vim'
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
 Plug 'liuchengxu/vista.vim'
 call plug#end()
 
