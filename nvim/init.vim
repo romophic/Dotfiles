@@ -78,10 +78,8 @@ set tabstop=2
 set autoindent
 set smartindent
 set clipboard+=unnamedplus
-if has('persistent_undo')
-  set undodir=~/.vim/undo
-  set undofile
-endif
+set undodir=~/.vim/undo
+set undofile
 
 "File
 set noswapfile
@@ -96,8 +94,8 @@ let mapleader="\<Space>"
 map <Leader>n :NERDTreeToggle<CR>
 
 "vim-lsp
-nmap <buffer> <leader>rn <plug>(lsp-rename)
-nmap <buffer> <leader>K <plug>(lsp-hover)
+nmap <buffer> <leader>r <plug>(lsp-rename)
+nmap <buffer> <leader>i <plug>(lsp-hover)
 
 "vista
 map <Leader>v :Vista!!<CR>
