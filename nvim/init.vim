@@ -63,7 +63,7 @@ set display=lastline
 set pumblend=16
 set noshowmode
 set list
-set listchars=trail:·
+set listchars=tab:=>,trail:·
 language messages en_US.UTF-8
 if exists('$TMUX') && !exists('$NORENAME')
   au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
