@@ -62,6 +62,8 @@ set showcmd
 set display=lastline
 set pumblend=16
 set noshowmode
+set list
+set listchars=trail:·
 language messages en_US.UTF-8
 if exists('$TMUX') && !exists('$NORENAME')
   au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
@@ -90,14 +92,12 @@ set nobackup
 "nvim
 let mapleader="\<Space>"
 
-"easy-motion
-let g:EasyMotion_do_mapping=0
-nmap <Leader>s <Plug>(easymotion-s2)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
-
 "nerdtree
 map <Leader>n :NERDTreeToggle<CR>
+
+"vim-lsp
+nmap <buffer> <leader>rn <plug>(lsp-rename)
+nmap <buffer> <leader>K <plug>(lsp-hover)
 
 "vista
 map <Leader>v :Vista!!<CR>
@@ -146,8 +146,6 @@ function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
   if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-  nmap <buffer> <leader>rn <plug>(lsp-rename)
-  nmap <buffer> <leader>K <plug>(lsp-hover)
 endfunction
 augroup lsp_install
   au!
