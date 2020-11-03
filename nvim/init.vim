@@ -117,6 +117,9 @@ highlight EndOfBuffer ctermbg=NONE guibg=NONE
 "airline
 let g:airline_powerline_fonts = 1
 
+"nerdtree
+let g:NERDTreeShowHidden = 1
+
 "indentLine
 let g:indentLine_char = '¦' "use ¦, ┆ or │
 
