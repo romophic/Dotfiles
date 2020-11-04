@@ -11,7 +11,8 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'sainnhe/gruvbox-material'
 
 "Status
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'halkn/lightline-lsp'
 
 "File explor
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -114,8 +115,30 @@ highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
-"airline
-let g:airline_powerline_fonts = 1
+"lightline
+let g:lightline = {
+      \ 'colorscheme': 'gruvbox_material',
+      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
+      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
+      \ 'component_expand': {
+      \   'lsp_warnings': 'lightline_lsp#warnings',
+      \   'lsp_errors':   'lightline_lsp#errors',
+      \   'lsp_ok':       'lightline_lsp#ok',
+      \ },
+      \ 'component_type': {
+      \   'lsp_warnings': 'warning',
+      \   'lsp_errors':   'error',
+      \   'lsp_ok':       'middle',
+      \ },
+      \
+      \ 'active': {
+      \   'right': [
+      \     [ 'lsp_errors', 'lsp_warnings', 'lsp_ok' ],
+      \     [ 'percent', 'lineinfo' ],
+      \     [ 'fileformat', 'fileencoding', 'filetype'  ],
+      \   ],
+      \ },
+      \ }
 
 "nerdtree
 let g:NERDTreeShowHidden = 1
