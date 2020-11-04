@@ -16,8 +16,8 @@ Plug 'vim-airline/vim-airline'
 "File explor
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'ryanoasis/vim-devicons', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree',
+Plug 'ryanoasis/vim-devicons',
 
 "Git
 Plug 'airblade/vim-gitgutter'
