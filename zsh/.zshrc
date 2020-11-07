@@ -24,6 +24,7 @@ zstyle :prompt:pure:git:stash show yes
 
 #--------zsh setting--------#
 if [ "$(uname)" = 'Darwin' ]; then #Mac
+  export PATH="/usr/local/sbin:$PATH"
   alias ls="ls -GF"
 else #Linux
   alias ls="ls -F --color=auto"
