@@ -151,7 +151,6 @@ command! -bang -nargs=? -complete=dir Files
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
 "vim-lsp
-let g:lsp_signs_error = {'text': '✗'}
 if executable('clangd')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'clangd',
@@ -164,6 +163,13 @@ if executable('pyls')
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
         \ 'allowlist': ['python'],
+        \ })
+endif
+if executable('rls')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rls']},
+        \ 'allowlist': ['rust'],
         \ })
 endif
 function! s:on_lsp_buffer_enabled() abort
