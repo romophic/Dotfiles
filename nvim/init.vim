@@ -38,6 +38,7 @@ Plug 'Yggdroot/indentLine'
 "Add function
 Plug 'markonm/traces.vim'
 Plug 'liuchengxu/vista.vim'
+Plug 'luochen1990/rainbow'
 call plug#end()
 
 "--------Vim Setting--------"
@@ -193,3 +194,6 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 "vista
 let g:vista_default_executive = 'vim_lsp'
 let g:vista_icon_indent = ["╰ ", "├ "]
+
+"rainbow
+let g:rainbow_active = 1
