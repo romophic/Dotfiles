@@ -18,7 +18,6 @@ set number
 set relativenumber
 set showcmd
 set display=lastline
-set noshowmode
 set listchars=tab:»\ ,trail:\ ,space:･,eol:↲,nbsp:%
 set list
 if has('vim_starting')
@@ -32,7 +31,7 @@ augroup HighlightTrailingSpaces
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 if exists('$TMUX') && !exists('$NORENAME')
-  au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
+  au BufEnter * if empty(&buftype) | call system('tmux rename-window "vim->"'.expand('%:t:S')) | endif
   au VimLeave * call system('tmux set-window automatic-rename on')
 endif
 language messages en_US.UTF-8
