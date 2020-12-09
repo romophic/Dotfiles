@@ -9,5 +9,5 @@
 	default = current
 
 [core]
-	editor = nvim
-	quotepath = false
+  editor = nvim
+  quotepath = false
