@@ -65,7 +65,7 @@ set display=lastline
 set pumblend=16
 set noshowmode
 set list
-set listchars=tab:=>,trail:·
+set listchars=tab:»\ ,trail:·
 language messages en_US.UTF-8
 if exists('$TMUX') && !exists('$NORENAME')
   au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
@@ -82,6 +82,7 @@ set smartindent
 set clipboard+=unnamedplus
 set undodir=~/.vim/undo
 set undofile
+autocmd FileType python set shiftwidth=2 tabstop=2 expandtab
 
 "File
 set noswapfile
@@ -110,10 +111,10 @@ let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight Folded ctermbg=NONE guibg=NONE
+highlight Normal      ctermbg=NONE guibg=NONE
+highlight NonText     ctermbg=NONE guibg=NONE
+highlight LineNr      ctermbg=NONE guibg=NONE
+highlight Folded      ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 "lightline
