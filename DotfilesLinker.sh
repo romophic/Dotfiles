@@ -66,6 +66,10 @@ ln -sf ~/Dotfiles/neofetch/* ~/.config/neofetch/
 echo "nvim"
 ln -sf ~/Dotfiles/nvim/* ~/.config/nvim/
 
+#polybar
+echo "polybar"
+ln -sf ~/Dotfiles/polybar/* ~/.config/polybar/
+
 #picom
 echo "picom"
 ln -sf ~/Dotfiles/picom/* ~/.config/picom/
