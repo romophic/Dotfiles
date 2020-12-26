@@ -158,8 +158,6 @@ exec --no-startup-id megasync
 exec --no-startup-id dunst
 #i3-scrot fort printscreen
 bindsym Print exec --no-startup-id i3-scrot
-#clipit for manage clipboard
-exec --no-startup-id clipit
 #pamac-tray for watch pacman
 exec --no-startup-id pamac-tray
 #xautolock for auto lock
