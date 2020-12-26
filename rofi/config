@@ -1,7 +1,7 @@
 rofi.modi:  window,drun,system:~/.config/rofi/system.sh
 rofi.sidebar-mode:  true
-rofi.hide-scrollbar: true
 rofi.kb-cancel: Escape,Control+bracketleft
-rofi.kb-mode-previous: Alt+u
-rofi.kb-mode-next: Alt+i
 rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi
+rofi.show-icons: true
+rofi.font: Victor Mono NerdFont Regular 12
+rofi.width: 32
