@@ -50,14 +50,6 @@ ln -sf ~/Dotfiles/git/* ~/.config/git/
 echo "i3"
 ln -sf ~/Dotfiles/i3/config ~/.config/i3/config
 
-#i3blocks
-echo "i3blocks"
-ln -sf ~/Dotfiles/i3blocks/config ~/.config/i3blocks/config
-
-#kitty
-echo "kitty"
-ln -sf ~/Dotfiles/kitty/* ~/.config/kitty/
-
 #neofetch
 echo "neofetch"
 ln -sf ~/Dotfiles/neofetch/* ~/.config/neofetch/
