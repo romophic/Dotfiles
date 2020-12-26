@@ -164,6 +164,8 @@ exec --no-startup-id clipit
 exec --no-startup-id pamac-tray
 #xautolock for auto lock
 exec --no-startup-id xautolock -time 10 -locker blurlock
+#polybar for bar
+exec --no-startup-id polybar example
 
 #----------Looks----------
 #no window title
@@ -172,7 +174,7 @@ for_window [class="^.*"] border pixel 2
 #new_window 1pixel
 #hide_edge_borders vertical
 #gaps
-gaps inner 10
+gaps inner 16
 
 # set primary gruvbox colorscheme colors
 set $bg #282828
@@ -187,32 +189,6 @@ set $darkgray #1d2021
 
 #press mod key to statusbar
 floating_modifier $mod
-
-#i3bar setting
-bar {
-  # Set font Cica
-  font pango:Victor Mono Nerd Font 12
-  # Set i3bar command
-  status_command i3blocks
-  separator_symbol "|"
-  # if pushed $mod, show i3bar
-  mode hide
-  hidden_state hide
-  modifier $mod
-
-  colors {
-    # bar background color
-    background $bg
-    # text color used for blocks that do not have a color specified.
-    statusline $yellow
-    # workspaces section
-    #                    border  backgr. text
-    focused_workspace    $aqua $aqua $darkgray
-    inactive_workspace   $darkgray $darkgray $yellow
-    active_workspace     $darkgray $darkgray $yellow
-    urgent_workspace     $red $red $bg
-  }
-}
 
 # class                 border|backgr|text|indicator|child_border
 client.focused          $blue $blue $darkgray $purple $darkgray
