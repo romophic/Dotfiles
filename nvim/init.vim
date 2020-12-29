@@ -34,6 +34,7 @@ Plug 'jiangmiao/auto-pairs'
 "Looks
 Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
+Plug 'junegunn/goyo.vim'
 
 "Add function
 Plug 'markonm/traces.vim'
@@ -102,6 +103,9 @@ nmap <buffer> <leader>i <plug>(lsp-hover)
 
 "vista
 map <Leader>v :Vista!!<CR>
+
+"ZEN
+map <Leader>zen :Goyo<CR>
 
 "-----Plugin Setting-----"
 "gruvbox-material
