@@ -18,7 +18,7 @@ set number
 set relativenumber
 set showcmd
 set display=lastline
-set listchars=tab:»\ ,trail:\ ,space:･,eol:↲,nbsp:%
+set listchars=tab:»\ ,trail:·
 set list
 if has('vim_starting')
   let &t_SI .= "\e[6 q"
