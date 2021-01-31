@@ -65,10 +65,7 @@ function cdd() {
 }
 zle -N cdd
 fd() {
-  local dir
-  dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
+  cd $(find . -type d | fzf)
 }
 zle -N fd
 
