@@ -11,8 +11,9 @@ syntax on
 set background=dark
 set cursorline
 set showmatch matchtime=1
+let loaded_matchparen = 1
 
-"Look
+"Looks
 set title
 set number
 set relativenumber
@@ -57,6 +58,7 @@ set nowritebackup
 set nobackup
 
 "-----molokai-----"
+let g:molokai_original = 1
 " Vim color file
 "
 " Author: Tomas Restrepo <tomas@winterdom.com>
