@@ -68,10 +68,6 @@ set noshowmode
 set list
 set listchars=tab:»\ ,trail:·
 language messages en_US.UTF-8
-if exists('$TMUX') && !exists('$NORENAME')
-  au BufEnter * if empty(&buftype) | call system('tmux rename-window "nvim->"'.expand('%:t:S')) | endif
-  au VimLeave * call system('tmux set-window automatic-rename on')
-endif
 
 "Edit
 set expandtab
