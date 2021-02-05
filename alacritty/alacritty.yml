@@ -3,6 +3,8 @@ window:
 
 alt_send_esc: false
 
+background_opacity: 0.8
+
 key_bindings:
   - { key: "LBracket", mods: Control, chars: "\x1b" }
   - { key: Key1, mods: Control, action: DecreaseFontSize }
@@ -10,7 +12,7 @@ key_bindings:
   - { key: Key3, mods: Control, action: IncreaseFontSize }
 
 font:
-  size: 18
+  size: 16
   normal:
     family: "VictorMono Nerd Font"
     style: Medium
