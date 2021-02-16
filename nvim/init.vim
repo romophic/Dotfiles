@@ -90,18 +90,22 @@ set nobackup
 "nvim
 let mapleader="\<Space>"
 
+"vim-plug
+nmap <Leader>pud :PlugUpdate<CR>
+nmap <Leader>pug :PlugUpgrade<CR>
+
 "nerdtree
-map <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 
 "vim-lsp
 nmap <buffer> <leader>r <plug>(lsp-rename)
 nmap <buffer> <leader>i <plug>(lsp-hover)
 
 "vista
-map <Leader>v :Vista!!<CR>
+nmap <Leader>v :Vista!!<CR>
 
 "ZEN
-map <Leader>zen :Goyo<CR>
+nmap <Leader>zen :Goyo<CR>
 
 "-----Plugin Setting-----"
 "gruvbox-material
