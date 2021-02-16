@@ -10,8 +10,13 @@ fi
 source "$ZINIT[BIN_DIR]/zinit.zsh"
 
 #--------plugins--------#
+#prompt
 zinit light sindresorhus/pure
+
+#suggestion
 zinit light zsh-users/zsh-autosuggestions
+
+#color
 zinit light zdharma/fast-syntax-highlighting
 
 #--------plugin setting--------#
@@ -23,8 +28,9 @@ else #Linux
   alias ls="ls -F --color=auto"
 fi
 
-alias la='ls -la'
-alias ytm='youtube-dl --extract-audio --audio-format mp3'
+alias la="ls -la"
+alias ytm="youtube-dl --extract-audio --audio-format mp3"
+alias emacs="vim"
 
 #History and complete
 HISTFILE=$HOME/.zsh_history
