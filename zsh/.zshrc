@@ -1,6 +1,5 @@
-#--------zinit installer--------#
-declare -A ZINIT=([BIN_DIR]="$HOME/.local/share/zsh/bin" \
-                  [HOME_DIR]="$HOME/.local/share/zsh/")
+#--------zinit--------#
+declare -A ZINIT=([BIN_DIR]="$HOME/.local/share/zsh/bin" [HOME_DIR]="$HOME/.local/share/zsh/")
 if [[ ! -f $ZINIT[BIN_DIR]/zinit.zsh ]]; then
   print -P "%F{33}▓▒░ %F{220}Installing DHARMA Initiative Plugin Manager (zdharma/zinit)…%f"
   command mkdir -p $ZINIT[HOME_DIR] && command chmod g-rwX $ZINIT[HOME_DIR]
@@ -9,24 +8,16 @@ if [[ ! -f $ZINIT[BIN_DIR]/zinit.zsh ]]; then
     print -P "%F{160}▓▒░ The clone has failed.%f"
 fi
 source "$ZINIT[BIN_DIR]/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
 
-#--------zinit plugins--------#
+#--------plugins--------#
+zinit light sindresorhus/pure
 zinit light zsh-users/zsh-autosuggestions
 zinit light zdharma/fast-syntax-highlighting
-zinit light sindresorhus/pure
 
 #--------plugin setting--------#
-#pure
-PURE_PROMPT_SYMBOL="❯"
-PURE_PROMPT_VICMD_SYMBOL="❮"
-PURE_CMD_MAX_EXEC_TIME=1
-zstyle :prompt:pure:git:stash show yes
 
 #--------zsh setting--------#
 if [ "$(uname)" = 'Darwin' ]; then #Mac
-  export PATH="/usr/local/sbin:$PATH"
   alias ls="ls -GF"
 else #Linux
   alias ls="ls -F --color=auto"
@@ -36,9 +27,7 @@ alias la='ls -la'
 alias ytm='youtube-dl --extract-audio --audio-format mp3'
 
 #History and complete
-HISTFILE=~/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTFILE=$HOME/.zsh_history
 setopt share_history         # コマンド履歴ファイルを共有する
 setopt hist_ignore_all_dups # ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
 setopt hist_ignore_space # スペースで始まるコマンド行はヒストリリストから削除
@@ -59,11 +48,11 @@ zstyle ':chpwd:*'      recent-dirs-max 500
 zstyle ':chpwd:*'      recent-dirs-default yes
 zstyle ':completion:*' recent-dirs-insert both
 function cdd() {
-    target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
-    target_dir=`echo ${target_dir/\~/$HOME}`
-    if [ -n "$target_dir" ]; then
-        cd $target_dir
-    fi
+  target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
+  target_dir=`echo ${target_dir/\~/$HOME}`
+  if [ -n "$target_dir" ]; then
+    cd $target_dir
+  fi
 }
 zle -N cdd
 fd() {
