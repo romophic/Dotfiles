@@ -10,24 +10,14 @@ fi
 source "$ZINIT[BIN_DIR]/zinit.zsh"
 
 #--------plugins--------#
-#prompt
 zinit light sindresorhus/pure
-
-#suggestion
 zinit light zsh-users/zsh-autosuggestions
-
-#color
 zinit light zdharma/fast-syntax-highlighting
 
 #--------plugin setting--------#
 
 #--------zsh setting--------#
-if [ "$(uname)" = 'Darwin' ]; then #Mac
-  alias ls="ls -GF"
-else #Linux
-  alias ls="ls -F --color=auto"
-fi
-
+alias ls="ls -GF"
 alias la="ls -la"
 alias ytm="youtube-dl --extract-audio --audio-format mp3"
 alias emacs="vim"
@@ -43,6 +33,7 @@ setopt hist_no_store         # historyコマンドは履歴に登録しない
 setopt hist_expand # 補完時にヒストリを自動的に展開
 setopt append_history        # 履歴を追加 (毎回 .zsh_history を作るのではなく)
 setopt inc_append_history    # 履歴をインクリメンタルに追加
+autoload -Uz compinit && compinit
 zstyle ':completion:*:default' menu select #補間メニュー
 
 bindkey -v #Like Vim
@@ -69,8 +60,6 @@ zle -N fd
 #View
 setopt list_packed #補間候補を詰める
 setopt list_types #補間候補一覧で種類を区別
-autoload -Uz compinit #補完&色つけ
-compinit
 
 #Others
 setopt auto_cd #フォルダ名だけで移動
