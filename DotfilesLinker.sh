@@ -85,4 +85,3 @@ ln -sf ~/Dotfiles/vim/.vimrc ~/.vimrc
 #zsh
 echo "zsh"
 ln -sf ~/Dotfiles/zsh/.zshrc ~/.zshrc
-ln -sf ~/Dotfiles/zsh/.zshenv ~/.zshenv
