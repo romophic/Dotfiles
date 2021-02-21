@@ -17,50 +17,47 @@ zinit light zdharma/fast-syntax-highlighting
 #--------plugin setting--------#
 
 #--------zsh setting--------#
+#alias
 alias ls="ls -GF --color=auto"
 alias la="ls -la"
 alias ytm="youtube-dl --extract-audio --audio-format mp3"
 alias emacs="vim"
 
-#History and complete
-HISTFILE=$HOME/.zsh_history
-setopt share_history         # コマンド履歴ファイルを共有する
-setopt hist_ignore_all_dups # ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
-setopt hist_ignore_space # スペースで始まるコマンド行はヒストリリストから削除
-setopt hist_ignore_dups # 重複を記録しない
-setopt hist_reduce_blanks    # 余分な空白は詰めて記録
-setopt hist_no_store         # historyコマンドは履歴に登録しない
-setopt hist_expand # 補完時にヒストリを自動的に展開
-setopt append_history        # 履歴を追加 (毎回 .zsh_history を作るのではなく)
-setopt inc_append_history    # 履歴をインクリメンタルに追加
-autoload -Uz compinit && compinit
-zstyle ':completion:*:default' menu select #補間メニュー
+#history
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=1000
+export SAVEHIST=100000
 
-bindkey -v #Like Vim
-#cddの設定
-autoload -Uz is-at-least
+setopt hist_ignore_all_dups #ヒストリに追加されるコマンド行が古いものと同じなら古いものを削除
+setopt hist_ignore_space #スペースで始まるコマンド行はヒストリリストから削除
+setopt hist_reduce_blanks  # 余分な空白は詰めて記録
+setopt hist_save_no_dups # 古いコマンドと同じものは無視 
+setopt inc_append_history # 履歴をインクリメンタルに追加
+
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 1000
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/zsh/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true1~
+
+#comps
+autoload -U compinit && compinit
 autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
 add-zsh-hook chpwd chpwd_recent_dirs
-zstyle ':chpwd:*'      recent-dirs-max 500
-zstyle ':chpwd:*'      recent-dirs-default yes
-zstyle ':completion:*' recent-dirs-insert both
+
+zstyle ':completion:*:default' list-colors di=34 ex=32 '=*.c=35'
+zstyle ':completion:*:default' menu select
+
+#other
+bindkey -v #vim like
+
+#cddの設定
 function cdd() {
-  target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
-  target_dir=`echo ${target_dir/\~/$HOME}`
-  if [ -n "$target_dir" ]; then
-    cd $target_dir
-  fi
+  cd $(cdr -l | awk '{ print $2 }'| fzf)
 }
 zle -N cdd
+
 fd() {
   cd $(find . -type d | fzf)
 }
 zle -N fd
-
-#View
-setopt list_packed #補間候補を詰める
-setopt list_types #補間候補一覧で種類を区別
-
-#Others
-setopt auto_cd #フォルダ名だけで移動
-setopt auto_pushd #移動履歴
