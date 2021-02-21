@@ -189,11 +189,11 @@ augroup END
 
 "acynccomplete-file
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-\ 'name': 'file',
-\ 'whitelist': ['*'],
-\ 'priority': 10,
-\ 'completor': function('asyncomplete#sources#file#completor')
-\ }))
+      \ 'name': 'file',
+      \ 'whitelist': ['*'],
+      \ 'priority': 10,
+      \ 'completor': function('asyncomplete#sources#file#completor')
+      \ }))
 
 "vista
 let g:vista_default_executive = 'vim_lsp'
