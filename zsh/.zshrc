@@ -17,7 +17,7 @@ zinit light zdharma/fast-syntax-highlighting
 #--------plugin setting--------#
 
 #--------zsh setting--------#
-alias ls="ls -GF"
+alias ls="ls -GF --color=auto"
 alias la="ls -la"
 alias ytm="youtube-dl --extract-audio --audio-format mp3"
 alias emacs="vim"
