@@ -67,7 +67,6 @@ set pumblend=16
 set noshowmode
 set list
 set listchars=tab:»\ ,trail:·
-language messages en_US.UTF-8
 
 "Edit
 set expandtab
@@ -77,7 +76,7 @@ set tabstop=2
 set autoindent
 set smartindent
 set clipboard+=unnamedplus
-set undodir=~/.vim/undo
+set undodir=~/.cache/vim/undo
 set undofile
 autocmd FileType python set shiftwidth=2 tabstop=2 expandtab
 
@@ -91,21 +90,23 @@ set nobackup
 let mapleader="\<Space>"
 
 "vim-plug
-nmap <Leader>pud :PlugUpdate<CR>
-nmap <Leader>pug :PlugUpgrade<CR>
+nmap <leader>pud :PlugUpdate<CR>
+nmap <leader>pug :PlugUpgrade<CR>
 
 "nerdtree
-nmap <Leader>n :NERDTreeToggle<CR>
+nmap <leader>n :NERDTreeToggle<CR>
 
 "vim-lsp
-nmap <buffer> <leader>r <plug>(lsp-rename)
-nmap <buffer> <leader>i <plug>(lsp-hover)
+nmap <leader>r <plug>(lsp-rename)
+nmap <leader>i <plug>(lsp-hover)
+autocmd FileType c,cpp xmap = :LspDocumentRangeFormat<CR>
+autocmd FileType c,cpp nmap == <S-V>:LspDocumentRangeFormat<CR>
 
 "vista
-nmap <Leader>v :Vista!!<CR>
+nmap <leader>v :Vista!!<CR>
 
 "ZEN
-nmap <Leader>zen :Goyo<CR>
+nmap <leader>zen :Goyo<CR>
 
 "-----Plugin Setting-----"
 "gruvbox-material
