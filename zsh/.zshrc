@@ -18,7 +18,11 @@ zinit light zdharma/fast-syntax-highlighting
 
 #--------zsh setting--------#
 #alias
-alias ls="ls -GF --color=auto"
+if [ "$(uname)" = 'Darwin' ]; then
+  alias ls="ls -GF"
+else
+  alias ls="ls --color=auto"
+fi
 alias la="ls -la"
 alias ytm="youtube-dl --extract-audio --audio-format mp3"
 alias emacs="vim"
@@ -53,7 +57,11 @@ bindkey -v #vim like
 
 #cddの設定
 function cdd() {
-  cd $(cdr -l | awk '{ print $2 }'| fzf)
+  target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
+  target_dir=`echo ${target_dir/\~/$HOME}`
+  if [ -n "$target_dir" ]; then
+    cd $target_dir
+  fi
 }
 zle -N cdd
 
