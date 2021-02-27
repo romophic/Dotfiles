@@ -51,6 +51,7 @@ zstyle ':completion:*:default' menu select
 
 #other
 bindkey -v #vim like
+bindkey "^R" history-incremental-search-backward
 
 #cddの設定
 function cdd() {
