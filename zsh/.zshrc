@@ -18,8 +18,8 @@ zinit light zdharma/fast-syntax-highlighting
 
 #--------zsh setting--------#
 #alias
-alias ls="ls -GF"
-if [ "$(uname)" != "Darwin" ];then;alias ls="ls --color=auto";fi
+alias ls="ls -GF --color=auto"
+if [ "$(uname)" = "Darwin" ];then;alias ls="ls -GF";fi
 alias la="ls -la"
 alias ytm="youtube-dl --extract-audio --audio-format mp3"
 alias emacs="vim"
