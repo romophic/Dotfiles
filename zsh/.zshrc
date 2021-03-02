@@ -22,7 +22,6 @@ alias ls="ls -GF --color=auto"
 if [ "$(uname)" = "Darwin" ];then;alias ls="ls -GF";fi
 alias la="ls -la"
 alias ytm="youtube-dl --extract-audio --audio-format mp3"
-alias emacs="vim"
 
 #history
 export HISTFILE="$HOME/.zsh_history"
