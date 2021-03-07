@@ -17,8 +17,7 @@ Plug 'halkn/lightline-lsp'
 "File explor
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree',
-Plug 'ryanoasis/vim-devicons',
+Plug 'scrooloose/nerdtree'
 
 "Git
 Plug 'airblade/vim-gitgutter'
@@ -150,7 +149,7 @@ let g:lightline = {
 let g:NERDTreeShowHidden = 1
 
 "indentLine
-let g:indentLine_char = '¦' "use ¦, ┆ or │
+let g:indentLine_char = '┆' "use ¦, ┆ or │
 
 "fzf
 command! -bang -nargs=? -complete=dir Files
