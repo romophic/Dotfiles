@@ -149,7 +149,7 @@ let g:lightline = {
 let g:NERDTreeShowHidden = 1
 
 "indentLine
-let g:indentLine_char = '┆' "use ¦, ┆ or │
+let g:indentLine_char = '¦' "use ¦, ┆ or │
 
 "fzf
 command! -bang -nargs=? -complete=dir Files
