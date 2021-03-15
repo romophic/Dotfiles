@@ -3,8 +3,6 @@ window:
 
 alt_send_esc: false
 
-background_opacity: 0.8
-
 key_bindings:
   - { key: "LBracket", mods: Control, chars: "\x1b" }
   - { key: Key1, mods: Control, action: DecreaseFontSize }
