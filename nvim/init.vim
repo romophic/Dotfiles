@@ -9,10 +9,13 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 "ColorScheme
 Plug 'sainnhe/gruvbox-material'
+Plug 'morhetz/gruvbox'
+Plug 'tomasr/molokai'
+Plug 'joshdick/onedark.vim'
 
 "Status
-Plug 'itchyny/lightline.vim'
-Plug 'halkn/lightline-lsp'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 "File explor
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -98,6 +101,7 @@ nmap <leader>n :NERDTreeToggle<CR>
 "vim-lsp
 nmap <leader>r <plug>(lsp-rename)
 nmap <leader>i <plug>(lsp-hover)
+nmap <leader>d <plug>(lsp-definition)
 autocmd FileType c,cpp xmap = :LspDocumentRangeFormat<CR>
 autocmd FileType c,cpp nmap == <S-V>:LspDocumentRangeFormat<CR>
 
@@ -114,36 +118,11 @@ let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 
-highlight Normal      ctermbg=NONE guibg=NONE
-highlight NonText     ctermbg=NONE guibg=NONE
-highlight LineNr      ctermbg=NONE guibg=NONE
-highlight Folded      ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
-
-"lightline
-let g:lightline = {
-      \ 'colorscheme': 'gruvbox_material',
-      \ 'separator': { 'left': "\ue0b0", 'right': "\ue0b2" },
-      \ 'subseparator': { 'left': "\ue0b1", 'right': "\ue0b3" },
-      \ 'component_expand': {
-      \   'lsp_warnings': 'lightline_lsp#warnings',
-      \   'lsp_errors':   'lightline_lsp#errors',
-      \   'lsp_ok':       'lightline_lsp#ok',
-      \ },
-      \ 'component_type': {
-      \   'lsp_warnings': 'warning',
-      \   'lsp_errors':   'error',
-      \   'lsp_ok':       'middle',
-      \ },
-      \
-      \ 'active': {
-      \   'right': [
-      \     [ 'lsp_errors', 'lsp_warnings', 'lsp_ok' ],
-      \     [ 'percent', 'lineinfo' ],
-      \     [ 'fileformat', 'fileencoding', 'filetype'  ],
-      \   ],
-      \ },
-      \ }
+"airline
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 "nerdtree
 let g:NERDTreeShowHidden = 1
