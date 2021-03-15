@@ -91,9 +91,9 @@ set nobackup
 "nvim
 let mapleader="\<Space>"
 
-"vim-plug
-nmap <leader>pud :PlugUpdate<CR>
-nmap <leader>pug :PlugUpgrade<CR>
+"airline
+nmap <leader>T <Plug>AirlineSelectPrevTab
+nmap <leader>t <Plug>AirlineSelectNextTab
 
 "nerdtree
 nmap <leader>n :NERDTreeToggle<CR>
@@ -119,6 +119,7 @@ let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 
 "airline
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
