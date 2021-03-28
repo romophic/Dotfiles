@@ -8,32 +8,6 @@ echo -e \
   "|____/ \___/ \__|_| |_|_|\___||___/ \n"\
   "     Made by NULLCT© MIT License    \n"\
 
-echo "Checking status..."
-noerror=true
-
-#Path
-DIR=$(cd $(dirname $0); pwd)
-DIR=${DIR#*/}
-DIR=${DIR#*/}
-DIR=${DIR#*/}
-echo -n "Path: "
-if test $DIR == "Dotfiles" ; then
-  echo "✔"
-else
-  echo "✗"
-  echo "  "$(cd $(dirname $0); pwd) "is not homefolder"
-  noerror=false
-fi
-
-if "$noerror" ; then
-  echo "Check complete!"
-else
-  echo -n "Found some errors\nSolve problems"
-  exit
-fi
-
-echo -e "\nMaking links..."
-
 #alacritty
 echo "alacritty"
 ln -sf ~/Dotfiles/alacritty/* ~/.config/alacritty/
@@ -45,6 +19,10 @@ ln -sf ~/Dotfiles/dunst/* ~/.config/dunst/
 #git
 echo "git"
 ln -sf ~/Dotfiles/git/* ~/.config/git/
+
+#htop
+echo "htop"
+ln -sf ~/Dotfiles/htop/* ~/.config/htop/
 
 #i3
 echo "i3"
