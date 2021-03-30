@@ -9,13 +9,9 @@ endif
 call plug#begin(stdpath('data') . '/plugged')
 "ColorScheme
 Plug 'sainnhe/gruvbox-material'
-Plug 'morhetz/gruvbox'
-Plug 'tomasr/molokai'
-Plug 'joshdick/onedark.vim'
 
 "Status
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 
 "File explor
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -34,6 +30,7 @@ Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'jiangmiao/auto-pairs'
 
 "Looks
+let g:polyglot_disabled = ['markdown']
 Plug 'sheerun/vim-polyglot'
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/goyo.vim'
@@ -81,6 +78,7 @@ set clipboard+=unnamedplus
 set undodir=~/.cache/vim/undo
 set undofile
 autocmd FileType python set shiftwidth=2 tabstop=2 expandtab
+set nocompatible
 
 "File
 set noswapfile
@@ -177,7 +175,6 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 
 "vista
 let g:vista_default_executive = 'vim_lsp'
-let g:vista_icon_indent = ["╰ ", "├ "]
 
 "rainbow
 let g:rainbow_active = 1
