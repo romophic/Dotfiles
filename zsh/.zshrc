@@ -52,6 +52,16 @@ zstyle ':completion:*:default' menu select
 bindkey -v #vim like
 bindkey "^R" history-incremental-search-backward
 
+zmodload -i zsh/complist
+autoload -Uz compinit && compinit
+zstyle ':completion:*:default' menu select=2
+
+# 補完時にhjklで選択
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+
 #cddの設定
 function cdd() {
   target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
