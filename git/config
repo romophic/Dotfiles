@@ -3,10 +3,10 @@
   email = cockatiel.u10@gmail.com
 
 [color]
-	ui = true
+  ui = true
 
 [push]
-	default = current
+  default = current
 
 [core]
   editor = nvim
