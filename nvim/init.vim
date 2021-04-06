@@ -155,6 +155,16 @@ if executable('rls')
         \ 'allowlist': ['rust'],
         \ })
 endif
+if executable('cmake-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'cmake-language-server',
+        \ 'cmd': {server_info->['cmake-language-server']},
+        \ 'allowlist': ['cmake'],
+        \ 'initialization_options': {
+        \   'buildDirectory': 'build',
+        \ }
+        \})
+endif
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
@@ -168,7 +178,7 @@ augroup END
 "acynccomplete-file
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
       \ 'name': 'file',
-      \ 'whitelist': ['*'],
+      \ 'allowlist': ['*'],
       \ 'priority': 10,
       \ 'completor': function('asyncomplete#sources#file#completor')
       \ }))
