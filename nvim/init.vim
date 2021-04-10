@@ -14,8 +14,6 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'vim-airline/vim-airline'
 
 "File explor
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 
 "Git
