@@ -14,6 +14,7 @@ Plug 'sainnhe/gruvbox-material'
 Plug 'vim-airline/vim-airline'
 
 "File explor
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 
 "Git
@@ -115,11 +116,8 @@ let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 
 "airline
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
 
 "nerdtree
 let g:NERDTreeShowHidden = 1
