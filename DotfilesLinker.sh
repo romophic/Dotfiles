@@ -32,6 +32,10 @@ ln -sf ~/Dotfiles/htop/* ~/.config/htop/
 echo "i3"
 ln -sf ~/Dotfiles/i3/config ~/.config/i3/config
 
+#mpv
+echo "mpv"
+ln -sf ~/Dotfiles/mpv/* ~/.config/mpv/
+
 #neofetch
 echo "neofetch"
 ln -sf ~/Dotfiles/neofetch/* ~/.config/neofetch/
