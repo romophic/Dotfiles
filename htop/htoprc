@@ -1,6 +1,6 @@
 # Beware! This file is rewritten by htop when settings are changed in the interface.
 # The parser is also very primitive, and not human-friendly.
-fields=0 48 38 39 2 50 46 47 1
+fields=0 48 38 39 2 18 50 46 47 1
 sort_key=46
 sort_direction=1
 tree_sort_key=0
@@ -14,7 +14,7 @@ highlight_base_name=1
 highlight_megabytes=1
 highlight_threads=1
 highlight_changes=1
-highlight_changes_delay_secs=5
+highlight_changes_delay_secs=2
 find_comm_in_cmdline=1
 strip_exe_from_cmdline=1
 show_merged_command=1
@@ -27,7 +27,7 @@ show_cpu_usage=1
 show_cpu_frequency=1
 update_process_names=1
 account_guest_in_cpu_meter=1
-color_scheme=6
+color_scheme=0
 enable_mouse=1
 delay=10
 left_meters=AllCPUs2 CPU Memory Swap
