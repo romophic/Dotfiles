@@ -160,6 +160,7 @@ if executable('cmake-language-server')
         \   'buildDirectory': 'build',
         \ }
         \})
+endif
 if executable('typescript-language-server')
   au User lsp_setup call lsp#register_server({
         \ 'name': 'typescript-language-server',
@@ -168,7 +169,14 @@ if executable('typescript-language-server')
         \ 'whitelist': ['typescript'],
         \ })
 endif
-endif
+
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+      \ 'name': 'file',
+      \ 'allowlist': ['*'],
+      \ 'priority': 10,
+      \ 'completor': function('asyncomplete#sources#file#completor')
+      \ }))
+
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
@@ -178,14 +186,6 @@ augroup lsp_install
   au!
   autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-
-"acynccomplete-file
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-      \ 'name': 'file',
-      \ 'allowlist': ['*'],
-      \ 'priority': 10,
-      \ 'completor': function('asyncomplete#sources#file#completor')
-      \ }))
 
 "vista
 let g:vista_default_executive = 'vim_lsp'
