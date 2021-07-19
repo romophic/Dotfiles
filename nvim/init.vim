@@ -1,3 +1,9 @@
+"      _       _ _         _           "
+"     (_)_ __ (_) |___   _(_)_ __ ___  "
+"    | | '_ \| | __\ \ / / | '_ ` _ \  "
+"   | | | | | | |_ \ V /| | | | | | |  "
+"  |_|_| |_|_|\__(_)_/ |_|_| |_| |_|   "
+
 "-----Vim-Plug auto install-----"
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
