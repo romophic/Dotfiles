@@ -1,2 +1,2 @@
-#!/bin/sh
-ip addr | grep "192" | awk '{print $2}'
+#!/bin/bash
+hostname -I | awk '{print substr($0, 1, length($0)-1)}'
