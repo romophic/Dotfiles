@@ -82,9 +82,6 @@ set smartindent
 set clipboard+=unnamedplus
 set undodir=~/.cache/vim/undo
 set undofile
-autocmd FileType python set shiftwidth=2 tabstop=2 expandtab
-au FileType * setlocal formatoptions-=ro
-set nocompatible
 
 "File
 set noswapfile
