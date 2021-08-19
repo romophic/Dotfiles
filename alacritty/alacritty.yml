@@ -5,9 +5,9 @@ alt_send_esc: false
 
 key_bindings:
   - { key: "LBracket", mods: Control, chars: "\x1b" }
+  - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Key1, mods: Control, action: DecreaseFontSize }
-  - { key: Key2, mods: Control, action: ResetFontSize }
-  - { key: Key3, mods: Control, action: IncreaseFontSize }
+  - { key: Key2, mods: Control, action: IncreaseFontSize }
 
 font:
   size: 16
