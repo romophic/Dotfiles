@@ -12,10 +12,6 @@ echo -e \
 echo "alacritty"
 ln -sf ~/Dotfiles/alacritty/* ~/.config/alacritty/
 
-#emacs
-echo "emacs"
-ln -sf ~/Dotfiles/emacs/* ~/.emacs.d/
-
 #dunst
 echo "dunst"
 ln -sf ~/Dotfiles/dunst/* ~/.config/dunst/
