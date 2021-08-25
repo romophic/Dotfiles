@@ -7,7 +7,7 @@
 "-----Vim-Plug auto install-----"
 let autoload_plug_path = stdpath('data') . '/site/autoload/plug.vim'
 if !filereadable(autoload_plug_path)
-  silent execute '!curl -fLo ' . autoload_plug_path . '  --create-dirs 
+  silent execute '!curl -fLo ' . autoload_plug_path . '  --create-dirs
         \ "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
@@ -31,6 +31,7 @@ Plug 'tpope/vim-fugitive'
 
 "Complete
 Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-file.vim'
@@ -131,59 +132,13 @@ let g:NERDTreeShowHidden = 1
 "indentLine
 let g:indentLine_char = '⎸' "use ¦, ┆ or │
 
-"fzf
-command! -bang -nargs=? -complete=dir Files
-      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-"vim-lsp
-if executable('clangd')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd']},
-        \ 'allowlist': ['c','cpp'],
-        \ })
-endif
-if executable('pyls')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'allowlist': ['python'],
-        \ })
-endif
-if executable('rls')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rls']},
-        \ 'allowlist': ['rust'],
-        \ })
-endif
-if executable('cmake-language-server')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'cmake-language-server',
-        \ 'cmd': {server_info->['cmake-language-server']},
-        \ 'allowlist': ['cmake'],
-        \ 'initialization_options': {
-        \   'buildDirectory': 'build',
-        \ }
-        \})
-endif
-
+"asyncomplete-file
 au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
       \ 'name': 'file',
       \ 'allowlist': ['*'],
       \ 'priority': 10,
       \ 'completor': function('asyncomplete#sources#file#completor')
       \ }))
-
-function! s:on_lsp_buffer_enabled() abort
-  setlocal omnifunc=lsp#complete
-  setlocal signcolumn=yes
-  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-endfunction
-augroup lsp_install
-  au!
-  autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
-augroup END
 
 "vista
 let g:vista_default_executive = 'vim_lsp'
