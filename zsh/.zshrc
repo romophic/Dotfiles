@@ -21,7 +21,7 @@ zinit light zdharma/fast-syntax-highlighting
 alias ls="ls -GF --color=auto"
 if [ "$(uname)" = "Darwin" ];then;alias ls="ls -GF";fi
 alias la="ls -la"
-alias ytm="youtube-dl -f bestaudio -x --audio-format mp3"
+alias ydl="youtube-dl -f bestvideo+bestaudio"
 
 #history
 export HISTFILE="$HOME/.zsh_history"
