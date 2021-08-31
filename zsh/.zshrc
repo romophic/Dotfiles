@@ -12,7 +12,7 @@ source "$ZINIT[BIN_DIR]/zinit.zsh"
 #--------plugins--------#
 zinit light sindresorhus/pure
 zinit light zsh-users/zsh-autosuggestions
-zinit light zdharma/fast-syntax-highlighting
+zinit light zsh-users/zsh-syntax-highlighting
 
 #--------plugin setting--------#
 
@@ -62,17 +62,25 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 
+function cddclr() {
+  res=$(bash ~/Dotfiles/zsh/cdr-autodirclean.sh)
+  echo $res >~/.cache/zsh/chpwd-recent-dirs
+}
+
 #cddの設定
 function cdd() {
-  target_dir=`cdr -l | sed 's/^[^ ][^ ]*  *//' | fzf`
-  target_dir=`echo ${target_dir/\~/$HOME}`
-  if [ -n "$target_dir" ]; then
-    cd $target_dir
-  fi
+  cd $(cdr -l | awk '{ print $2 }' | sed s@\~@${HOME}@ | fzf --preview "ls -1a {}")
 }
 zle -N cdd
 
-fd() {
-  cd $(find . -type d | fzf)
+#fd
+function fd() {
+  cd $(find . -type d | fzf --preview "ls -1a {}")
 }
 zle -N fd
+
+#cdg
+function cdg() {
+  cd $(ghq root)/$(ghq list | fzf --preview "ls -1a $(ghq root)/{}")
+}
+zle -N cdg
