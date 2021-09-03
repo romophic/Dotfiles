@@ -9,6 +9,8 @@ key_bindings:
   - { key: Key1, mods: Control, action: DecreaseFontSize }
   - { key: Key2, mods: Control, action: IncreaseFontSize }
 
+background_opacity: 0.96
+
 font:
   size: 16
   normal:

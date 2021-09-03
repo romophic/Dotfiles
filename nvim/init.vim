@@ -3,7 +3,6 @@
 "    | | '_ \| | __\ \ / / | '_ ` _ \  "
 "   | | | | | | |_ \ V /| | | | | | |  "
 "  |_|_| |_|_|\__(_)_/ |_|_| |_| |_|   "
-
 "-----Vim-Plug auto install-----"
 let autoload_plug_path = stdpath('data') . '/site/autoload/plug.vim'
 if !filereadable(autoload_plug_path)
@@ -121,6 +120,12 @@ let g:gruvbox_material_palette = 'material'
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
+
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 
 "airline
 let g:airline_powerline_fonts = 1
