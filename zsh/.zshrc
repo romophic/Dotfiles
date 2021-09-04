@@ -66,21 +66,24 @@ function cddclr() {
   res=$(bash ~/Dotfiles/zsh/cdr-autodirclean.sh)
   echo $res >~/.cache/zsh/chpwd-recent-dirs
 }
+zle -N cddclr
 
 #cddの設定
 function cdd() {
-  cd $(cdr -l | awk '{ print $2 }' | sed s@\~@${HOME}@ | fzf --preview "ls -1a {}")
+  cd $(cdr -l | awk '{ print $2 }' | sed s@\~@${HOME}@ | fzf --height 50% --preview "ls -1aFh {}")
 }
 zle -N cdd
+bindkey "^F" cdd
 
 #fd
 function fd() {
-  cd $(find . -type d | fzf --preview "ls -1a {}")
+  cd $(find . -type d | fzf --height 50% --preview "ls -1aFh {}")
 }
 zle -N fd
 
 #cdg
 function cdg() {
-  cd $(ghq root)/$(ghq list | fzf --preview "ls -1a $(ghq root)/{}")
+  cd $(ghq root)/$(ghq list | fzf --height 50% --preview "ls -1aFh $(ghq root)/{}")
 }
 zle -N cdg
+bindkey "^G" cdg
