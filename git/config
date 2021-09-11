@@ -1,6 +1,7 @@
 [user]
   name = NULLCT
   email = cockatiel.u10@gmail.com
+	signingkey = 7D478BEF1CEDB112
 
 [color]
   ui = true
@@ -11,3 +12,5 @@
 [core]
   editor = nvim
   quotepath = false
+[gpg]
+	program = gpg
