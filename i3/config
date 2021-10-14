@@ -138,6 +138,8 @@ mode "resize" {
 }
 
 #----------Execution----------
+#keyboard layout
+exec --no-startup-id setxkbmap jp
 #keyboard repeat
 exec --no-startup-id xset r rate 256 32
 #no beep sound
@@ -169,8 +171,6 @@ exec --no-startup-id polybar example
 #no window title
 for_window [class="^.*"] border pixel 2
 #default_border pixel 1
-#new_window 1pixel
-#hide_edge_borders vertical
 #gaps
 gaps inner 16
 
