@@ -3,24 +3,24 @@ key_bindings:
   - { key: Key1, mods: Control, action: DecreaseFontSize }
   - { key: Key2, mods: Control, action: IncreaseFontSize }
 
-background_opacity: 0.96
+background_opacity: 0.9
 
 font:
   size: 16
   normal:
-    family: "VictorMono Nerd Font"
-    style: Medium
+    family: "PlemolJP Console NF"
+    style: Regular
 
   bold:
-    family: "VictorMono Nerd Font"
+    family: "PlemolJP Console NF"
     style: Bold
 
   italic:
-    family: "VictorMono Nerd Font"
-    style: Medium Italic
+    family: "PlemolJP Console NF"
+    style: Italic
 
   bold_italic:
-    family: "VictorMono Nerd Font"
+    family: "PlemolJP Console NF"
     style: Bold Italic
 
 # Gruvbox Material (material medium)
