@@ -7,7 +7,7 @@ key_bindings:
 background_opacity: 0.9
 
 font:
-  size: 16
+  size: 18
   normal:
     family: "PlemolJP Console NF"
     style: Regular
