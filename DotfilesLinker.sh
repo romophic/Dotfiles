@@ -28,6 +28,10 @@ ln -sf ~/Dotfiles/htop/* ~/.config/htop/
 echo "i3"
 ln -sf ~/Dotfiles/i3/config ~/.config/i3/config
 
+#kitty
+echo "kitty"
+ln -sf ~/Dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+
 #mpv
 echo "mpv"
 ln -sf ~/Dotfiles/mpv/* ~/.config/mpv/
