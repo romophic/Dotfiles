@@ -3,6 +3,7 @@
 "    | | '_ \| | __\ \ / / | '_ ` _ \  "
 "   | | | | | | |_ \ V /| | | | | | |  "
 "  |_|_| |_|_|\__(_)_/ |_|_| |_| |_|   "
+
 "-----Vim-Plug auto install-----"
 let autoload_plug_path = stdpath('data') . '/site/autoload/plug.vim'
 if !filereadable(autoload_plug_path)
