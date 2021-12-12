@@ -71,6 +71,7 @@ set relativenumber
 set showcmd
 set display=lastline
 set pumblend=16
+set winblend=16
 set noshowmode
 set list
 set listchars=tab:»\ ,trail:·
