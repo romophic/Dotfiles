@@ -17,8 +17,6 @@ unlet autoload_plug_path
 call plug#begin(stdpath('data') . '/plugged')
 "ColorScheme
 Plug 'sainnhe/gruvbox-material'
-Plug 'rktjmp/lush.nvim'
-Plug 'ellisonleao/gruvbox.nvim'
 
 "File explor
 Plug 'ryanoasis/vim-devicons'
@@ -45,9 +43,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'junegunn/goyo.vim'
 
 "Add function
+Plug 'rktjmp/lush.nvim'
 Plug 'markonm/traces.vim'
 Plug 'liuchengxu/vista.vim'
-Plug 'luochen1990/rainbow'
 call plug#end()
 
 "--------Vim Setting--------"
@@ -59,8 +57,6 @@ set hlsearch
 set nofoldenable
 
 "Hightlight and Color
-syntax on
-set background=dark
 set cursorline
 set showmatch matchtime=1
 
@@ -120,7 +116,6 @@ nmap <leader>zen :Goyo<CR>
 "-----Plugin Setting-----"
 "gruvbox-material
 let g:gruvbox_material_palette = 'material'
-let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
 colorscheme gruvbox-material
 
@@ -151,15 +146,12 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 "vista
 let g:vista_default_executive = 'vim_lsp'
 
+"nvim-treesitter
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-  },
+ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+highlight = {
+enable = true,              -- false will disable the whole extension
+},
 }
 EOF
-
-"rainbow
-let g:rainbow_active = 1
-
