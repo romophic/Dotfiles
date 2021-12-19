@@ -17,9 +17,8 @@ unlet autoload_plug_path
 call plug#begin(stdpath('data') . '/plugged')
 "ColorScheme
 Plug 'sainnhe/gruvbox-material'
-
-"Status
-Plug 'vim-airline/vim-airline'
+Plug 'rktjmp/lush.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 
 "File explor
 Plug 'ryanoasis/vim-devicons'
@@ -39,7 +38,9 @@ Plug 'jiangmiao/auto-pairs'
 
 "Looks
 let g:polyglot_disabled = ['markdown']
-Plug 'sheerun/vim-polyglot'
+Plug 'mhinz/vim-startify'
+Plug 'vim-airline/vim-airline'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'Yggdroot/indentLine'
 Plug 'junegunn/goyo.vim'
 
@@ -150,5 +151,15 @@ au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#source
 "vista
 let g:vista_default_executive = 'vim_lsp'
 
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  highlight = {
+    enable = true,              -- false will disable the whole extension
+  },
+}
+EOF
+
 "rainbow
 let g:rainbow_active = 1
+
