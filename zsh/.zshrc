@@ -22,6 +22,7 @@ alias ls="ls -GF --color=auto"
 if [ "$(uname)" = "Darwin" ];then;alias ls="ls -GF";fi
 alias la="ls -la"
 alias ydl="youtube-dl -f bestvideo+bestaudio"
+alias pip-upgrade-all="pip list -o | tail -n +3 | awk '{ print \$1 }' | xargs pip install -U"
 
 #history
 export HISTFILE="$HOME/.zsh_history"
