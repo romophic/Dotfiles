@@ -20,6 +20,10 @@ ln -sf ~/Dotfiles/dunst/* ~/.config/dunst/
 echo "git"
 ln -sf ~/Dotfiles/git/* ~/.config/git/
 
+#helix
+echo "helix"
+ln -sf ~/Dotfiles/helix/* ~/.config/helix
+
 #htop
 echo "htop"
 ln -sf ~/Dotfiles/htop/* ~/.config/htop/
