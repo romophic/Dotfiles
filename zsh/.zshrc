@@ -21,7 +21,7 @@ zinit light zsh-users/zsh-syntax-highlighting
 alias ls="ls -GF --color=auto"
 if [ "$(uname)" = "Darwin" ];then;alias ls="ls -GF";fi
 alias la="ls -la"
-alias ydl="youtube-dl -f bestvideo+bestaudio"
+alias ydl="yt-dlp -f bestvideo+bestaudio"
 alias pip-upgrade-all="pip list -o | tail -n +3 | awk '{ print \$1 }' | xargs pip install -U"
 
 #history
@@ -71,20 +71,18 @@ zle -N cddclr
 
 #cddの設定
 function cdd() {
-  cd $(cdr -l | awk '{ print $2 }' | sed s@\~@${HOME}@ | fzf --height 50% --preview "ls -1aFh {}")
+  res=$(cdr -l | awk '{ print $2 }' | sed s@\~@${HOME}@ | sk --height 50% --preview "ls -1aFh {}")
+  cd $res
+  echo $res
 }
 zle -N cdd
-bindkey "^F" cdd
-
-#fd
-function fd() {
-  cd $(find . -type d | fzf --height 50% --preview "ls -1aFh {}")
-}
-zle -N fd
+bindkey "^f" cdd
 
 #cdg
 function cdg() {
-  cd $(ghq root)/$(ghq list | fzf --height 50% --preview "ls -1aFh $(ghq root)/{}")
+  res=$(ghq root)/$(ghq list | sk --height 50% --preview "ls -1aFh $(ghq root)/{}")
+  cd $res
+  echo $res
 }
 zle -N cdg
-bindkey "^G" cdg
+bindkey "^g" cdg
