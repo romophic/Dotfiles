@@ -22,6 +22,7 @@ require("packer").startup(function(use)
   use 'morhetz/gruvbox'
   use 'nvim-treesitter/nvim-treesitter'
   use 'windwp/nvim-autopairs'
+  use 'lukas-reineke/indent-blankline.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -51,8 +52,6 @@ lsp_installer.on_server_ready(function(server)
   server:setup(opts)
 end)
 
-vim.opt.completeopt = "menu,menuone,noselect"
-
 local cmp = require'cmp'
 cmp.setup {
   sources = cmp.config.sources({
@@ -68,6 +67,11 @@ require('nvim-treesitter.configs').setup {
 }
 require('lualine').setup {}
 require('nvim-autopairs').setup{}
+require("indent_blankline").setup {
+  -- for example, context is off by default, use this to turn it on
+  show_current_context = true,
+  show_current_context_start = true,
+}
 
 -- neovim setting
 vim.cmd('colorscheme gruvbox')
@@ -76,3 +80,9 @@ vim.o.cursorline=true
 vim.o.shiftwidth=2
 vim.o.undofile=true
 vim.o.termguicolors=true
+vim.o.ignorecase=true
+vim.o.smartcase=true
+vim.o.completeopt = 'menu,menuone,noselect'
+vim.opt.list=true
+vim.opt.listchars:append('trail:·')
+vim.opt.listchars:append('tab:@ ')
