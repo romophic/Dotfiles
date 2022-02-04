@@ -16,7 +16,7 @@ require("packer").startup(function(use)
   use "hrsh7th/cmp-vsnip"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/vim-vsnip"
-  use "morhetz/gruvbox"
+  use "ellisonleao/gruvbox.nvim"
   use "nvim-treesitter/nvim-treesitter"
   use "windwp/nvim-autopairs"
   use "lukas-reineke/indent-blankline.nvim"
