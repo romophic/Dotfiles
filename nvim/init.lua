@@ -20,16 +20,13 @@ require("packer").startup(function(use)
   use "nvim-treesitter/nvim-treesitter"
   use "windwp/nvim-autopairs"
   use "lukas-reineke/indent-blankline.nvim"
-  use {
-    "nvim-lualine/lualine.nvim",
-    requires = { "kyazdani42/nvim-web-devicons", opt = true }
-  }
+  use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" }}
+  use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }
 
   if packer_bootstrap then
     require("packer").sync()
   end
 end)
-vim.cmd("autocmd BufWritePost plugins.lua PackerCompile")
 
 require("nvim-lsp-installer").on_server_ready(function(server)
   local opts = {}
@@ -67,13 +64,23 @@ require("indent_blankline").setup {
   show_current_context = true,
   show_current_context_start = true,
 }
+require('bufferline').setup {
+  options = {
+    numbers = "both"
+  }
+}
 
 -- neovim setting
-vim.cmd("colorscheme gruvbox")
-vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
-vim.cmd("highlight LineNr ctermbg=NONE guibg=NONE")
-vim.cmd("highlight Folded ctermbg=NONE guibg=NONE")
-vim.cmd("highlight EndOfBuffer ctermbg=NONE guibg=NONE")
+vim.cmd[[
+colorscheme gruvbox
+highlight Normal ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
+autocmd BufWritePost plugins.lua PackerCompile
+nnoremap <space>t :bnext<CR>
+nnoremap <space>T :bprev<CR>
+]]
 vim.o.relativenumber=true
 vim.o.cursorline=true
 vim.o.shiftwidth=2
@@ -81,9 +88,10 @@ vim.o.undofile=true
 vim.o.termguicolors=true
 vim.o.ignorecase=true
 vim.o.smartcase=true
-vim.o.completeopt = "menu,menuone,noselect"
+vim.o.completeopt="menu,menuone,noselect"
 vim.o.pumblend=16
 vim.o.winblend=16
 vim.opt.list=true
 vim.opt.listchars:append("trail:·")
-vim.opt.listchars:append("tab:@ ")
+vim.opt.listchars:append("tab:->")
+vim.o.clipboard="unnamedplus"
