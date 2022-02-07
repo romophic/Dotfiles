@@ -78,19 +78,26 @@ highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 autocmd BufWritePost plugins.lua PackerCompile
 nnoremap <space>t :bnext<CR>
-nnoremap <space>T :bprev<CR>
+nnoremap <space>t :bnext<CR>
+nnoremap <space>x :bdelete<CR>
 ]]
+-- screen
+vim.o.termguicolors=true
 vim.o.relativenumber=true
 vim.o.cursorline=true
-vim.o.shiftwidth=2
-vim.o.undofile=true
-vim.o.termguicolors=true
-vim.o.ignorecase=true
-vim.o.smartcase=true
-vim.o.completeopt="menu,menuone,noselect"
+vim.o.showmode=false
 vim.o.pumblend=16
 vim.o.winblend=16
 vim.opt.list=true
 vim.opt.listchars:append("trail:·")
 vim.opt.listchars:append("tab:->")
-vim.o.clipboard="unnamedplus"
+
+-- edit
+vim.o.shiftwidth=2
+vim.o.smarttab=true
+vim.o.expandtab=true
+vim.o.tabstop=2
+vim.o.shiftwidth=2
+
+-- file
+vim.o.undofile=true
