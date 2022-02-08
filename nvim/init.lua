@@ -9,19 +9,20 @@ if vim.fn.empty(vim.fn.glob(vim.fn.stdpath("data").."/site/pack/packer/start/pac
 end
 require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
+  -- lsp&cmp
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-vsnip"
   use "hrsh7th/cmp-buffer"
-  use "hrsh7th/vim-vsnip"
+  use "hrsh7th/cmp-path"
+  -- looks
   use "ellisonleao/gruvbox.nvim"
   use "nvim-treesitter/nvim-treesitter"
   use "windwp/nvim-autopairs"
   use "lukas-reineke/indent-blankline.nvim"
-  use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" }}
   use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" }}
 
   if packer_bootstrap then
     require("packer").sync()
@@ -47,6 +48,8 @@ end)
 require("cmp").setup {
   sources = require("cmp").config.sources{
     { name = "nvim_lsp" },
+    { name = "buffer" },
+    { name = "path" },
   },
 }
 require("nvim-treesitter.configs").setup {
@@ -59,7 +62,6 @@ require("nvim-treesitter.configs").setup {
 require("lualine").setup {}
 require("nvim-autopairs").setup{}
 require("indent_blankline").setup {
-  -- for example, context is off by default, use this to turn it on
   show_current_context = true,
   show_current_context_start = true,
 }
@@ -71,12 +73,12 @@ require('bufferline').setup {
 
 -- neovim setting
 vim.cmd[[
+autocmd BufWritePost plugins.lua PackerCompile
 colorscheme gruvbox
 highlight Normal ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
-autocmd BufWritePost plugins.lua PackerCompile
 nnoremap <space>t :bnext<CR>
 nnoremap <space>t :bnext<CR>
 nnoremap <space>x :bdelete<CR>
