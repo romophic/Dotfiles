@@ -1,8 +1,8 @@
------------------------------------
---░▀█▀░█▀█░▀█▀░▀█▀░░░░█░░░█░█░█▀█--
---░░█░░█░█░░█░░░█░░░░░█░░░█░█░█▀█--
---░▀▀▀░▀░▀░▀▀▀░░▀░░▀░░▀▀▀░▀▀▀░▀░▀--
------------------------------------
+------------------------------------
+--░▀█▀░█▀█░▀█▀░▀█▀░░░░█░░░█░█░█▀█░--
+--░░█░░█░█░░█░░░█░░░░░█░░░█░█░█▀█░--
+--░▀▀▀░▀░▀░▀▀▀░░▀░░▀░░▀▀▀░▀▀▀░▀░▀░--
+------------------------------------
 -- packer.nvim auto installer
 if vim.fn.empty(vim.fn.glob(vim.fn.stdpath("data").."/site/pack/packer/start/packer.nvim")) > 0 then
   packer_bootstrap = vim.fn.system({"git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path})
@@ -21,8 +21,9 @@ require("packer").startup(function(use)
   use "nvim-treesitter/nvim-treesitter"
   use "windwp/nvim-autopairs"
   use "lukas-reineke/indent-blankline.nvim"
+  use { "kyazdani42/nvim-tree.lua", require = "kyazdani42/nvim-web-devicons" }
   use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" }}
+  use { "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" }
 
   if packer_bootstrap then
     require("packer").sync()
@@ -70,6 +71,8 @@ require('bufferline').setup {
     numbers = "both"
   }
 }
+require("nvim-tree").setup {
+}
 
 -- neovim setting
 vim.cmd[[
@@ -82,6 +85,7 @@ highlight EndOfBuffer ctermbg=NONE guibg=NONE
 nnoremap <space>t :bnext<CR>
 nnoremap <space>t :bnext<CR>
 nnoremap <space>x :bdelete<CR>
+nnoremap <space>n :NvimTreeToggle<CR>
 ]]
 -- screen
 vim.o.termguicolors=true
