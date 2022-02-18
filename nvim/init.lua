@@ -83,7 +83,7 @@ highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
 highlight EndOfBuffer ctermbg=NONE guibg=NONE
 nnoremap <space>t :bnext<CR>
-nnoremap <space>t :bnext<CR>
+nnoremap <space>T :bprev<CR>
 nnoremap <space>x :bdelete<CR>
 nnoremap <space>n :NvimTreeToggle<CR>
 ]]
