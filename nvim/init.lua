@@ -18,6 +18,8 @@ require("packer").startup(function(use)
   use "hrsh7th/cmp-path"
   -- looks
   use "ellisonleao/gruvbox.nvim"
+  use "sainnhe/gruvbox-material"
+  use "cocopon/iceberg.vim"
   use "nvim-treesitter/nvim-treesitter"
   use "windwp/nvim-autopairs"
   use "lukas-reineke/indent-blankline.nvim"
@@ -77,7 +79,9 @@ require("nvim-tree").setup {
 -- neovim setting
 vim.cmd[[
 autocmd BufWritePost plugins.lua PackerCompile
-colorscheme gruvbox
+let g:gruvbox_material_enable_bold = 1
+let g:gruvbox_material_enable_italic = 1
+colorscheme gruvbox-material
 highlight Normal ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
