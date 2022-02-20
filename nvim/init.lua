@@ -23,9 +23,12 @@ require("packer").startup(function(use)
   use "nvim-treesitter/nvim-treesitter"
   use "windwp/nvim-autopairs"
   use "lukas-reineke/indent-blankline.nvim"
-  use { "kyazdani42/nvim-tree.lua", require = "kyazdani42/nvim-web-devicons" }
+  use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
   use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use { "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" }
+  use { "goolord/alpha-nvim", requires = "kyazdani42/nvim-web-devicons", config = function ()
+    require("alpha").setup(require("alpha.themes.startify").config)
+  end}
 
   if packer_bootstrap then
     require("packer").sync()
