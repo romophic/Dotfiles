@@ -72,6 +72,10 @@ ln -sf ~/Dotfiles/tmux/.tmux.conf ~/.tmux.conf
 echo "vim"
 ln -sf ~/Dotfiles/vim/.vimrc ~/.vimrc
 
+#zellij
+echo "zellij"
+ln -sf ~/Dotfiles/zellij/* ~/.config/zellij/
+
 #zsh
 echo "zsh"
 ln -sf ~/Dotfiles/zsh/.zshrc ~/.zshrc
