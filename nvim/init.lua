@@ -84,7 +84,7 @@ vim.cmd[[
 autocmd BufWritePost plugins.lua PackerCompile
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
-colorscheme gruvbox-material
+colorscheme iceberg
 highlight Normal ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
@@ -96,6 +96,7 @@ nnoremap <space>n :NvimTreeToggle<CR>
 ]]
 -- screen
 vim.o.termguicolors=true
+vim.o.number=true
 vim.o.relativenumber=true
 vim.o.cursorline=true
 vim.o.showmode=false
