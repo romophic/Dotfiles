@@ -2,28 +2,54 @@
 
 ![ScreenShot](Screenshot.png)
 
-## tl;dr
+## tl;dr;
 My config for
 - alacritty
 - dunst
 - git
+- helix
+- htop
 - i3
-- i3blocks
 - kitty
+- mpv
 - neofetch
 - nvim
+- picom
+- polybar
 - ranger
 - rofi
 - tmux
 - vim
+- zellij
 - zsh
 
 ## Install:
-1. Run `cd && git clone https://github.com/NULLCT/Dotfiles && chmod +x ~/Dotfiles/DotfilesLinker.sh && ~/Dotfiles/DotfilesLinker.sh`
-1. Enjoy!
+Just install this repo to your `$HOME`
+Like this:
+``` bash
+cd
+git clone https://github.com/NULLCT/Dotfiles
+~/Dotfiles/DotfilesLinker.sh
+```
+/git contains my configuration file  
+so please delete it
 
-## TODO:
-- [x] フォントはVictorMonoに
+## Environment
+terminal: *alacritty* or *kitty*
+font: *PlemolJP Console NF*
+multiplexer: *tmux* or *zellij*
+shell: *zsh*
+editor: *lua-neovim + lsp* or *helix*
+player: *mpv*
+taskmanager: *htop*
+
+### Advanced
+wm: *i3-gaps*
+statusbar: *polybar*
+composit: *picom*
+filemanager: *ranger*
+launcher: *rofi*
+notice: *dunst*
 
 ## License
 MIT
