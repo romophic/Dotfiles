@@ -35,21 +35,21 @@ git clone https://github.com/NULLCT/Dotfiles
 so please delete it
 
 ## Environment
-terminal: *alacritty* or *kitty*
-font: *PlemolJP Console NF*
-multiplexer: *tmux* or *zellij*
-shell: *zsh*
-editor: *lua-neovim + lsp* or *helix*
-player: *mpv*
-taskmanager: *htop*
+terminal: *alacritty* or *kitty*  
+font: *PlemolJP Console NF*  
+multiplexer: *tmux* or *zellij*  
+shell: *zsh*  
+editor: *lua-neovim + lsp* or *helix*  
+player: *mpv*  
+taskmanager: *htop*  
 
 ### Advanced
-wm: *i3-gaps*
-statusbar: *polybar*
-composit: *picom*
-filemanager: *ranger*
-launcher: *rofi*
-notice: *dunst*
+wm: *i3-gaps*  
+statusbar: *polybar*  
+composit: *picom*  
+filemanager: *ranger*  
+launcher: *rofi*  
+notice: *dunst*  
 
 ## License
 MIT
