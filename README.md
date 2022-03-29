@@ -50,8 +50,8 @@ so please delete it
 |||
 |-|-|
 | *wm* | **i3-gaps** |
-| *statusbar*: | **polybar**  |
-| *composit*: | **picom**  |
+| *statusbar* | **polybar**  |
+| *composit* | **picom**  |
 | *filemanager* | **ranger**  |
 | *launcher* | **rofi**  |
 | *notice* | **dunst**  |
