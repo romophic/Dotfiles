@@ -56,6 +56,9 @@ ln -sf ~/Dotfiles/tmux/.tmux.conf ~/.tmux.conf
 #vim
 ln -sf ~/Dotfiles/vim/.vimrc ~/.vimrc
 
+#wezterm
+ln -sf ~/Dotfiles/wezterm/wezterm.lua ~/.config/wezterm/
+
 #zellij
 ln -sf ~/Dotfiles/zellij/* ~/.config/zellij/
 
