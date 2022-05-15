@@ -22,15 +22,13 @@ require("packer").startup(function(use)
   use "ellisonleao/gruvbox.nvim"
   use "sainnhe/gruvbox-material"
   use "cocopon/iceberg.vim"
-  use "nvim-treesitter/nvim-treesitter"
+  use { "nvim-treesitter/nvim-treesitter", run = "TSUpdate" }
   use "windwp/nvim-autopairs"
   use "lukas-reineke/indent-blankline.nvim"
   use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
   use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use { "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  use { "goolord/alpha-nvim", requires = "kyazdani42/nvim-web-devicons", config = function ()
-    require("alpha").setup(require("alpha.themes.startify").config)
-  end}
+  use { "goolord/alpha-nvim", requires = "kyazdani42/nvim-web-devicons", config = function () require("alpha").setup(require("alpha.themes.startify").config) end}
 
   if packer_bootstrap then
     require("packer").sync()
@@ -63,6 +61,7 @@ require("cmp").setup {
 require("nvim-treesitter.configs").setup {
   ensure_installed = "all",
   highlight = {
+    enable = true,
     additional_vim_regex_highlighting = true
   }
 }
@@ -77,15 +76,14 @@ require('bufferline').setup {
     numbers = "both"
   }
 }
-require("nvim-tree").setup {
-}
+require("nvim-tree").setup {}
 
 -- neovim setting
 vim.cmd[[
 autocmd BufWritePost plugins.lua PackerCompile
 let g:gruvbox_material_enable_bold = 1
 let g:gruvbox_material_enable_italic = 1
-colorscheme iceberg
+colorscheme gruvbox-material
 highlight Normal ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
