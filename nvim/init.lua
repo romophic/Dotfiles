@@ -11,25 +11,31 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 require("packer").startup(function(use)
   use "wbthomason/packer.nvim"
-  -- lsp&cmp
+  -- lsp
   use "neovim/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
+  -- cmp
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-buffer"
   use "hrsh7th/cmp-path"
   use "hrsh7th/cmp-cmdline"
-  -- looks
+  -- colorscheme
   use "ellisonleao/gruvbox.nvim"
   use "sainnhe/gruvbox-material"
   use "cocopon/iceberg.vim"
+  -- highlighter
   use { "nvim-treesitter/nvim-treesitter", run = "TSUpdate" }
-  use "windwp/nvim-autopairs"
-  use "lukas-reineke/indent-blankline.nvim"
-  use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
+  -- additional looks
   use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use { "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" }
   use { "goolord/alpha-nvim", requires = "kyazdani42/nvim-web-devicons", config = function() require("alpha").setup(require("alpha.themes.startify").config) end }
+  use "lukas-reineke/indent-blankline.nvim"
+  -- input aids
+  use "windwp/nvim-autopairs"
+  -- add function
+  use "nullct/preview-markdown.vim"
+  use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
 
   if packer_bootstrap then
     require("packer").sync()
@@ -59,8 +65,6 @@ require("cmp").setup {
     { name = "buffer" },
     { name = "path" },
     { name = "cmdline" }
-  },
-  window = {
   },
   mapping = require("cmp").mapping.preset.insert({
     ['<C-b>'] = require("cmp").mapping.scroll_docs(-4),
@@ -121,23 +125,23 @@ nnoremap <space>n :NvimTreeToggle<CR>
 ]]
 
 -- screen
-vim.o.termguicolors=true
-vim.o.number=true
-vim.o.relativenumber=true
-vim.o.cursorline=true
-vim.o.showmode=false
-vim.o.pumblend=8
-vim.o.winblend=8
-vim.opt.list=true
+vim.o.termguicolors = true
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.cursorline = true
+vim.o.showmode = false
+vim.o.pumblend = 8
+vim.o.winblend = 8
+vim.opt.list = true
 vim.opt.listchars:append("trail:·")
 vim.opt.listchars:append("tab:->")
 
 -- edit
-vim.o.shiftwidth=2
-vim.o.smarttab=true
-vim.o.expandtab=true
-vim.o.tabstop=2
-vim.o.shiftwidth=2
+vim.o.shiftwidth = 2
+vim.o.smarttab = true
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
 
 -- file
-vim.o.undofile=true
+vim.o.undofile = true
