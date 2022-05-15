@@ -18,16 +18,16 @@ ln -sf ~/Dotfiles/dunst/* ~/.config/dunst/
 ln -sf ~/Dotfiles/git/* ~/.config/git/
 
 #helix
-ln -sf ~/Dotfiles/helix/* ~/.config/helix
+ln -sf ~/Dotfiles/helix/* ~/.config/helix/
 
 #htop
 ln -sf ~/Dotfiles/htop/* ~/.config/htop/
 
 #i3
-ln -sf ~/Dotfiles/i3/config ~/.config/i3/config
+ln -sf ~/Dotfiles/i3/* ~/.config/i3/
 
 #kitty
-ln -sf ~/Dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
+ln -sf ~/Dotfiles/kitty/* ~/.config/kitty/
 
 #mpv
 ln -sf ~/Dotfiles/mpv/* ~/.config/mpv/
@@ -57,7 +57,7 @@ ln -sf ~/Dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -sf ~/Dotfiles/vim/.vimrc ~/.vimrc
 
 #wezterm
-ln -sf ~/Dotfiles/wezterm/wezterm.lua ~/.config/wezterm/
+ln -sf ~/Dotfiles/wezterm/* ~/.config/wezterm/
 
 #zellij
 ln -sf ~/Dotfiles/zellij/* ~/.config/zellij/
