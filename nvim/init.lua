@@ -33,6 +33,8 @@ require("packer").startup(function(use)
   use "lukas-reineke/indent-blankline.nvim"
   -- input aids
   use "windwp/nvim-autopairs"
+  -- git
+  use "lewis6991/gitsigns.nvim"
   -- add function
   use "nullct/preview-markdown.vim"
   use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
@@ -63,8 +65,7 @@ require("cmp").setup {
   sources = require("cmp").config.sources {
     { name = "nvim_lsp" },
     { name = "buffer" },
-    { name = "path" },
-    { name = "cmdline" }
+    { name = "path" }
   },
   mapping = require("cmp").mapping.preset.insert({
     ['<C-b>'] = require("cmp").mapping.scroll_docs(-4),
@@ -106,6 +107,7 @@ require('bufferline').setup {
     numbers = "both"
   }
 }
+require('gitsigns').setup{}
 require("nvim-tree").setup {}
 
 -- neovim setting
