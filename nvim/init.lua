@@ -22,8 +22,6 @@ require("packer").startup(function(use)
   use "hrsh7th/cmp-cmdline"
   -- colorscheme
   use "ellisonleao/gruvbox.nvim"
-  use "sainnhe/gruvbox-material"
-  use "cocopon/iceberg.vim"
   -- highlighter
   use { "nvim-treesitter/nvim-treesitter", run = "TSUpdate" }
   -- additional looks
@@ -113,9 +111,7 @@ require("nvim-tree").setup {}
 -- neovim setting
 vim.cmd [[
 autocmd BufWritePost plugins.lua PackerCompile
-let g:gruvbox_material_enable_bold = 1
-let g:gruvbox_material_enable_italic = 1
-colorscheme gruvbox-material
+colorscheme gruvbox
 highlight Normal ctermbg=NONE guibg=NONE
 highlight LineNr ctermbg=NONE guibg=NONE
 highlight Folded ctermbg=NONE guibg=NONE
