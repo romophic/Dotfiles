@@ -125,8 +125,6 @@ nnoremap <space>n :NvimTreeToggle<CR>
 -- screen
 vim.o.termguicolors = true
 vim.o.number = true
-vim.o.relativenumber = true
-vim.o.cursorline = true
 vim.o.showmode = false
 vim.o.pumblend = 8
 vim.o.winblend = 8
