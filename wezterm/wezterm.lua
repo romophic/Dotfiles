@@ -4,7 +4,6 @@ local act = wezterm.action
 return {
   color_scheme = "Gruvbox dark, medium (base16)",
   font = wezterm.font_with_fallback {
-    "VictorMono Nerd Font",
     "PlemolJP Console NF"
   },
   font_size = 16,
@@ -68,7 +67,8 @@ return {
     { key = 'j', mods = 'CTRL', action = act.ActivatePaneDirection 'Down' },
     { key = 'j', mods = 'SHIFT|CTRL', action = act.AdjustPaneSize{ 'Down', 8 } },
     { key = 's', mods = 'SHIFT|CTRL', action = act.SplitVertical{ domain =  'CurrentPaneDomain' } },
-    { key = 'v', mods = 'SHIFT|CTRL', action = act.SplitHorizontal{ domain =  'CurrentPaneDomain' } },
+    { key = 'd', mods = 'SHIFT|CTRL', action = act.SplitHorizontal{ domain =  'CurrentPaneDomain' } },
+    { key = 'v', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
     { key = 'Copy', mods = 'NONE', action = act.CopyTo 'Clipboard' },
     { key = 'Paste', mods = 'NONE', action = act.PasteFrom 'Clipboard' },
   },
