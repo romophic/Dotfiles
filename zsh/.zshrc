@@ -71,7 +71,7 @@ zle -N cddclr
 
 #cddの設定
 function cdd() {
-  res=$(cdr -l | awk '{ print $2 }' | sed s@\~@${HOME}@ | sk --height 50% --preview "ls -1aFh {}")
+  res=$(cdr -l | awk '{ print $2 }' | sed s@\~@${HOME}@ | fzf --height 50% --preview "ls -1aFh {}")
   cd $res
   echo $res
 }
@@ -80,7 +80,7 @@ bindkey "^f" cdd
 
 #cdg
 function cdg() {
-  res=$(ghq root)/$(ghq list | sk --height 50% --preview "ls -1aFh $(ghq root)/{}")
+  res=$(ghq root)/$(ghq list | fzf --height 50% --preview "ls -1aFh $(ghq root)/{}")
   cd $res
   echo $res
 }
