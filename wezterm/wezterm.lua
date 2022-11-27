@@ -65,7 +65,6 @@ return {
     { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
     { key = 'phys:Space', mods = 'CTRL', action = act.PaneSelect{ alphabet =  '1234567890', mode =  'Activate' } },
     { key = 't', mods = 'CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
-    { key = 'w', mods = 'CTRL', action = act.CloseCurrentTab{ confirm = true } },
     { key = 'y', mods = 'CTRL', action = act.ActivateCopyMode },
     { key = 'z', mods = 'CTRL', action = act.TogglePaneZoomState },
     { key = 'h', mods = 'CTRL', action = act.ActivatePaneDirection 'Left' },
