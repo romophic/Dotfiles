@@ -1,143 +1,160 @@
-------------------------------------
---░▀█▀░█▀█░▀█▀░▀█▀░░░░█░░░█░█░█▀█░--
---░░█░░█░█░░█░░░█░░░░░█░░░█░█░█▀█░--
---░▀▀▀░▀░▀░▀▀▀░░▀░░▀░░▀▀▀░▀▀▀░▀░▀░--
-------------------------------------
--- packer.nvim auto installer
-local fn = vim.fn
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
-require("packer").startup(function(use)
-  use "wbthomason/packer.nvim"
-  -- lsp
-  use "neovim/nvim-lspconfig"
-  use "williamboman/nvim-lsp-installer"
-  -- cmp
-  use "hrsh7th/nvim-cmp"
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-buffer"
-  use "hrsh7th/cmp-path"
-  use "hrsh7th/cmp-cmdline"
-  -- colorscheme
-  use "ellisonleao/gruvbox.nvim"
-  -- highlighter
-  use { "nvim-treesitter/nvim-treesitter", run = "TSUpdate" }
-  -- additional looks
-  use { "akinsho/bufferline.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  use { "nvim-lualine/lualine.nvim", requires = "kyazdani42/nvim-web-devicons" }
-  use { "goolord/alpha-nvim", requires = "kyazdani42/nvim-web-devicons", config = function() require("alpha").setup(require("alpha.themes.startify").config) end }
-  use "lukas-reineke/indent-blankline.nvim"
-  -- input aids
-  use "windwp/nvim-autopairs"
-  -- git
-  use "lewis6991/gitsigns.nvim"
-  -- add function
-  use "nullct/preview-markdown.vim"
-  use { "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" }
+vim.opt.rtp:prepend(lazypath)
 
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
+vim.g.mapleader = " "
+vim.opt.termguicolors = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
-require("nvim-lsp-installer").on_server_ready(function(server)
-  local opts = {}
-  opts.on_attach = function(client, bufnr)
-    local function buf_set_keymap(...)
-      vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-
-    local opts = { noremap = true, silent = true }
-    buf_set_keymap("n", "<space>d", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    buf_set_keymap("n", "<space>i", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-    buf_set_keymap("n", "<space>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-  end
-  opts.capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-  server:setup(opts)
-end)
-
-require("cmp").setup {
-  sources = require("cmp").config.sources {
-    { name = "nvim_lsp" },
-    { name = "buffer" },
-    { name = "path" }
+require("lazy").setup({
+	{
+		"ellisonleao/gruvbox.nvim",
+		config = function()
+			vim.cmd.colorscheme("gruvbox")
+		end
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup()
+		end
+	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("nvim-treesitter.configs").setup {
+				auto_install = true,
+        ensure_installed = { "markdown", "markdown_inline" },
+				highlight = {
+					enable = true
+				}
+			}
+		end
+	},
+	{
+		"neovim/nvim-lspconfig"
+	},
+	{
+		"williamboman/mason.nvim",
+		config = function()
+			require("mason").setup()
+		end
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		config = function()
+			local on_attach = function(client, bufnr)
+				vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+				local bufopts = { noremap=true, silent=true, buffer=bufnr }
+				vim.keymap.set('n', '<leader>d', "<cmd>Lspsaga goto_definition<CR>", bufopts)
+				vim.keymap.set('n', '<leader>l', "<cmd>Lspsaga lsp_finder<CR>", bufopts)
+				vim.keymap.set('n', '<leader>i', "<cmd>Lspsaga hover_doc<CR>", bufopts)
+				vim.keymap.set('n', '<leader>r', "<cmd>Lspsaga rename<CR>", bufopts)
+				vim.keymap.set('n', '<leader>e', "<cmd>Lspsaga show_buf_diagnostics<CR>", bufopts)
+				vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+			end
+			require("mason-lspconfig").setup_handlers({
+				function (server_name) require("lspconfig")[server_name].setup{ on_attach = on_attach
+					}
+				end
+			})
+		end
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"onsails/lspkind.nvim"
+		},
+		config = function()
+			local cmp = require("cmp")
+			cmp.setup{
+				sources = cmp.config.sources{
+					{ name = "nvim_lsp" },
+					{ name = "nvim_buffer" },
+					{ name = "nvim_path" },
+					{ name = "nvim_cmdline" }
+				},
+				mapping = cmp.mapping.preset.insert{},
+				formatting = {
+					format = require("lspkind").cmp_format{}
+				},
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        }
+			}
+			cmp.setup.cmdline({ '/', '?' }, {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = {
+					{ name = 'buffer' }
+				}
+			})
+			cmp.setup.cmdline(':', {
+				mapping = cmp.mapping.preset.cmdline(),
+				sources = cmp.config.sources({
+					{ name = 'path' }
+				}, {
+					{ name = 'cmdline' }
+				})
+			})
+		end
+	},
+	{
+		"stevearc/dressing.nvim",
+		config = function()
+			require("dressing").setup{}
+		end
+	},
+  {
+    "glepnir/lspsaga.nvim",
+		config = function()
+			require("lspsaga").setup{
+        symbol_in_winbar = {
+          enable = true
+        }
+      }
+		end
   },
-  mapping = require("cmp").mapping.preset.insert({
-    ['<C-b>'] = require("cmp").mapping.scroll_docs(-4),
-    ['<C-f>'] = require("cmp").mapping.scroll_docs(4),
-    ['<C-Space>'] = require("cmp").mapping.complete(),
-    ['<C-e>'] = require("cmp").mapping.abort(),
-    ['<CR>'] = require("cmp").mapping.confirm({ select = true })
-  })
-}
-require("cmp").setup.cmdline('/', {
-  mapping = require("cmp").mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      require("lsp_signature").setup{}
+    end
+  },
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup{}
+    end
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      vim.keymap.set('n', '<leader>n', "<cmd>NvimTreeToggle<CR>")
+      require("nvim-tree").setup{}
+    end
+  },
+  {
+    "akinsho/bufferline.nvim",
+    config = function()
+      require("bufferline").setup{}
+    end
   }
 })
-require("cmp").setup.cmdline(':', {
-  mapping = require("cmp").mapping.preset.cmdline(),
-  sources = require("cmp").config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
-})
-require("nvim-treesitter.configs").setup {
-  ensure_installed = "all",
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting = true
-  }
-}
-require("lualine").setup {}
-require("nvim-autopairs").setup {}
-require("indent_blankline").setup {
-  show_current_context = true,
-  show_current_context_start = true,
-}
-require('bufferline').setup {
-  options = {
-    numbers = "both"
-  }
-}
-require('gitsigns').setup{}
-require("nvim-tree").setup {}
-
--- neovim setting
-vim.cmd [[
-autocmd BufWritePost plugins.lua PackerCompile
-colorscheme gruvbox
-highlight Normal ctermbg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight Folded ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
-nnoremap <space>t :bnext<CR>
-nnoremap <space>T :bprev<CR>
-nnoremap <space>x :bdelete<CR>
-nnoremap <space>n :NvimTreeToggle<CR>
-]]
-
--- screen
-vim.o.termguicolors = true
-vim.o.number = true
-vim.o.showmode = false
-vim.o.pumblend = 8
-vim.o.winblend = 8
-vim.opt.list = true
-vim.opt.listchars:append("trail:·")
-vim.opt.listchars:append("tab:->")
-
--- edit
-vim.o.shiftwidth = 2
-vim.o.smarttab = true
-vim.o.expandtab = true
-vim.o.tabstop = 2
-vim.o.shiftwidth = 2
-
--- file
-vim.o.undofile = true
