@@ -28,10 +28,10 @@ require("lazy").setup({
       }
     end
   },
-  { "neovim/nvim-lspconfig",   event = "VeryLazy" },
-  { "williamboman/mason.nvim", event = "VeryLazy", config = true },
+  { "neovim/nvim-lspconfig" },
+  { "williamboman/mason.nvim", config = true },
   {
-    "williamboman/mason-lspconfig.nvim", event = "VeryLazy", dependencies = { "williamboman/mason.nvim" }, config = function()
+    "williamboman/mason-lspconfig.nvim", dependencies = { "williamboman/mason.nvim","neovim/nvim-lspconfig" }, config = function()
     local on_attach = function(client, bufnr)
       vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
