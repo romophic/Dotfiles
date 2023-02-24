@@ -13,25 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 
 require("lazy").setup({
-  { "ellisonleao/gruvbox.nvim",  event = "VeryLazy" },
-  { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = true, dependencies = { "nvim-tree/nvim-web-devicons" } },
   {
-    "nvim-treesitter/nvim-treesitter",
-    event = "VeryLazy",
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        auto_install = true,
-        ensure_installed = { "markdown", "markdown_inline" },
-        highlight = {
-          enable = true
-        }
-      }
-    end
-  },
-  { "neovim/nvim-lspconfig" },
-  { "williamboman/mason.nvim", config = true },
-  {
-    "williamboman/mason-lspconfig.nvim", dependencies = { "williamboman/mason.nvim","neovim/nvim-lspconfig" }, config = function()
+    "williamboman/mason-lspconfig.nvim", lazy = false, dependencies = { "williamboman/mason.nvim", "neovim/nvim-lspconfig" }, config = function()
+    require("mason").setup()
     local on_attach = function(client, bufnr)
       vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
       local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -49,6 +33,21 @@ require("lazy").setup({
       end
     })
   end
+  },
+  { "ellisonleao/gruvbox.nvim" },
+  { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = true, dependencies = { "nvim-tree/nvim-web-devicons" } },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        auto_install = true,
+        ensure_installed = { "markdown", "markdown_inline" },
+        highlight = {
+          enable = true
+        }
+      }
+    end
   },
   {
     "hrsh7th/nvim-cmp",
@@ -109,7 +108,13 @@ require("lazy").setup({
   end },
   { "nvim-treesitter/nvim-treesitter-context", event = "VeryLazy", config = true },
   { "petertriho/nvim-scrollbar",               event = "VeryLazy", config = true }
-})
+},
+  {
+    defaults = { lazy = true },
+    install = { colorscheme = { "gruvbox" } },
+    performance = { cache = { enabled = true } }
+  }
+)
 
 vim.opt.termguicolors = true
 vim.opt.expandtab = true
