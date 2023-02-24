@@ -10,14 +10,14 @@ if not vim.loop.fs_stat(lazypath) then
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
 vim.g.mapleader = " "
 
 require("lazy").setup({
-  "ellisonleao/gruvbox.nvim",
-  { "nvim-lualine/lualine.nvim", config = true, dependencies = { "nvim-tree/nvim-web-devicons" } },
+  { "ellisonleao/gruvbox.nvim",  event = "VeryLazy" },
+  { "nvim-lualine/lualine.nvim", event = "VeryLazy", config = true, dependencies = { "nvim-tree/nvim-web-devicons" } },
   {
     "nvim-treesitter/nvim-treesitter",
+    event = "VeryLazy",
     config = function()
       require("nvim-treesitter.configs").setup {
         auto_install = true,
@@ -28,28 +28,27 @@ require("lazy").setup({
       }
     end
   },
-  "neovim/nvim-lspconfig",
-  { "williamboman/mason.nvim",   config = true },
+  { "neovim/nvim-lspconfig",   event = "VeryLazy" },
+  { "williamboman/mason.nvim", event = "VeryLazy", config = true },
   {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      local on_attach = function(client, bufnr)
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set('n', '<leader>d', "<cmd>Lspsaga goto_definition<CR>", bufopts)
-        vim.keymap.set('n', '<leader>l', "<cmd>Lspsaga lsp_finder<CR>", bufopts)
-        vim.keymap.set('n', '<leader>i', "<cmd>Lspsaga hover_doc<CR>", bufopts)
-        vim.keymap.set('n', '<leader>r', "<cmd>Lspsaga rename<CR>", bufopts)
-        vim.keymap.set('n', '<leader>e', "<cmd>Lspsaga show_buf_diagnostics<CR>", bufopts)
-        vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end,
-          bufopts)
-      end
-      require("mason-lspconfig").setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup { on_attach = on_attach }
-        end
-      })
+    "williamboman/mason-lspconfig.nvim", event = "VeryLazy", dependencies = { "williamboman/mason.nvim" }, config = function()
+    local on_attach = function(client, bufnr)
+      vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+      local bufopts = { noremap = true, silent = true, buffer = bufnr }
+      vim.keymap.set('n', '<leader>d', "<cmd>Lspsaga goto_definition<CR>", bufopts)
+      vim.keymap.set('n', '<leader>l', "<cmd>Lspsaga lsp_finder<CR>", bufopts)
+      vim.keymap.set('n', '<leader>i', "<cmd>Lspsaga hover_doc<CR>", bufopts)
+      vim.keymap.set('n', '<leader>r', "<cmd>Lspsaga rename<CR>", bufopts)
+      vim.keymap.set('n', '<leader>e', "<cmd>Lspsaga show_buf_diagnostics<CR>", bufopts)
+      vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end,
+        bufopts)
     end
+    require("mason-lspconfig").setup_handlers({
+      function(server_name)
+        require("lspconfig")[server_name].setup { on_attach = on_attach }
+      end
+    })
+  end
   },
   {
     "hrsh7th/nvim-cmp",
@@ -59,7 +58,8 @@ require("lazy").setup({
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "hrsh7th/cmp-cmdline",
-      "onsails/lspkind.nvim"
+      "onsails/lspkind.nvim",
+      "williamboman/mason-lspconfig.nvim"
     },
     config = function()
       local cmp = require("cmp")
@@ -100,19 +100,15 @@ require("lazy").setup({
   { "ray-x/lsp_signature.nvim", config = true, event = "VeryLazy" },
   { "j-hui/fidget.nvim",        config = true, event = "VeryLazy" },
   { "nvim-tree/nvim-tree.lua",  config = true, cmd = { "NvimTreeOpen", "NvimTreeClose", "NvimTreeToggle", "NvimTreeFocus", "NvimTreeToggle" } },
-  { "akinsho/bufferline.nvim",  config = true },
+  { "akinsho/bufferline.nvim",  config = true, event = "VeryLazy" },
   { "lewis6991/gitsigns.nvim",  config = true, event = "VeryLazy" },
-  { "folke/lsp-colors.nvim",    config = true },
-  { "nvim-telescope/telescope.nvim", config = true, dependencies = { "nvim-lua/plenary.nvim" }, config = function()
+  { "folke/lsp-colors.nvim",    config = true, event = "VeryLazy" },
+  { "nvim-telescope/telescope.nvim", keys = { "<leader>o" }, dependencies = { "nvim-lua/plenary.nvim" }, config = function()
     local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>o', builtin.find_files)
   end },
-  { "nvim-treesitter/nvim-treesitter-context", config = true },
-  { "goolord/alpha-nvim", dependencies = { "nvim-tree/nvim-web-devicons" }, config = function()
-    require("alpha").setup(require(
-      "alpha.themes.startify").config)
-  end },
-  { "petertriho/nvim-scrollbar",               config = true }
+  { "nvim-treesitter/nvim-treesitter-context", event = "VeryLazy", config = true },
+  { "petertriho/nvim-scrollbar",               event = "VeryLazy", config = true }
 })
 
 vim.opt.termguicolors = true
