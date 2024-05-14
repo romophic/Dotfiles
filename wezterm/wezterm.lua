@@ -14,7 +14,7 @@ return {
   },
   color_scheme = "Gruvbox dark, medium (base16)",
   font = wezterm.font_with_fallback {
-    "PlemolJP Console NF"
+    "Udev Gothic NF"
   },
   font_size = 16,
 
