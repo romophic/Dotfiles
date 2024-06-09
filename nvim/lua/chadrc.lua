@@ -6,6 +6,7 @@ local M = {}
 
 M.ui = {
 	theme = "gruvbox",
+  transparency=true,
   nvdash = {
     load_on_startup = true
   }

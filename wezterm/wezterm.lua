@@ -14,11 +14,12 @@ return {
   },
   color_scheme = "Gruvbox dark, medium (base16)",
   font = wezterm.font_with_fallback {
-    "Udev Gothic NF"
+    "UDEV Gothic NFLG"
   },
   font_size = 16,
 
   window_background_opacity = 0.9,
+  macos_window_background_blur = 20,
   window_padding = {
     left = 0,
     right = 0,
