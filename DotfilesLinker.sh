@@ -6,7 +6,7 @@ echo -e \
   "| | | |/ _ \| __| |_| | |/ _ \/ __| \n"\
   "| |_| | (_) | |_|  _| | |  __/\__ \ \n"\
   "|____/ \___/ \__|_| |_|_|\___||___/ \n"\
-  "     Made by NULLCT© MIT License    \n"\
+  "    Made by romophic MIT License    \n"\
 
 #alacritty
 ln -sf ~/Dotfiles/alacritty/* ~/.config/alacritty/
