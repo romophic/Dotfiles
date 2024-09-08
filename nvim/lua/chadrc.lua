@@ -5,8 +5,12 @@
 local M = {}
 
 M.ui = {
-	theme = "gruvbox",
+	theme = "onedark",
   transparency=true,
+  tabufline={
+    enabled=true,
+    lazyload=true
+  },
   nvdash = {
     load_on_startup = true
   }
