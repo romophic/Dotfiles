@@ -10,9 +10,9 @@ return {
     fade_out_duration_ms = 150,
   },
   colors = {
-    visual_bell = '#f0f0f0',
+    visual_bell = '#0f0f0f',
   },
-  color_scheme = 'Builtin Solarized Light',
+  color_scheme = 'Gruvbox Dark (Gogh)',
   font = wezterm.font_with_fallback {
     "UDEV Gothic NFLG"
   },
