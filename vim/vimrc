@@ -1,14 +1,16 @@
 syntax enable
 color gruvbox
 set background=dark
-set ai
+set si
 set listchars=tab:->,trail:·
 set list
 set number
-set title
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set clipboard=unnamed,autoselect
 set hlsearch
 set ignorecase
+
+let &t_SI = "\e[6 q"  " 縦棒カーソル (Insertモード)
+let &t_EI = "\e[2 q"  " ブロックカーソル (通常モード)
