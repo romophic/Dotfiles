@@ -1,6 +1,7 @@
 # *Dotfiles*
 
 ## Settings
+
 - alacritty
 - dunst
 - git
@@ -21,6 +22,7 @@
 - zsh
 
 ## Install:
+
 ``` bash
 cd
 git clone https://github.com/romophic/Dotfiles
@@ -28,4 +30,5 @@ bash ~/Dotfiles/DotfilesLinker.sh
 ```
 
 ## License
+
 MIT
